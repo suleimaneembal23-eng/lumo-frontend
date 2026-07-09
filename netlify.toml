@@ -6,6 +6,7 @@
   NODE_VERSION = "22"
   CI = "false"
   NPM_FLAGS = "--legacy-peer-deps"
+  GENERATE_SOURCEMAP = "false"
 
 [[redirects]]
   from = "/*"
