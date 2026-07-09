@@ -320,7 +320,7 @@ const ClientDashboard = () => {
           left: 0,
           top: 0,
           bottom: 0,
-          zIndex: 20,
+          zIndex: 100,
           borderRight: "1px solid #f0f0f0",
         }}
         className="shadow-xl shadow-gray-200/50"
@@ -399,7 +399,12 @@ const ClientDashboard = () => {
       </Sider>
 
       {/* MAIN CONTENT WRAPPER */}
-      <Layout style={{ marginLeft: collapsed ? 80 : 260, transition: "margin-left 0.3s ease" }}>
+      <Layout 
+        style={{ 
+          transition: "margin-left 0.3s ease",
+          marginLeft: window.innerWidth > 768 ? (collapsed ? 80 : 260) : 0
+        }}
+      >
         {/* HEADER MODERNO */}
         <Header
           className="bg-white/80 backdrop-blur-md sticky top-0 z-10 flex items-center justify-between px-8 py-4 border-b border-gray-100"

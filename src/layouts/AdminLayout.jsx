@@ -101,8 +101,15 @@ const AdminLayout = ({ children }) => {
     };
 
     return (
-        <Layout style={{ minHeight: "100vh" }}>
-            <Sider breakpoint="lg" collapsedWidth="0" collapsible collapsed={collapsed} onCollapse={setCollapsed}>
+        <Layout style={{ minHeight: "100vh" }} className="relative">
+            <Sider 
+                breakpoint="lg" 
+                collapsedWidth="0" 
+                collapsible 
+                collapsed={collapsed} 
+                onCollapse={setCollapsed}
+                className="absolute md:relative z-50 h-full"
+            >
                 <div
                     style={{
                         padding: 16,
