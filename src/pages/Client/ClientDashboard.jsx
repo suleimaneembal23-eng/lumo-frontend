@@ -307,7 +307,7 @@ const ClientDashboard = () => {
   return (
     <Layout style={{ minHeight: "100vh", background: "#F8F9FB" }}>
       {/* SIDEBAR PREMIUM */}
-      <Sider
+      <Sider breakpoint="lg" collapsedWidth="0"
         collapsible
         collapsed={collapsed}
         onCollapse={setCollapsed}

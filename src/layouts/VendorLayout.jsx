@@ -50,7 +50,7 @@ const VendorLayout = ({ children }) => {
 
     return (
         <Layout style={{ minHeight: "100vh" }}>
-            <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} theme="light" className="shadow-md z-10">
+            <Sider breakpoint="lg" collapsedWidth="0" collapsible collapsed={collapsed} onCollapse={setCollapsed} theme="light" className="shadow-md z-10">
                 <div className="h-16 flex items-center justify-center m-4 bg-blue-600 rounded-xl shadow-blue-200 shadow-lg cursor-pointer transition-all hover:bg-blue-700" onClick={() => navigate("/vendor/dashboard")}>
                     {!collapsed ? (
                         <span className="text-white font-bold text-lg tracking-wide">PARCEIROS</span>

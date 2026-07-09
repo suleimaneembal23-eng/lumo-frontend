@@ -305,7 +305,7 @@ const MyProfile = () => {
 
             {/* ABA 2: MEUS PEDIDOS */}
             <TabPane tab={<span><ShoppingOutlined /> Meus Pedidos</span>} key="2">
-              <Table
+              <Table scroll={{ x: "max-content" }}
                 dataSource={orders}
                 columns={columns}
                 rowKey="_id"

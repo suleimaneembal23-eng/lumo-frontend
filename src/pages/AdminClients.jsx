@@ -159,7 +159,7 @@ const AdminClients = () => {
       </div>
 
       <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
-        <Table
+        <Table scroll={{ x: "max-content" }}
           dataSource={clients}
           columns={columns}
           rowKey="_id"

@@ -102,7 +102,7 @@ const AdminLayout = ({ children }) => {
 
     return (
         <Layout style={{ minHeight: "100vh" }}>
-            <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
+            <Sider breakpoint="lg" collapsedWidth="0" collapsible collapsed={collapsed} onCollapse={setCollapsed}>
                 <div
                     style={{
                         padding: 16,

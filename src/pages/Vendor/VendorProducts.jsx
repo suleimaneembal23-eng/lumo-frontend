@@ -385,7 +385,7 @@ const VendorProducts = () => {
             </div>
 
             <Card bordered={false} className="shadow-sm rounded-2xl overflow-hidden">
-                <Table
+                <Table scroll={{ x: "max-content" }}
                     columns={columns}
                     dataSource={products}
                     rowKey="_id"
