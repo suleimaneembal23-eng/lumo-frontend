@@ -1,10 +1,10 @@
-﻿import React, { useContext } from "react";
+�import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Layout, Space, Button, Avatar, Dropdown, Menu, Typography, Badge, message } from "antd";
 import { HomeOutlined, LoginOutlined, UserAddOutlined, LogoutOutlined, ShoppingCartOutlined, UserOutlined, DashboardOutlined } from "@ant-design/icons";
 import { AuthContext } from "../context/Authcontext";
 import { SettingsContext } from "../context/SettingsContext";
-import { CartContext } from "../context/CartContext"; // â† IMPORTADO
+import { CartContext } from "../context/CartContext"; // � � IMPORTADO
 
 const { Header } = Layout;
 const { Text } = Typography;
@@ -12,12 +12,12 @@ const { Text } = Typography;
 const AppHeader = () => {
   const { user, admin, logout } = useContext(AuthContext);
   const { settings, loading } = useContext(SettingsContext);
-  const { cartCount } = useContext(CartContext); // â† USANDO CartContext em vez de localStorage
+  const { cartCount } = useContext(CartContext); // � � USANDO CartContext em vez de localStorage
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
-    message.success("SessÃ£o encerrada com sucesso!");
+    message.success("Sessão encerrada com sucesso!");
     navigate("/");
   };
 
@@ -42,8 +42,8 @@ const AppHeader = () => {
 
   // cores do settings com fallback
   const primary = settings?.primaryColor || "#ffffff"; // header
-  const secondary = settings?.secondaryColor || "#000000"; // textos e Ã­cones
-  const background = settings?.backgroundColor || "#000000"; // fundo geral (nÃ£o header)
+  const secondary = settings?.secondaryColor || "#000000"; // textos e ícones
+  const background = settings?.backgroundColor || "#000000"; // fundo geral (não header)
 
   return (
     <Header
@@ -142,7 +142,7 @@ const AppHeader = () => {
             {/* Se for Admin, mostra link para Dashboard Admin */}
 
 
-            {/* Carrinho (sempre visÃ­vel, mas vazio para admin se nÃ£o usar) */}
+            {/* Carrinho (sempre visível, mas vazio para admin se não usar) */}
             <Badge count={cartCount} offset={[0, 0]}>
               <Button
                 type="text"
@@ -154,7 +154,7 @@ const AppHeader = () => {
               </Button>
             </Badge>
 
-            {/* Menu do UsuÃ¡rio (Cliente ou Admin) */}
+            {/* Menu do Usuário (Cliente ou Admin) */}
             <Dropdown overlay={menuCliente} placement="bottomRight">
               <Space
                 style={{

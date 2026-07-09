@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+�import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 // import { useDebounce } from '../hooks/useDebounce'; // Criaremos este hook ou faremos in-line
@@ -34,8 +34,8 @@ const SearchBar = ({ className }) => {
             try {
                 // Rota que busca por nome, categoria ou tags
                 // Assumindo que o endpoint /api/products tem suporte a query string ?search=...
-                // Se nÃ£o tiver, chamamos getAll e filtramos (menos performÃ¡tico mas funciona pra MVP)
-                // O ideal Ã© implementar /api/products/search no backend
+                // Se não tiver, chamamos getAll e filtramos (menos performático mas funciona pra MVP)
+                // O ideal é implementar /api/products/search no backend
                 const res = await fetch(`/api/products?search=${query}`);
                 const data = await res.json();
 

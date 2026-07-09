@@ -1,4 +1,4 @@
-﻿import React, { useContext } from "react";
+�import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Trash2, ArrowLeft, ShoppingBag, Minus, Plus, Shield } from 'lucide-react';
 
@@ -14,7 +14,7 @@ const Cart = () => {
 
   const handleCheckout = () => {
     if (!user) {
-      // Opcional: Salvar intenÃ§Ã£o de checkout para redirecionar depois do login
+      // Opcional: Salvar intenção de checkout para redirecionar depois do login
       navigate("/login?redirect=/checkout");
     } else {
       navigate("/checkout");
@@ -36,13 +36,13 @@ const Cart = () => {
         <div className="bg-gray-50 p-6 rounded-full mb-6">
           <ShoppingBag size={64} className="text-gray-300" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Seu carrinho estÃ¡ vazio</h2>
-        <p className="text-gray-500 mb-8 max-w-md">Parece que vocÃª ainda nÃ£o adicionou nenhum item. Explore nossa coleÃ§Ã£o e encontre o produto ideal para vocÃª.</p>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Seu carrinho está vazio</h2>
+        <p className="text-gray-500 mb-8 max-w-md">Parece que você ainda não adicionou nenhum item. Explore nossa coleção e encontre o produto ideal para você.</p>
         <button
           onClick={() => navigate("/")}
           className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
         >
-          Voltar Ã  Loja
+          Voltar à Loja
         </button>
       </div>
     );
@@ -105,7 +105,7 @@ const Cart = () => {
                   <div className="text-sm text-gray-500 mb-2">
                     Tamanho: <span className="font-medium text-gray-900">{item.selectedSize}</span>
                   </div>
-                  {/* VisualizaÃ§Ã£o da PersonalizaÃ§Ã£o */}
+                  {/* Visualização da Personalização */}
                   {(item.customization?.name || item.customization?.number || item.customization?.hasBadge) && (
                     <div className="text-xs text-gray-500 bg-gray-50 p-2 rounded-lg border border-gray-100 mb-2">
                       {(item.customization.name || item.customization.number) && (

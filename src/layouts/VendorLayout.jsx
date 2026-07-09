@@ -1,4 +1,4 @@
-﻿import React, { useState, useContext } from "react";
+�import React, { useState, useContext } from "react";
 import { Layout, Menu, Dropdown, Button, message, Avatar } from "antd";
 import {
     HomeOutlined,
@@ -72,13 +72,13 @@ const VendorLayout = ({ children }) => {
                         Meus Produtos
                     </Menu.Item>
                     <Menu.Item key="promotions" icon={<PercentageOutlined />} onClick={() => navigate("/vendor/dashboard/promotions")}>
-                        PromoÃ§Ãµes Vip
+                        Promoções Vip
                     </Menu.Item>
                     <Menu.Item key="orders" icon={<OrderedListOutlined />} onClick={() => navigate("/vendor/dashboard/orders")}>
                         Meus Pedidos
                     </Menu.Item>
                     <Menu.Item key="profile" icon={<SettingOutlined />} onClick={() => navigate("/vendor/dashboard/profile")}>
-                        ConfiguraÃ§Ãµes da Loja
+                        Configurações da Loja
                     </Menu.Item>
                 </Menu>
             </Sider>
@@ -86,9 +86,9 @@ const VendorLayout = ({ children }) => {
             <Layout className="site-layout">
                 <Header className="bg-white px-6 flex justify-between items-center shadow-sm z-1 bg-opacity-80 backdrop-blur-md sticky top-0">
                     <h2 className="text-lg font-bold text-gray-700 m-0">
-                        {getSelectedKey() === 'dashboard' && 'VisÃ£o Geral'}
+                        {getSelectedKey() === 'dashboard' && 'Visão Geral'}
                         {getSelectedKey() === 'products' && 'Gerenciar Produtos'}
-                        {getSelectedKey() === 'promotions' && 'Motor de PromoÃ§Ãµes'}
+                        {getSelectedKey() === 'promotions' && 'Motor de Promoções'}
                         {getSelectedKey() === 'orders' && 'Pedidos Recebidos'}
                         {getSelectedKey() === 'profile' && 'Minha Loja'}
                     </h2>

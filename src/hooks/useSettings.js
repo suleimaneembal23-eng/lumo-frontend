@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+�import { useState, useEffect } from "react";
 
 
 export const useSettings = () => {
@@ -9,7 +9,7 @@ export const useSettings = () => {
     setLoading(true);
     try {
       const res = await fetch(`/api/settings`);
-      if (!res.ok) throw new Error("Erro ao carregar definiÃ§Ãµes.");
+      if (!res.ok) throw new Error("Erro ao carregar definições.");
       const data = await res.json();
       setSettings(data);
     } catch (err) {

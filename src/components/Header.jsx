@@ -1,4 +1,4 @@
-﻿import React, { useState, useContext } from "react";
+�import React, { useState, useContext } from "react";
 import { Input, Button, Row, Col, Badge, Avatar } from "antd";
 import { ShoppingCartOutlined, MenuOutlined, SearchOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
@@ -46,7 +46,7 @@ const Header = () => {
               {settings?.logoUrl ? (
                 <Avatar src={settings.logoUrl} size={48} shape="square" />
               ) : (
-                <Avatar size={48} shape="square">ðŸ·ï¸</Avatar>
+                <Avatar size={48} shape="square">�x��️</Avatar>
               )}
               <span style={{ fontWeight: "bold", fontSize: "22px", color: "#fff" }}>
                 {settings?.siteName || "Lumo"}
@@ -85,14 +85,14 @@ const Header = () => {
             {/* LOGIN */}
             <div style={{ padding: '8px 4px', cursor: "pointer" }} onClick={() => handleNavClick("/login")}>
               <div style={{ fontSize: '12px', color: "white" }}>
-                {user ? `OlÃ¡, ${user.name}` : "OlÃ¡, visitante"}
+                {user ? `Olá, ${user.name}` : "Olá, visitante"}
               </div>
               <div style={{ fontWeight: 'bold', fontSize: '14px', color: "white" }}>
                 Contas e Login
               </div>
             </div>
 
-            {/* CARRINHO - SÃ“ PARA LOGADOS */}
+            {/* CARRINHO - S� PARA LOGADOS */}
             {user && (
               <Button type="text" onClick={() => handleNavClick("/cart")} style={{ color: 'white', padding: "0 8px" }}>
                 <Badge
@@ -119,7 +119,7 @@ const Header = () => {
           Tudo
         </Button>
 
-        {['Ofertas do Dia', 'Novos LanÃ§amentos', 'ClÃ¡ssicas', 'SeleÃ§Ãµes Nacionais', 'Ligas Europeias'].map((item, i) => (
+        {['Ofertas do Dia', 'Novos Lançamentos', 'Clássicas', 'Seleções Nacionais', 'Ligas Europeias'].map((item, i) => (
           <span
             key={i}
             onClick={() => handleNavClick(`/category/${item.toLowerCase().replace(/\s/g, '-')}`)}

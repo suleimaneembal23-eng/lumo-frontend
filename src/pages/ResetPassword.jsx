@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+�import React, { useState } from "react";
 import { Form, Input, Button, Card, message, Typography } from "antd";
 import { LockOutlined } from "@ant-design/icons";
 import { useNavigate, useParams } from "react-router-dom";
@@ -34,7 +34,7 @@ const ResetPassword = () => {
     return (
         <div style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center", background: "#f0f2f5" }}>
             <Card style={{ width: 400, textAlign: "center" }}>
-                <Title level={3}>Nova Senha ðŸ”‘</Title>
+                <Title level={3}>Nova Senha �x</Title>
 
                 <Form layout="vertical" onFinish={onFinish}>
                     <Form.Item
@@ -54,7 +54,7 @@ const ResetPassword = () => {
                                     if (!value || getFieldValue('password') === value) {
                                         return Promise.resolve();
                                     }
-                                    return Promise.reject(new Error('As senhas nÃ£o coincidem!'));
+                                    return Promise.reject(new Error('As senhas não coincidem!'));
                                 },
                             }),
                         ]}

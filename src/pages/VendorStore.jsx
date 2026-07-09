@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useContext } from 'react';
+�import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Spin, Empty, Avatar, Descriptions } from 'antd';
 import { Store, MapPin, Info } from 'lucide-react';
@@ -29,7 +29,7 @@ const VendorStore = () => {
                 setProducts(data.products || []);
             } catch (err) {
                 console.error("Failed to load vendor store:", err);
-                setError("Loja nÃ£o encontrada ou indisponÃ­vel.");
+                setError("Loja não encontrada ou indisponível.");
             } finally {
                 setLoading(false);
             }
@@ -53,7 +53,7 @@ const VendorStore = () => {
                 <div className="bg-white p-8 rounded-full mb-6 shadow-sm">
                     <Store size={64} className="text-gray-300" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">{error || "Loja nÃ£o encontrada"}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">{error || "Loja não encontrada"}</h2>
                 <button
                     onClick={() => navigate('/')}
                     className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition"
@@ -68,7 +68,7 @@ const VendorStore = () => {
         <div className="min-h-screen bg-gray-50 pb-20">
             {/* Header da Loja */}
             <div className="relative bg-white shadow-sm mb-8">
-                {/* Banner - Gradiente se nÃ£o tiver imagem */}
+                {/* Banner - Gradiente se não tiver imagem */}
                 <div
                     className="h-48 md:h-64 bg-gradient-to-r from-blue-900 via-blue-700 to-indigo-900 bg-cover bg-center"
                     style={vendor.banner ? { backgroundImage: `url(${vendor.banner.startsWith('/uploads') ? `${vendor.banner}` : vendor.banner})` } : {}}
@@ -96,7 +96,7 @@ const VendorStore = () => {
                                 </span>
                             </div>
 
-                            <p className="text-gray-600 text-lg mb-4 max-w-2xl">{vendor.description || `Bem-vindo Ã  nossa loja oficial na ${settings?.siteName || 'nossa plataforma'}. Encontre os melhores produtos com entrega garantida.`}</p>
+                            <p className="text-gray-600 text-lg mb-4 max-w-2xl">{vendor.description || `Bem-vindo à nossa loja oficial na ${settings?.siteName || 'nossa plataforma'}. Encontre os melhores produtos com entrega garantida.`}</p>
 
                             <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-500">
                                 <span className="flex items-center gap-1"><MapPin size={16} /> Envio Nacional</span>
@@ -112,7 +112,7 @@ const VendorStore = () => {
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-2xl font-bold text-gray-900">Produtos da Loja</h2>
-                    <span className="text-gray-500">{products.length} itens disponÃ­veis</span>
+                    <span className="text-gray-500">{products.length} itens disponíveis</span>
                 </div>
 
                 {products.length > 0 ? (
@@ -128,7 +128,7 @@ const VendorStore = () => {
                     </div>
                 ) : (
                     <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-gray-200">
-                        <Empty description="Esta loja ainda nÃ£o tem produtos cadastrados." />
+                        <Empty description="Esta loja ainda não tem produtos cadastrados." />
                     </div>
                 )}
             </div>

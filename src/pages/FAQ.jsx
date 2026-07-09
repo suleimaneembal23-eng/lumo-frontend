@@ -1,4 +1,4 @@
-﻿import React, { useContext } from "react";
+�import React, { useContext } from "react";
 import { Typography, Card, Collapse, Divider } from "antd";
 import { HelpCircle } from "lucide-react";
 import { SettingsContext } from "../context/SettingsContext";
@@ -11,38 +11,38 @@ const FAQ = () => {
     const items = [
         {
             key: '1',
-            label: 'Os produtos sÃ£o de qualidade?',
-            children: <p>A Lumo Ã© um marketplace de excelÃªncia. Trabalhamos exclusivamente com fornecedores e vendedores verificados para garantir a mÃ¡xima qualidade dos produtos.</p>,
+            label: 'Os produtos são de qualidade?',
+            children: <p>A Lumo é um marketplace de excelência. Trabalhamos exclusivamente com fornecedores e vendedores verificados para garantir a máxima qualidade dos produtos.</p>,
         },
         {
             key: '2',
-            label: 'Quais sÃ£o os mÃ©todos de pagamento?',
-            children: <p>Aceitamos pagamentos atravÃ©s de canais seguros em toda a Europa, incluindo CartÃ£o de CrÃ©dito/DÃ©bito, MB WAY, e outras facilidades locais.</p>,
+            label: 'Quais são os métodos de pagamento?',
+            children: <p>Aceitamos pagamentos através de canais seguros em toda a Europa, incluindo Cartão de Crédito/Débito, MB WAY, e outras facilidades locais.</p>,
         },
         {
             key: '3',
             label: 'Quanto tempo demora a entrega?',
-            children: <p>O prazo de entrega depende do vendedor do respetivo artigo e da sua localizaÃ§Ã£o. PoderÃ¡ consultar os prazos estimados de cada loja parceira na secÃ§Ã£o correspondente na pÃ¡gina de cada produto.</p>,
+            children: <p>O prazo de entrega depende do vendedor do respetivo artigo e da sua localização. Poderá consultar os prazos estimados de cada loja parceira na secção correspondente na página de cada produto.</p>,
         },
         {
             key: '4',
             label: 'E se eu comprar produtos de vendedores diferentes?',
-            children: <p>Se o seu pedido incluir produtos de diferentes lojas parceiras (vendedores), estes serÃ£o enviados separadamente. Cada vendedor prepararÃ¡ e enviarÃ¡ a sua encomenda de forma independente, podendo os custos de envio tambÃ©m ser separados no seu carrinho.</p>,
+            children: <p>Se o seu pedido incluir produtos de diferentes lojas parceiras (vendedores), estes serão enviados separadamente. Cada vendedor preparará e enviará a sua encomenda de forma independente, podendo os custos de envio também ser separados no seu carrinho.</p>,
         },
         {
             key: '5',
             label: 'Posso personalizar a camisa?',
-            children: <p>Muitos dos nossos vendedores permitem personalizaÃ§Ã£o (nome e nÃºmero). Basta verificar as opÃ§Ãµes disponÃ­veis no ato da compra se a referida loja tiver essa modalidade ativa.</p>,
+            children: <p>Muitos dos nossos vendedores permitem personalização (nome e número). Basta verificar as opções disponíveis no ato da compra se a referida loja tiver essa modalidade ativa.</p>,
         },
         {
             key: '6',
             label: 'Como acompanho as minhas encomendas?',
-            children: <p>Ao aceder Ã  sua Ã¡rea de cliente em "Meus Pedidos", encontrarÃ¡ o detalhe de cada um e poderÃ¡ acompanhar os envios e rastreÃ¡-los pelas transportadoras dos vendedores correspondentes.</p>,
+            children: <p>Ao aceder à sua área de cliente em "Meus Pedidos", encontrará o detalhe de cada um e poderá acompanhar os envios e rastreá-los pelas transportadoras dos vendedores correspondentes.</p>,
         },
         {
             key: '7',
-            label: 'Como funcionam as devoluÃ§Ãµes neste marketplace?',
-            children: <p>As polÃ­ticas de troca e devoluÃ§Ã£o sÃ£o da responsabilidade de cada vendedor, garantindo todas elas, no entanto, os seus direitos legais de 14 dias. A Lumo gere o contacto e intercede a seu favor caso sinta que a loja falhou as polÃ­ticas estipuladas!</p>,
+            label: 'Como funcionam as devoluções neste marketplace?',
+            children: <p>As políticas de troca e devolução são da responsabilidade de cada vendedor, garantindo todas elas, no entanto, os seus direitos legais de 14 dias. A Lumo gere o contacto e intercede a seu favor caso sinta que a loja falhou as políticas estipuladas!</p>,
         },
     ];
 
@@ -61,7 +61,7 @@ const FAQ = () => {
                         Perguntas Frequentes
                     </Title>
                     <Text type="secondary" style={{ fontSize: 16 }}>
-                        Tire as suas dÃºvidas de forma rÃ¡pida.
+                        Tire as suas dúvidas de forma rápida.
                     </Text>
                 </div>
 

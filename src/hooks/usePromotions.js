@@ -1,4 +1,4 @@
-﻿
+�
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
@@ -54,12 +54,12 @@ export const usePromotions = () => {
                     (promo.categories.includes("Todas as Categorias") ||
                         productCategories.some((c) => promo.categories.includes(c)));
 
-                // ExcluÃ­mos a Oferta do Dia? NÃƒO. Agora permitimos que ela se aplique via Categoria tambÃ©m se for o melhor desconto.
+                // Excluímos a Oferta do Dia? NÒO. Agora permitimos que ela se aplique via Categoria também se for o melhor desconto.
                 // Ref: Step 3070 "o usuario ja sabe a promo antes mesmo de entrar"
                 // if (promo.isDailyDeal) { ... } -> REMOVED
 
-                // ðŸš¨ EXCLUSÃƒO: Cupons de Novo UsuÃ¡rio (Welcome Coupons) NÃƒO devem ser aplicados automaticamente.
-                // Eles exigem que o usuÃ¡rio digite o cÃ³digo manualmente.
+                // �xa� EXCLUSÒO: Cupons de Novo Usuário (Welcome Coupons) NÒO devem ser aplicados automaticamente.
+                // Eles exigem que o usuário digite o código manualmente.
                 if (promo.isNewUserCoupon) return false;
 
                 return productIdMatch || categoryMatch;
@@ -69,13 +69,13 @@ export const usePromotions = () => {
         return candidate.length ? candidate[0] : null;
     }, [activePromotions]);
 
-    // Helper para calcular preÃ§o com desconto
+    // Helper para calcular preço com desconto
     const calculateDiscountedPrice = useCallback((product) => {
         if (!product || !product.price) return { ...product, finalPrice: 0, discountPercent: 0, onSale: false };
 
         const promo = bestPromoForProduct(product);
 
-        // Se nÃ£o houver promoÃ§Ã£o 'Best', mas houver originalPrice > price, mantemos o desconto existente (manual).
+        // Se não houver promoção 'Best', mas houver originalPrice > price, mantemos o desconto existente (manual).
         if (!promo || !promo.discount) {
             const hasExistingDiscount = product.originalPrice && product.originalPrice > product.price;
             if (hasExistingDiscount) {

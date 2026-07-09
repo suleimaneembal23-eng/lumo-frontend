@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+�import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const CookieBanner = () => {
@@ -23,8 +23,8 @@ const CookieBanner = () => {
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="text-sm md:text-base text-gray-300 text-center md:text-left">
                     <p>
-                        ðŸª <strong>Este site utiliza cookies</strong> para melhorar a sua experiÃªncia e personalizar conteÃºdo.
-                        Ao continuar navegando, vocÃª concorda com a nossa <Link to="/privacy-policy" className="text-blue-400 hover:text-blue-300 underline font-medium">PolÃ­tica de Privacidade</Link>.
+                        �x�� <strong>Este site utiliza cookies</strong> para melhorar a sua experiência e personalizar conteúdo.
+                        Ao continuar navegando, você concorda com a nossa <Link to="/privacy-policy" className="text-blue-400 hover:text-blue-300 underline font-medium">Política de Privacidade</Link>.
                     </p>
                 </div>
 
@@ -35,7 +35,7 @@ const CookieBanner = () => {
                     >
                         Aceitar Tudo
                     </button>
-                    {/* BotÃ£o opcional de recusar/configurar pode ser adicionado depois */}
+                    {/* Botão opcional de recusar/configurar pode ser adicionado depois */}
                 </div>
             </div>
         </div>

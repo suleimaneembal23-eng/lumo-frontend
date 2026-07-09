@@ -1,4 +1,4 @@
-﻿
+�
 import React, { useEffect, useState } from "react";
 import { Table, Tag, Select, message, Button, Space, Modal, Descriptions, Avatar, Typography, Steps, Divider, Card, Popconfirm } from "antd";
 import {
@@ -166,7 +166,7 @@ const AdminOrders = () => {
       render: val => new Date(val).toLocaleDateString("pt-PT")
     },
     {
-      title: "AÃ§Ãµes",
+      title: "Ações",
       key: "actions",
       render: (_, record) => (
         <Space>
@@ -177,7 +177,7 @@ const AdminOrders = () => {
             title="Tem certeza que deseja excluir este pedido?"
             onConfirm={() => handleDelete(record._id)}
             okText="Sim"
-            cancelText="NÃ£o"
+            cancelText="Não"
           >
             <Button type="primary" danger size="small" icon={<DeleteOutlined />} />
           </Popconfirm>
@@ -190,7 +190,7 @@ const AdminOrders = () => {
     <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 min-h-[80vh]">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 m-0 tracking-tight">GestÃ£o de Pedidos</h1>
+          <h1 className="text-3xl font-bold text-gray-900 m-0 tracking-tight">Gestão de Pedidos</h1>
           <p className="text-gray-500 mt-2 text-base">Acompanhe e atualize o status dos pedidos em tempo real.</p>
         </div>
         <div className="bg-gray-50 p-1 rounded-xl border border-gray-100">
@@ -204,12 +204,12 @@ const AdminOrders = () => {
             dropdownStyle={{ borderRadius: 12, padding: 8 }}
           >
             <Option value="all">Todos os Pedidos</Option>
-            <Option value="pending">ðŸŸ¡ Pendentes</Option>
-            <Option value="paid">ðŸŸ¢ Pagos</Option>
-            <Option value="confirmed">ðŸ”µ Confirmados</Option>
-            <Option value="shipped">ðŸšš Enviados</Option>
-            <Option value="delivered">ðŸ  Entregues</Option>
-            <Option value="cancelled">ðŸ”´ Cancelados</Option>
+            <Option value="pending">�xx� Pendentes</Option>
+            <Option value="paid">�xx� Pagos</Option>
+            <Option value="confirmed">�x� Confirmados</Option>
+            <Option value="shipped">�xaa Enviados</Option>
+            <Option value="delivered">�x�� Entregues</Option>
+            <Option value="cancelled">�x� Cancelados</Option>
           </Select>
         </div>
       </div>
@@ -225,14 +225,14 @@ const AdminOrders = () => {
           locale={{
             emptyText: (
               <div className="py-16">
-                <div className="text-6xl mb-4">ðŸ“¦</div>
+                <div className="text-6xl mb-4">�x�</div>
                 <h3 className="text-xl font-bold text-gray-700 mb-2">
                   {filter === 'all' ? 'Nenhum pedido encontrado' : `Nenhum pedido ${getStatusInfo(filter).label.toLowerCase()}`}
                 </h3>
                 <p className="text-gray-500">
                   {filter === 'all'
-                    ? 'Ainda nÃ£o hÃ¡ pedidos no sistema.'
-                    : `NÃ£o hÃ¡ pedidos com status "${getStatusInfo(filter).label}" no momento.`}
+                    ? 'Ainda não há pedidos no sistema.'
+                    : `Não há pedidos com status "${getStatusInfo(filter).label}" no momento.`}
                 </p>
               </div>
             )
@@ -250,7 +250,7 @@ const AdminOrders = () => {
         centered
         maskClosable={false}
         bodyStyle={{ padding: 0 }}
-        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">âœ•</span>}
+        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">�S"</span>}
       >
         {selectedOrder && (
           <div className="overflow-hidden rounded-2xl">
@@ -285,7 +285,7 @@ const AdminOrders = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2"><HomeOutlined /> EndereÃ§o Global</h3>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2"><HomeOutlined /> Endereço Global</h3>
                   <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-sm text-gray-600">
                     <p className="font-bold text-gray-900 mb-1">{selectedOrder.shippingAddress?.line1}</p>
                     <p>{selectedOrder.shippingAddress?.city}, {selectedOrder.shippingAddress?.country}</p>

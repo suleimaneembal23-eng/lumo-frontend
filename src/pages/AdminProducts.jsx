@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+�import React, { useEffect, useState } from "react";
 import {
     Table,
     Input,
@@ -35,7 +35,7 @@ const AdminProducts = () => {
     const [form] = Form.useForm();
     const [fileList, setFileList] = useState([]);
     const [galleryList, setGalleryList] = useState([]);
-    const [vendors, setVendors] = useState([]); // ðŸª Lista de vendors
+    const [vendors, setVendors] = useState([]); // �x�� Lista de vendors
     const [catalogs, setCatalogs] = useState([]);
 
     const [observationModalVisible, setObservationModalVisible] = useState(false);
@@ -62,7 +62,7 @@ const AdminProducts = () => {
         }
     };
 
-    // Buscar vendedores disponÃ­veis
+    // Buscar vendedores disponíveis
     const fetchVendors = async () => {
         try {
             const res = await fetch(`/api/admin/vendors`, {
@@ -77,7 +77,7 @@ const AdminProducts = () => {
         }
     };
 
-    // Buscar catÃ¡logos (categorias)
+    // Buscar catálogos (categorias)
     const fetchCatalogs = async () => {
         try {
             const res = await fetch("/api/products/categories");
@@ -86,7 +86,7 @@ const AdminProducts = () => {
                 setCatalogs(data);
             }
         } catch (err) {
-            console.error("Erro ao buscar catÃ¡logos:", err);
+            console.error("Erro ao buscar catálogos:", err);
         }
     };
 
@@ -134,7 +134,7 @@ const AdminProducts = () => {
         setFileList(record.image ? [{ uid: '-1', name: 'Imagem Principal', status: 'done', url: record.image }] : []);
         setGalleryList((record.gallery || []).map((url, i) => ({ uid: i, name: `Img ${i + 1}`, status: 'done', url })));
 
-        // Define os valores do formulÃ¡rio
+        // Define os valores do formulário
         form.setFieldsValue({
             ...record,
             shopId: record.shopId?._id || record.shopId || undefined,
@@ -182,14 +182,14 @@ const AdminProducts = () => {
                 featured: !!values.featured,
                 isNew: !!values.isNew,
                 onSale: !!values.onSale,
-                isLimited: !!values.isLimited, // ðŸš€ NOVO CAMPO
+                isLimited: !!values.isLimited, // �xa� NOVO CAMPO
                 // Garantir que originalPrice seja null se for 0 ou vazio para o backend
                 originalPrice: values.originalPrice > 0 ? values.originalPrice : null,
                 // Manter salesCount ao editar
                 salesCount: editingProduct?.salesCount || 0,
             };
 
-            // 3. Preparar a requisiÃ§Ã£o
+            // 3. Preparar a requisição
             const method = editingProduct ? "PUT" : "POST";
             let url = editingProduct
                 ? `/api/products/${editingProduct._id}`
@@ -236,7 +236,7 @@ const AdminProducts = () => {
         }
     };
 
-    // Modal de ObservaÃ§Ã£o para Lojas Premium
+    // Modal de Observação para Lojas Premium
     const openObservation = (record) => {
         setObservationProduct(record);
         setObservationText("");
@@ -244,7 +244,7 @@ const AdminProducts = () => {
     };
 
     const submitObservation = async () => {
-        if (!observationText.trim()) return message.error("Digite a observaÃ§Ã£o!");
+        if (!observationText.trim()) return message.error("Digite a observação!");
         try {
             const res = await fetch(`/api/admin/products/${observationProduct._id}/observe`, {
                 method: "POST",
@@ -255,14 +255,14 @@ const AdminProducts = () => {
                 body: JSON.stringify({ observation: observationText })
             });
 
-            if (!res.ok) throw new Error("Falha ao enviar observaÃ§Ã£o");
+            if (!res.ok) throw new Error("Falha ao enviar observação");
 
-            message.success(`ObservaÃ§Ã£o enviada ao vendedor ${observationProduct.vendor?.vendorInfo?.storeName || 'Premium'}!`);
+            message.success(`Observação enviada ao vendedor ${observationProduct.vendor?.vendorInfo?.storeName || 'Premium'}!`);
             setObservationModalVisible(false);
             setObservationProduct(null);
             fetchProducts();
         } catch (err) {
-            message.error("Erro ao enviar observaÃ§Ã£o");
+            message.error("Erro ao enviar observação");
         }
     };
 
@@ -273,12 +273,12 @@ const AdminProducts = () => {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
-            if (!res.ok) throw new Error("Erro ao limpar infraÃ§Ã£o");
+            if (!res.ok) throw new Error("Erro ao limpar infração");
 
-            message.success("ObservaÃ§Ã£o marcada como resolvida!");
+            message.success("Observação marcada como resolvida!");
             fetchProducts();
         } catch (err) {
-            message.error("Erro ao limpar observaÃ§Ã£o");
+            message.error("Erro ao limpar observação");
         }
     };
 
@@ -387,13 +387,13 @@ const AdminProducts = () => {
                 const isVIP = plan === 'VIP' && expiry && new Date(expiry) > new Date();
                 return (
                     <Tag color={isVIP ? 'gold' : 'purple'}>
-                        {isVIP ? 'ðŸ’Ž ' : ''}{storeName}
+                        {isVIP ? '�x} ' : ''}{storeName}
                     </Tag>
                 );
             },
         },
         {
-            title: "PreÃ§o",
+            title: "Preço",
             dataIndex: "price",
             render: (price, record) => (
                 <div>
@@ -416,7 +416,7 @@ const AdminProducts = () => {
             ),
         },
         {
-            title: "AÃ§Ãµes",
+            title: "Ações",
             render: (_, record) => {
                 const vendor = record.shopId; // shopId populado
                 const plan = vendor?.vendorInfo?.subscription?.plan;
@@ -431,7 +431,7 @@ const AdminProducts = () => {
                                     title="Tem certeza que deseja excluir este produto?"
                                     onConfirm={() => handleDelete(record._id)}
                                     okText="Sim"
-                                    cancelText="NÃ£o"
+                                    cancelText="Não"
                                 >
                                     <Button type="text" danger icon={<DeleteOutlined />} />
                                 </Popconfirm>
@@ -444,10 +444,10 @@ const AdminProducts = () => {
                                 {record.adminNotes && (
                                     <Popconfirm
                                         title="O problema foi resolvido?"
-                                        description="Isto irÃ¡ remover o aviso amarelo da loja do Vendedor."
+                                        description="Isto irá remover o aviso amarelo da loja do Vendedor."
                                         onConfirm={() => handleClearObservation(record._id)}
                                         okText="Sim"
-                                        cancelText="NÃ£o"
+                                        cancelText="Não"
                                     >
                                         <Button type="primary" style={{ backgroundColor: '#52c41a' }} size="small">
                                             Resolver
@@ -467,8 +467,8 @@ const AdminProducts = () => {
             {/* Header Moderno */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 m-0 tracking-tight">GestÃ£o de Produtos</h1>
-                    <p className="text-gray-500 mt-2 text-base">Gerencie seu inventÃ¡rio, estoque e variaÃ§Ãµes.</p>
+                    <h1 className="text-3xl font-bold text-gray-900 m-0 tracking-tight">Gestão de Produtos</h1>
+                    <p className="text-gray-500 mt-2 text-base">Gerencie seu inventário, estoque e variações.</p>
                 </div>
                 <Button
                     type="primary"
@@ -525,7 +525,7 @@ const AdminProducts = () => {
                     form.resetFields();
                 }}
                 onOk={handleSave}
-                okText="Salvar AlteraÃ§Ãµes"
+                okText="Salvar Alterações"
                 cancelText="Cancelar"
                 width={900}
                 centered
@@ -536,7 +536,7 @@ const AdminProducts = () => {
                 <div className="pt-6">
                     <Form form={form} layout="vertical" initialValues={{ inStock: true, featured: false, isNew: false, onSale: false, isLimited: false }} size="large">
                         {/* Selecionar Loja / Colaborador */}
-                        <Form.Item label="Colaborador (Loja)" name="shopId" tooltip="Selecione a loja responsÃ¡vel por este produto">
+                        <Form.Item label="Colaborador (Loja)" name="shopId" tooltip="Selecione a loja responsável por este produto">
                             <Select placeholder="Selecione um Colaborador (opcional)" className="rounded-xl" allowClear showSearch filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}>
                                 {vendors.map(v => (
                                     <Option key={v._id} value={v._id}>
@@ -548,10 +548,10 @@ const AdminProducts = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <Form.Item label="Nome do Produto" name="name" rules={[{ required: true }]} className="font-semibold">
-                                <Input className="rounded-xl" placeholder="Ex: T-Shirt BÃ¡sica Branca" />
+                                <Input className="rounded-xl" placeholder="Ex: T-Shirt Básica Branca" />
                             </Form.Item>
-                            <Form.Item label="CatÃ¡logos do Produto" name="category" rules={[{ required: true, message: 'Selecione ou crie pelo menos um catÃ¡logo' }]}>
-                                <Select mode="tags" placeholder="Crie um novo catÃ¡logo (Ex: Camisa, TÃªnis)..." className="rounded-xl" tokenSeparators={[',']}>
+                            <Form.Item label="Catálogos do Produto" name="category" rules={[{ required: true, message: 'Selecione ou crie pelo menos um catálogo' }]}>
+                                <Select mode="tags" placeholder="Crie um novo catálogo (Ex: Camisa, Tênis)..." className="rounded-xl" tokenSeparators={[',']}>
                                     {catalogs.map((c) => (
                                         <Option key={c} value={c}>{c}</Option>
                                     ))}
@@ -559,17 +559,17 @@ const AdminProducts = () => {
                             </Form.Item>
                         </div>
 
-                        <Form.Item label="DescriÃ§Ã£o" name="description">
+                        <Form.Item label="Descrição" name="description">
                             <Input.TextArea rows={3} className="rounded-xl" placeholder="Descreva o produto com detalhes..." />
                         </Form.Item>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <Form.Item label="PreÃ§o (FCFA)" name="price" rules={[{ required: true, message: "O preÃ§o Ã© obrigatÃ³rio" }]}>
+                            <Form.Item label="Preço (FCFA)" name="price" rules={[{ required: true, message: "O preço é obrigatório" }]}>
                                 <InputNumber min={0} step={500} style={{ width: "100%" }} className="rounded-xl" addonAfter="FCFA"
                                   formatter={v => `${v}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                                   parser={v => v.replace(/\./g, '')} />
                             </Form.Item>
-                            <Form.Item label="PreÃ§o Original (Para Desconto)" name="originalPrice">
+                            <Form.Item label="Preço Original (Para Desconto)" name="originalPrice">
                                 <InputNumber min={0} step={500} style={{ width: "100%" }} className="rounded-xl opacity-80" addonAfter="FCFA"
                                   formatter={v => `${v}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                                   parser={v => v.replace(/\./g, '')} />
@@ -577,7 +577,7 @@ const AdminProducts = () => {
                         </div>
 
                         <div className="bg-gray-50 p-6 rounded-2xl mb-6 border border-gray-100">
-                            <h4 className="text-gray-500 font-bold uppercase text-xs mb-4 tracking-wider">MÃ­dia & Visual</h4>
+                            <h4 className="text-gray-500 font-bold uppercase text-xs mb-4 tracking-wider">Mídia & Visual</h4>
                             <div className="flex gap-8">
                                 <Form.Item label="Imagem Principal" valuePropName="fileList" className="mb-0">
                                     <Upload {...uploadProps} listType="picture-card" className="avatar-uploader">
@@ -594,37 +594,37 @@ const AdminProducts = () => {
                         </div>
 
                         <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                            <h4 className="text-gray-500 font-bold uppercase text-xs mb-4 tracking-wider">OpÃ§Ãµes & Flags</h4>
+                            <h4 className="text-gray-500 font-bold uppercase text-xs mb-4 tracking-wider">Opções & Flags</h4>
                             <Space direction="horizontal" wrap size="large">
                                 <Form.Item name="inStock" valuePropName="checked" noStyle><Checkbox>Em Stock</Checkbox></Form.Item>
                                 <Form.Item name="featured" valuePropName="checked" noStyle><Checkbox>Destaque</Checkbox></Form.Item>
                                 <Form.Item name="isNew" valuePropName="checked" noStyle><Checkbox>Novo</Checkbox></Form.Item>
-                                <Form.Item name="onSale" valuePropName="checked" noStyle><Checkbox>Em PromoÃ§Ã£o</Checkbox></Form.Item>
-                                <Form.Item name="isLimited" valuePropName="checked" noStyle><Checkbox>EdiÃ§Ã£o Limitada</Checkbox></Form.Item>
+                                <Form.Item name="onSale" valuePropName="checked" noStyle><Checkbox>Em Promoção</Checkbox></Form.Item>
+                                <Form.Item name="isLimited" valuePropName="checked" noStyle><Checkbox>Edição Limitada</Checkbox></Form.Item>
                             </Space>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                            <Form.Item label="Detalhes TÃ©cnicos" name="technicalDetails">
+                            <Form.Item label="Detalhes Técnicos" name="technicalDetails">
                                 <Input.TextArea rows={2} className="rounded-xl" />
                             </Form.Item>
                             <div className="grid grid-cols-2 gap-4">
                                 <Form.Item label="Entrega" name="deliveryTime">
                                     <Input className="rounded-xl" />
                                 </Form.Item>
-                                <Form.Item label="DevoluÃ§Ã£o" name="returnTime">
+                                <Form.Item label="Devolução" name="returnTime">
                                     <Input className="rounded-xl" />
                                 </Form.Item>
                             </div>
                         </div>
 
-                        {/* ðŸŽ¨ ATRIBUTOS DINÃ‚MICOS */}
+                        {/* �x}� ATRIBUTOS DIN�MICOS */}
                         <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 mt-6">
                             <h4 className="text-blue-800 font-bold mb-2 flex items-center gap-2">
                                 <InfoCircleOutlined /> Atributos Personalizados
                             </h4>
                             <p className="text-blue-600 text-sm mb-4">
-                                Adicione caracterÃ­sticas dinÃ¢micas ao produto (Sabor, Cor, Material, etc.)
+                                Adicione características dinâmicas ao produto (Sabor, Cor, Material, etc.)
                             </p>
 
                             <Form.List name="attributes">
@@ -645,14 +645,14 @@ const AdminProducts = () => {
                                                     <Form.Item
                                                         {...restField}
                                                         name={[name, 'options']}
-                                                        label="OpÃ§Ãµes DisponÃ­veis"
-                                                        rules={[{ required: true, message: 'Adicione pelo menos uma opÃ§Ã£o' }]}
+                                                        label="Opções Disponíveis"
+                                                        rules={[{ required: true, message: 'Adicione pelo menos uma opção' }]}
                                                         className="mb-0"
                                                     >
                                                         <Select
                                                             mode="tags"
                                                             style={{ width: '100%' }}
-                                                            placeholder="Digite e dÃª Enter (Ex: Menta, Uva)"
+                                                            placeholder="Digite e dê Enter (Ex: Menta, Uva)"
                                                             tokenSeparators={[',']}
                                                             className="rounded-xl"
                                                         />
@@ -673,7 +673,7 @@ const AdminProducts = () => {
                 </div>
             </Modal>
 
-            {/* Modal de ObservaÃ§Ã£o para Produtos Premium */}
+            {/* Modal de Observação para Produtos Premium */}
             <Modal
                 title="Notificar Vendedor Premium"
                 open={observationModalVisible}
@@ -684,10 +684,10 @@ const AdminProducts = () => {
                 okButtonProps={{ danger: true }}
             >
                 <div className="p-4">
-                    <p className="mb-4 text-gray-600">Este produto pertence a uma loja Premium. Por motivos contratuais, nÃ£o pode apagÃ¡-lo nem editÃ¡-lo diretamente. Pode, no entanto, contactar o vendedor!</p>
+                    <p className="mb-4 text-gray-600">Este produto pertence a uma loja Premium. Por motivos contratuais, não pode apagá-lo nem editá-lo diretamente. Pode, no entanto, contactar o vendedor!</p>
                     <Input.TextArea
                         rows={4}
-                        placeholder="Ex: OlÃ¡, a imagem do produto tem baixa qualidade..."
+                        placeholder="Ex: Olá, a imagem do produto tem baixa qualidade..."
                         value={observationText}
                         onChange={(e) => setObservationText(e.target.value)}
                         className="rounded-xl"

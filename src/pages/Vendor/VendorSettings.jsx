@@ -1,4 +1,4 @@
-﻿import React, { useState, useContext, useEffect } from 'react';
+�import React, { useState, useContext, useEffect } from 'react';
 import { Form, Input, Button, Card, InputNumber, Switch, message, Upload, Alert } from 'antd';
 import { UploadOutlined, ShopOutlined, TruckOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../context/Authcontext';
@@ -19,13 +19,13 @@ const VendorSettings = () => {
                 description:           user.vendorInfo.description || '',
                 shippingFlatRate:      user.vendorInfo.shippingSettings?.flatRate || 0,
                 freeShippingThreshold: user.vendorInfo.shippingSettings?.freeShippingThreshold || 0,
-                deliveryTime:          user.vendorInfo.shippingSettings?.deliveryTime || '5 a 10 dias Ãºteis',
-                returnPolicy:          user.vendorInfo.shippingSettings?.returnPolicy || '14 dias para devoluÃ§Ã£o',
+                deliveryTime:          user.vendorInfo.shippingSettings?.deliveryTime || '5 a 10 dias úteis',
+                returnPolicy:          user.vendorInfo.shippingSettings?.returnPolicy || '14 dias para devolução',
                 phone:                 user.phone || '',
                 pickupLine1:           user.vendorInfo.pickupAddress?.line1 || '',
                 pickupCity:            user.vendorInfo.pickupAddress?.city || '',
                 pickupPostalCode:      user.vendorInfo.pickupAddress?.postalCode || '',
-                pickupCountry:         user.vendorInfo.pickupAddress?.country || 'GuinÃ©-Bissau',
+                pickupCountry:         user.vendorInfo.pickupAddress?.country || 'Guiné-Bissau',
             });
             setLogoUrl(user.vendorInfo.logo || '');
             setBannerUrl(user.vendorInfo.banner || '');
@@ -53,7 +53,7 @@ const VendorSettings = () => {
 
     const handleSave = async (values) => {
         if (!allowsDelivery && !allowsPickup) {
-            message.error('A loja deve ter pelo menos um mÃ©todo de entrega ativo!');
+            message.error('A loja deve ter pelo menos um método de entrega ativo!');
             return;
         }
         setLoading(true);
@@ -95,12 +95,12 @@ const VendorSettings = () => {
             if (res.ok) {
                 const updatedUser = await res.json();
                 setUser({ ...user, ...updatedUser, token: user.token });
-                message.success('ConfiguraÃ§Ãµes da loja atualizadas!');
+                message.success('Configurações da loja atualizadas!');
             } else {
-                message.error('Erro ao salvar configuraÃ§Ãµes.');
+                message.error('Erro ao salvar configurações.');
             }
         } catch {
-            message.error('Erro de conexÃ£o.');
+            message.error('Erro de conexão.');
         } finally {
             setLoading(false);
         }
@@ -108,18 +108,18 @@ const VendorSettings = () => {
 
     return (
         <div className="max-w-4xl mx-auto">
-            <h1 className="text-2xl font-bold mb-6">ConfiguraÃ§Ãµes da Loja</h1>
+            <h1 className="text-2xl font-bold mb-6">Configurações da Loja</h1>
 
             <Form layout="vertical" form={form} onFinish={handleSave}>
 
-                {/* Perfil PÃºblico */}
-                <Card title={<><ShopOutlined /> Perfil PÃºblico</>} bordered={false} className="shadow-sm rounded-xl mb-6">
+                {/* Perfil Público */}
+                <Card title={<><ShopOutlined /> Perfil Público</>} bordered={false} className="shadow-sm rounded-xl mb-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                             <Form.Item label="Nome da Loja" name="storeName" rules={[{ required: true }]}>
                                 <Input prefix={<ShopOutlined />} />
                             </Form.Item>
-                            <Form.Item label="DescriÃ§Ã£o da Loja" name="description">
+                            <Form.Item label="Descrição da Loja" name="description">
                                 <Input.TextArea rows={4} placeholder="Conte um pouco sobre sua loja..." />
                             </Form.Item>
                             <Form.Item label="Telefone de Contato" name="phone">
@@ -152,14 +152,14 @@ const VendorSettings = () => {
                     </div>
                 </Card>
 
-                {/* â”€â”€â”€â”€ MÃ‰TODOS DE ENTREGA â”€â”€â”€â”€ */}
+                {/* �������� M�0TODOS DE ENTREGA �������� */}
                 <Card
-                    title={<><TruckOutlined /> MÃ©todos de Entrega DisponÃ­veis</>}
+                    title={<><TruckOutlined /> Métodos de Entrega Disponíveis</>}
                     bordered={false}
                     className="shadow-sm rounded-xl mb-6 border-l-4 border-indigo-500"
                 >
                     <p className="text-gray-500 mb-6">
-                        Ative os mÃ©todos que a sua loja suporta. No checkout, o cliente sÃ³ verÃ¡ as opÃ§Ãµes ativas.
+                        Ative os métodos que a sua loja suporta. No checkout, o cliente só verá as opções ativas.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -168,7 +168,7 @@ const VendorSettings = () => {
                             <div className="flex items-center justify-between mb-2">
                                 <div className="flex items-center gap-2">
                                     <TruckOutlined className={`text-xl ${allowsDelivery ? 'text-blue-500' : 'text-gray-400'}`} />
-                                    <span className="font-bold text-gray-800">ðŸšš Envio para Casa</span>
+                                    <span className="font-bold text-gray-800">�xaa Envio para Casa</span>
                                 </div>
                                 <Switch
                                     checked={allowsDelivery}
@@ -177,15 +177,15 @@ const VendorSettings = () => {
                                     unCheckedChildren="Inativo"
                                 />
                             </div>
-                            <p className="text-sm text-gray-500 m-0">O cliente recebe os produtos em casa. Configure o custo na secÃ§Ã£o abaixo.</p>
+                            <p className="text-sm text-gray-500 m-0">O cliente recebe os produtos em casa. Configure o custo na secção abaixo.</p>
                         </div>
 
-                        {/* Levantamento fÃ­sico */}
+                        {/* Levantamento físico */}
                         <div className={`p-5 rounded-xl border-2 transition-all ${allowsPickup ? 'border-green-400 bg-green-50' : 'border-gray-200 bg-gray-50'}`}>
                             <div className="flex items-center justify-between mb-2">
                                 <div className="flex items-center gap-2">
                                     <EnvironmentOutlined className={`text-xl ${allowsPickup ? 'text-green-500' : 'text-gray-400'}`} />
-                                    <span className="font-bold text-gray-800">ðŸª Levantamento na Loja</span>
+                                    <span className="font-bold text-gray-800">�x�� Levantamento na Loja</span>
                                 </div>
                                 <Switch
                                     checked={allowsPickup}
@@ -194,65 +194,65 @@ const VendorSettings = () => {
                                     unCheckedChildren="Inativo"
                                 />
                             </div>
-                            <p className="text-sm text-gray-500 m-0">O cliente desloca-se Ã  sua loja fÃ­sica para levantar a encomenda (gratuito).</p>
+                            <p className="text-sm text-gray-500 m-0">O cliente desloca-se à sua loja física para levantar a encomenda (gratuito).</p>
                         </div>
                     </div>
 
                     {!allowsDelivery && !allowsPickup && (
-                        <Alert type="error" message="âš ï¸ Deve ter pelo menos um mÃ©todo de entrega ativo!" showIcon className="mb-2" />
+                        <Alert type="error" message="�a�️ Deve ter pelo menos um método de entrega ativo!" showIcon className="mb-2" />
                     )}
                     {allowsPickup && !allowsDelivery && (
-                        <Alert type="info" message="â„¹ï¸ Apenas levantamento â€” preencha a morada da loja fÃ­sica abaixo." showIcon />
+                        <Alert type="info" message="��️ Apenas levantamento � preencha a morada da loja física abaixo." showIcon />
                     )}
                     {allowsDelivery && allowsPickup && (
-                        <Alert type="success" message="âœ… Ambos os mÃ©todos estÃ£o ativos â€” o cliente escolhe no checkout." showIcon />
+                        <Alert type="success" message="�S& Ambos os métodos estão ativos � o cliente escolhe no checkout." showIcon />
                     )}
                 </Card>
 
-                {/* Custo de envio â€” sÃ³ aparece se tiver envio ativo */}
+                {/* Custo de envio � só aparece se tiver envio ativo */}
                 {allowsDelivery && (
-                    <Card title={<><TruckOutlined /> ConfiguraÃ§Ãµes de Envio</>} bordered={false} className="shadow-sm rounded-xl mb-6 border-l-4 border-blue-500">
-                        <p className="text-gray-500 mb-4">Se deixar 0, o envio serÃ¡ GRÃTIS para o cliente.</p>
+                    <Card title={<><TruckOutlined /> Configurações de Envio</>} bordered={false} className="shadow-sm rounded-xl mb-6 border-l-4 border-blue-500">
+                        <p className="text-gray-500 mb-4">Se deixar 0, o envio será GRÁTIS para o cliente.</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <Form.Item label="Taxa de Entrega Fixa (FCFA)" name="shippingFlatRate" help="Valor cobrado por pedido contendo os seus produtos.">
                                 <InputNumber min={0} step={500} style={{ width: '100%' }} addonAfter="FCFA"
                                     formatter={v => `${v}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                                     parser={v => v.replace(/\./g, '')} />
                             </Form.Item>
-                            <Form.Item label="Envio GrÃ¡tis acima de (FCFA)" name="freeShippingThreshold" help="0 = nÃ£o aplicar limite de envio grÃ¡tis.">
+                            <Form.Item label="Envio Grátis acima de (FCFA)" name="freeShippingThreshold" help="0 = não aplicar limite de envio grátis.">
                                 <InputNumber min={0} step={500} style={{ width: '100%' }} addonAfter="FCFA"
                                     formatter={v => `${v}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                                     parser={v => v.replace(/\./g, '')} />
                             </Form.Item>
-                            <Form.Item label="Prazo de Entrega" name="deliveryTime" help="Texto exibido na pÃ¡gina do produto">
-                                <Input placeholder="Ex: 2 a 5 dias Ãºteis" />
+                            <Form.Item label="Prazo de Entrega" name="deliveryTime" help="Texto exibido na página do produto">
+                                <Input placeholder="Ex: 2 a 5 dias úteis" />
                             </Form.Item>
-                            <Form.Item label="PolÃ­tica de DevoluÃ§Ãµes" name="returnPolicy">
-                                <Input placeholder="Ex: AtÃ© 14 dias apÃ³s receÃ§Ã£o" />
+                            <Form.Item label="Política de Devoluções" name="returnPolicy">
+                                <Input placeholder="Ex: Até 14 dias após receção" />
                             </Form.Item>
                         </div>
                     </Card>
                 )}
 
-                {/* Morada fÃ­sica â€” sÃ³ aparece se tiver pickup ativo */}
+                {/* Morada física � só aparece se tiver pickup ativo */}
                 {allowsPickup && (
-                    <Card title={<><EnvironmentOutlined /> Morada da Loja FÃ­sica</>} bordered={false} className="shadow-sm rounded-xl mb-6 border-l-4 border-green-500">
-                        <p className="text-gray-500 mb-4">EndereÃ§o onde os clientes podem levantar as encomendas.</p>
+                    <Card title={<><EnvironmentOutlined /> Morada da Loja Física</>} bordered={false} className="shadow-sm rounded-xl mb-6 border-l-4 border-green-500">
+                        <p className="text-gray-500 mb-4">Endereço onde os clientes podem levantar as encomendas.</p>
                         <Form.Item
-                            label="Morada Exata (Rua e NÃºmero)"
+                            label="Morada Exata (Rua e Número)"
                             name="pickupLine1"
-                            rules={[{ required: allowsPickup, message: 'Preencha a morada fÃ­sica da loja' }]}
+                            rules={[{ required: allowsPickup, message: 'Preencha a morada física da loja' }]}
                         >
-                            <Input placeholder="Ex: Rua Direita, NÂº 14" size="large" />
+                            <Input placeholder="Ex: Rua Direita, Nº 14" size="large" />
                         </Form.Item>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <Form.Item label="Cidade" name="pickupCity">
                                 <Input size="large" />
                             </Form.Item>
-                            <Form.Item label="CÃ³digo Postal" name="pickupPostalCode">
+                            <Form.Item label="Código Postal" name="pickupPostalCode">
                                 <Input size="large" />
                             </Form.Item>
-                            <Form.Item label="PaÃ­s" name="pickupCountry">
+                            <Form.Item label="País" name="pickupCountry">
                                 <Input size="large" />
                             </Form.Item>
                         </div>
@@ -261,7 +261,7 @@ const VendorSettings = () => {
 
                 <div className="flex justify-end">
                     <Button type="primary" htmlType="submit" size="large" loading={loading} className="bg-blue-600 px-8">
-                        Salvar AlteraÃ§Ãµes
+                        Salvar Alterações
                     </Button>
                 </div>
             </Form>

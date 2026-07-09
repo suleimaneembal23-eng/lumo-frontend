@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+�import React, { useState } from "react";
 import { Form, Input, Button, Card, message, Typography } from "antd";
 import { MailOutlined, ArrowLeftOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
@@ -33,15 +33,15 @@ const ForgotPassword = () => {
     return (
         <div style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center", background: "#f0f2f5" }}>
             <Card style={{ width: 400, textAlign: "center" }}>
-                <Title level={3}>Recuperar Senha ðŸ”’</Title>
+                <Title level={3}>Recuperar Senha �x</Title>
                 <Text type="secondary" style={{ display: "block", marginBottom: 20 }}>
-                    Digite seu email para receber um link de redefiniÃ§Ã£o.
+                    Digite seu email para receber um link de redefinição.
                 </Text>
 
                 <Form layout="vertical" onFinish={onFinish}>
                     <Form.Item
                         name="email"
-                        rules={[{ required: true, type: "email", message: "Digite um email vÃ¡lido!" }]}
+                        rules={[{ required: true, type: "email", message: "Digite um email válido!" }]}
                     >
                         <Input prefix={<MailOutlined />} placeholder="Seu email cadastrado" size="large" />
                     </Form.Item>

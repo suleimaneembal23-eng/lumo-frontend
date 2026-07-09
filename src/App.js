@@ -1,7 +1,7 @@
-﻿import React, { useContext } from "react";
+�import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// ðŸŒ PÃ¡ginas principais
+// �xR� Páginas principais
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
@@ -17,9 +17,9 @@ import ReturnsPolicy from "./pages/ReturnsPolicy";
 import FAQ from "./pages/FAQ";
 import ProductsList from "./pages/ProductsList";
 import OrderTracking from "./pages/OrderTracking";
-import VendorStore from "./pages/VendorStore"; // ðŸª Public Store Page
+import VendorStore from "./pages/VendorStore"; // �x�� Public Store Page
 
-// âš™ï¸ Admin
+// �a"️ Admin
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminClients from "./pages/AdminClients";
 import AdminProducts from "./pages/AdminProducts";
@@ -28,25 +28,25 @@ import Settings from "./pages/Settings";
 import PromotionProducts from "./pages/PromotionProducts";
 
 import AdminMarketing from "./pages/AdminMarketing";
-import AdminVendors from "./pages/AdminVendors"; // ðŸª
+import AdminVendors from "./pages/AdminVendors"; // �x��
 
-// ðŸ›¡ï¸ SeguranÃ§a e Layouts
+// �x:�️ Segurança e Layouts
 import RequireAuth from "./components/RequireAuth";
 import AdminLayout from "./layouts/AdminLayout"; // AdminLayout pode ainda usar Antd, mantido por enquanto
 
-// ðŸ‘¤ Cliente
+// �x� Cliente
 import ClientDashboard from "./pages/Client/ClientDashboard";
 import MyOrders from "./pages/Client/MyOrders";
 import MyFavorites from "./pages/Client/MyFavorites";
 import MyProfile from "./pages/Client/MyProfile";
 import OrderDetails from "./pages/Client/OrderDetails";
 
-// ðŸŒ Componentes
+// �xR� Componentes
 import ModernHeader from "./components/ModernHeader";
 import Footer from "./components/Footer";
 import CookieBanner from "./components/CookieBanner";
 
-// ðŸª Vendor Dashboard
+// �x�� Vendor Dashboard
 import VendorLayout from "./layouts/VendorLayout";
 import VendorDashboard from "./pages/Vendor/VendorDashboard";
 import VendorProducts from "./pages/Vendor/VendorProducts";
@@ -54,14 +54,14 @@ import VendorSettings from "./pages/Vendor/VendorSettings";
 import VendorOrders from "./pages/Vendor/VendorOrders";
 import VendorPromotions from "./pages/Vendor/VendorPromotions";
 
-// ðŸŒ Contextos
+// �xR� Contextos
 import { AuthProvider } from "./context/Authcontext";
 import { SettingsContext, SettingsProvider } from "./context/SettingsContext";
 import { CartProvider } from "./context/CartContext";
 import { HelmetProvider } from 'react-helmet-async';
 import { CurrencyProvider } from './context/CurrencyContext';
 
-// Layout PÃºblico (Tailwind)
+// Layout Público (Tailwind)
 const PublicLayout = ({ children }) => {
   const { settings } = useContext(SettingsContext);
 
@@ -95,7 +95,7 @@ const App = () => {
               <CurrencyProvider>
                 <CartProvider>
                   <Routes>
-                    {/* ðŸŒ PÃ¡ginas pÃºblicas */}
+                    {/* �xR� Páginas públicas */}
                     <Route
                       path="/"
                       element={
@@ -244,7 +244,7 @@ const App = () => {
                       }
                     />
 
-                    {/* ðŸ‘¤ Ãrea do Cliente */}
+                    {/* �x� Área do Cliente */}
                     <Route
                       path="/profile"
                       element={
@@ -296,7 +296,7 @@ const App = () => {
                       }
                     />
 
-                    {/* ðŸ‘¤ Dashboard Cliente (Layout PrÃ³prio) */}
+                    {/* �x� Dashboard Cliente (Layout Próprio) */}
                     <Route
                       path="/client/dashboard/*"
                       element={
@@ -306,7 +306,7 @@ const App = () => {
                       }
                     />
 
-                    {/* âš™ï¸ Ãrea Admin (Layout Separado - Mantido Antd por enquanto/complexidade) */}
+                    {/* �a"️ Área Admin (Layout Separado - Mantido Antd por enquanto/complexidade) */}
                     <Route
                       path="/admin/dashboard"
                       element={
@@ -395,7 +395,7 @@ const App = () => {
                       }
                     />
 
-                    {/* ðŸª Vendor Dashboard Routes */}
+                    {/* �x�� Vendor Dashboard Routes */}
                     <Route
                       path="/vendor/dashboard"
                       element={

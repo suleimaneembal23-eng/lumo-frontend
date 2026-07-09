@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useContext } from 'react';
+�import React, { useEffect, useState, useContext } from 'react';
 import { Table, Card, Tag, Typography, Spin, Space, Tooltip, Empty, Select, message } from 'antd';
 import { ShoppingCartOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../context/Authcontext';
@@ -35,7 +35,7 @@ const VendorOrders = () => {
                 message.error(err.message || 'Erro ao atualizar status.');
             }
         } catch (error) {
-            message.error('Falha na comunicaÃ§Ã£o de rede.');
+            message.error('Falha na comunicação de rede.');
         }
     };
 
@@ -96,7 +96,7 @@ const VendorOrders = () => {
                         <div className="text-xs text-gray-500 flex flex-col mt-1">
                             {address && <span>{address.address}, {address.city}</span>}
                             {address && <span>{address.postalCode}, {address.country}</span>}
-                            {userObj?.phone && <span className="text-blue-500 font-medium">ðŸ“ž {userObj.phone}</span>}
+                            {userObj?.phone && <span className="text-blue-500 font-medium">�x~ {userObj.phone}</span>}
                         </div>
                     </div>
                 );
@@ -144,10 +144,10 @@ const VendorOrders = () => {
             }
         },
         {
-            title: 'Meu Rendimento LÃ­quido',
+            title: 'Meu Rendimento Líquido',
             key: 'earnings',
             render: (_, record) => {
-                // Calcular total lÃ­quido apenas dos itens Deste vendor
+                // Calcular total líquido apenas dos itens Deste vendor
                 const totalNet = record.items?.reduce((acc, item) => acc + (item.vendorNet || 0), 0) || 0;
                 
                 return (
@@ -159,7 +159,7 @@ const VendorOrders = () => {
         }
     ];
 
-    // Detalhes ExpansÃ­veis
+    // Detalhes Expansíveis
     const expandedRowRender = (record) => {
         const itemColumns = [
             {
@@ -201,7 +201,7 @@ const VendorOrders = () => {
                 render: (qty) => <span className="font-bold bg-blue-50 text-blue-600 px-2 py-1 rounded">{qty}x</span>
             },
             {
-                title: 'PreÃ§o Venda (Ref)',
+                title: 'Preço Venda (Ref)',
                 dataIndex: 'price',
                 key: 'price',
                 render: (price) => `${Math.round(price).toLocaleString('de-DE')} FCFA`
@@ -226,7 +226,7 @@ const VendorOrders = () => {
                 )
             },
             {
-                title: 'Lucro LÃ­quido (Und.)',
+                title: 'Lucro Líquido (Und.)',
                 dataIndex: 'vendorNet',
                 key: 'vendorNet',
                 render: (net) => <span className="text-green-600 font-bold">{net ? `${Math.round(net).toLocaleString('de-DE')} FCFA` : 'N/A'}</span>
@@ -255,7 +255,7 @@ const VendorOrders = () => {
             <div className="flex justify-between items-center mb-8">
                 <div>
                     <h1 className="text-3xl font-bold m-0 flex items-center gap-3 text-gray-900">
-                        <ShoppingCartOutlined className="text-blue-600" /> GestÃ£o de Pedidos
+                        <ShoppingCartOutlined className="text-blue-600" /> Gestão de Pedidos
                     </h1>
                     <p className="text-gray-500 m-0 mt-2 text-base">
                         Acompanhe todos os pedidos onde os seus produtos foram comprados

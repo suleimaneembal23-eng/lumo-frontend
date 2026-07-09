@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+�import React, { useEffect, useState } from "react";
 import {
       Table,
       Button,
@@ -24,7 +24,7 @@ const categoryOptions = [
       "Todas as Categorias",
       "Roupa Masculina",
       "Roupa Feminina",
-      "AcessÃ³rios",
+      "Acessórios",
       "Destaques",
       "Top Vendidos",
 ];
@@ -70,7 +70,7 @@ const AdminMarketing = () => {
             setModalVisible(true);
       };
 
-      // Efeito para inicializar o formulÃ¡rio quando o modal abre
+      // Efeito para inicializar o formulário quando o modal abre
       useEffect(() => {
             if (modalVisible) {
                   if (editingPromo) {
@@ -99,8 +99,8 @@ const AdminMarketing = () => {
                               headers: { Authorization: `Bearer ${token}` },
                         }
                   );
-                  if (!res.ok) throw new Error("Erro ao remover promoÃ§Ã£o");
-                  message.success("PromoÃ§Ã£o removida!");
+                  if (!res.ok) throw new Error("Erro ao remover promoção");
+                  message.success("Promoção removida!");
                   fetchData();
             } catch (err) {
                   console.error(err);
@@ -113,11 +113,11 @@ const AdminMarketing = () => {
                   const codeRegex = /^[A-Za-z0-9]+$/;
                   if (!codeRegex.test(values.code)) {
                         return message.error(
-                              "CÃ³digo invÃ¡lido: use apenas letras e nÃºmeros (sem espaÃ§os)."
+                              "Código inválido: use apenas letras e números (sem espaços)."
                         );
                   }
 
-                  // ðŸš¨ CORREÃ‡ÃƒO: Garante que os Switches (que usam valuePropName="checked") enviem false
+                  // �xa� CORRE�!ÒO: Garante que os Switches (que usam valuePropName="checked") enviem false
                   const isDailyDealValue = !!values.isDailyDeal;
                   const isNewUserCouponValue = !!values.isNewUserCoupon;
                   const activeValue = !!values.active;
@@ -150,10 +150,10 @@ const AdminMarketing = () => {
                         body: JSON.stringify(body),
                   });
 
-                  if (!res.ok) throw new Error("Erro ao salvar promoÃ§Ã£o");
+                  if (!res.ok) throw new Error("Erro ao salvar promoção");
 
                   message.success(
-                        editingPromo ? "PromoÃ§Ã£o atualizada!" : "PromoÃ§Ã£o criada!"
+                        editingPromo ? "Promoção atualizada!" : "Promoção criada!"
                   );
                   setModalVisible(false);
                   setEditingPromo(null);
@@ -185,7 +185,7 @@ const AdminMarketing = () => {
                   if (!res.ok) throw new Error(data.message);
                   message.success(data.message);
             } catch (err) {
-                  message.error("Erro ao rodar recuperaÃ§Ã£o: " + err.message);
+                  message.error("Erro ao rodar recuperação: " + err.message);
             }
             setTriggeringCart(false);
       };
@@ -229,7 +229,7 @@ const AdminMarketing = () => {
       // ------------------------------------
       const columns = [
             {
-                  title: "TÃ­tulo da PromoÃ§Ã£o",
+                  title: "Título da Promoção",
                   dataIndex: "title",
                   key: "title",
                   render: (title, record) => (
@@ -247,14 +247,14 @@ const AdminMarketing = () => {
                                           </Tag>
                                     )}
                                     <Tag color={record.active ? "success" : "default"} style={{ margin: 0, borderRadius: 12, border: 'none', padding: '2px 8px' }}>
-                                          {record.active ? "â— Ativa" : "â—‹ Inativa"}
+                                          {record.active ? "�� Ativa" : "�9 Inativa"}
                                     </Tag>
                               </div>
                         </div>
                   )
             },
             {
-                  title: "CÃ³digo",
+                  title: "Código",
                   dataIndex: "code",
                   key: "code",
                   render: text => <span className="font-mono bg-gray-100 px-2 py-1 rounded text-gray-600 font-bold border border-gray-200">{text}</span>
@@ -282,7 +282,7 @@ const AdminMarketing = () => {
                   },
             },
             {
-                  title: "AÃ§Ãµes",
+                  title: "Ações",
                   key: "actions",
                   align: "right",
                   render: (_, record) => (
@@ -308,13 +308,13 @@ const AdminMarketing = () => {
             },
       ];
 
-      // Import Tabs manualmente aqui (embora jÃ¡ deva estar no escopo, para garantir layout)
+      // Import Tabs manualmente aqui (embora já deva estar no escopo, para garantir layout)
       const { Tabs } = require("antd");
 
       const items = [
             {
                   key: '1',
-                  label: <span className="font-medium text-base px-4">ðŸŽŸï¸ Gerir PromoÃ§Ãµes</span>,
+                  label: <span className="font-medium text-base px-4">�x}x️ Gerir Promoções</span>,
                   children: (
                         <div className="mt-4">
                               <div className="flex justify-end mb-6">
@@ -325,7 +325,7 @@ const AdminMarketing = () => {
                                           onClick={handleAddPromotion}
                                           className="bg-black hover:bg-gray-800 rounded-xl px-6 h-12 shadow-md border-none"
                                     >
-                                          Criar Nova PromoÃ§Ã£o
+                                          Criar Nova Promoção
                                     </Button>
                               </div>
 
@@ -343,7 +343,7 @@ const AdminMarketing = () => {
             },
             {
                   key: '2',
-                  label: <span className="font-medium text-base px-4">ðŸ“§ Email Marketing</span>,
+                  label: <span className="font-medium text-base px-4">�x� Email Marketing</span>,
                   children: (
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
                               <div className="lg:col-span-2">
@@ -352,10 +352,10 @@ const AdminMarketing = () => {
                                           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 mb-8 flex items-center justify-between">
                                                 <div>
                                                       <h3 className="text-lg font-bold text-blue-900 flex items-center gap-2">
-                                                            <RocketOutlined /> RecuperaÃ§Ã£o de Carrinho
+                                                            <RocketOutlined /> Recuperação de Carrinho
                                                       </h3>
                                                       <p className="text-blue-700 text-sm mt-1">
-                                                            Identificar e notificar clientes que abandonaram o carrinho hÃ¡ 30+ minutos.
+                                                            Identificar e notificar clientes que abandonaram o carrinho há 30+ minutos.
                                                       </p>
                                                 </div>
                                                 <Button
@@ -377,7 +377,7 @@ const AdminMarketing = () => {
                                                 <Form.Item label={<span className="font-bold">Assunto do Email</span>} required>
                                                       <Input
                                                             size="large"
-                                                            placeholder="Ex: Oferta ImperdÃ­vel de Fim de Ano! ðŸŽ"
+                                                            placeholder="Ex: Oferta Imperdível de Fim de Ano! �x}�"
                                                             value={emailSubject}
                                                             onChange={e => setEmailSubject(e.target.value)}
                                                             className="rounded-xl"
@@ -387,7 +387,7 @@ const AdminMarketing = () => {
                                                 <Form.Item label={<span className="font-bold">Mensagem (HTML Suportado)</span>} required>
                                                       <Input.TextArea
                                                             rows={8}
-                                                            placeholder="<p>OlÃ¡ {{name}}, confira nossas ofertas...</p>"
+                                                            placeholder="<p>Olá {{name}}, confira nossas ofertas...</p>"
                                                             value={emailContent}
                                                             onChange={e => setEmailContent(e.target.value)}
                                                             className="rounded-xl"
@@ -395,7 +395,7 @@ const AdminMarketing = () => {
                                                 </Form.Item>
 
                                                 <div className="grid grid-cols-2 gap-4">
-                                                      <Form.Item label={<span className="font-bold">Texto do BotÃ£o</span>}>
+                                                      <Form.Item label={<span className="font-bold">Texto do Botão</span>}>
                                                             <Input
                                                                   size="large"
                                                                   placeholder="Ex: Ver Ofertas"
@@ -434,10 +434,10 @@ const AdminMarketing = () => {
                               <div className="hidden lg:block bg-gray-50 p-6 rounded-3xl border border-dashed border-gray-300 h-fit">
                                     <h4 className="text-gray-400 font-bold text-center uppercase tracking-wide mb-4">Preview Mobile</h4>
                                     <div className="bg-white rounded-3xl border border-gray-200 shadow-xl overflow-hidden max-w-xs mx-auto text-center pb-8">
-                                          <div className="bg-gray-100 h-40 flex items-center justify-center text-gray-300 text-4xl mb-4">ðŸ–¼ï¸</div>
+                                          <div className="bg-gray-100 h-40 flex items-center justify-center text-gray-300 text-4xl mb-4">�x�️</div>
                                           <div className="px-6 text-left">
                                                 <h3 className="font-bold text-lg mb-2 text-gray-900">{emailSubject || "Assunto..."}</h3>
-                                                <div className="text-gray-600 text-sm mb-6" dangerouslySetInnerHTML={{ __html: emailContent || "ConteÃºdo..." }} />
+                                                <div className="text-gray-600 text-sm mb-6" dangerouslySetInnerHTML={{ __html: emailContent || "Conteúdo..." }} />
                                                 <div className="text-center">
                                                       <button className="bg-purple-600 text-white font-bold py-3 px-6 rounded-lg w-full">
                                                             {emailActionText}
@@ -455,13 +455,13 @@ const AdminMarketing = () => {
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 min-h-[85vh]">
                   <div className="mb-8 border-b border-gray-100 pb-6">
                         <h1 className="text-3xl font-bold text-gray-900 m-0 tracking-tight">Marketing Center</h1>
-                        <p className="text-gray-500 mt-2 text-base">Gerencie campanhas, promoÃ§Ãµes e automaÃ§Ãµes.</p>
+                        <p className="text-gray-500 mt-2 text-base">Gerencie campanhas, promoções e automações.</p>
                   </div>
 
                   <Tabs defaultActiveKey="1" items={items} size="large" className="custom-tabs" />
 
                   <Modal
-                        title={<span className="text-xl font-bold">{editingPromo ? "Editar PromoÃ§Ã£o" : "Nova PromoÃ§Ã£o"}</span>}
+                        title={<span className="text-xl font-bold">{editingPromo ? "Editar Promoção" : "Nova Promoção"}</span>}
                         open={modalVisible}
                         onCancel={() => {
                               setModalVisible(false);
@@ -470,30 +470,30 @@ const AdminMarketing = () => {
                         width={700}
                         footer={null}
                         centered
-                        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">âœ•</span>}
+                        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">�S"</span>}
                   >
                         <div className="pt-4">
                               <Form
                                     form={form}
                                     layout="vertical"
                                     onFinish={handleFinish}
-                                    onFinishFailed={() => message.error("Por favor, preencha todos os campos obrigatÃ³rios.")}
+                                    onFinishFailed={() => message.error("Por favor, preencha todos os campos obrigatórios.")}
                                     className="grid grid-cols-1 md:grid-cols-2 gap-x-6"
                               >
                                     <div className="md:col-span-2">
                                           <Form.Item
-                                                label="TÃ­tulo da Campanha"
+                                                label="Título da Campanha"
                                                 name="title"
-                                                rules={[{ required: true, message: "TÃ­tulo Ã© obrigatÃ³rio" }]}
+                                                rules={[{ required: true, message: "Título é obrigatório" }]}
                                           >
                                                 <Input size="large" placeholder="Ex: Black Friday 2025" className="rounded-xl" />
                                           </Form.Item>
                                     </div>
 
                                     <Form.Item
-                                          label="CÃ³digo do Cupom"
+                                          label="Código do Cupom"
                                           name="code"
-                                          rules={[{ required: true, message: "CÃ³digo Ã© obrigatÃ³rio" }]}
+                                          rules={[{ required: true, message: "Código é obrigatório" }]}
                                     >
                                           <Input size="large" prefix={<span className="text-gray-400 font-bold">#</span>} placeholder="CUPOM20" className="rounded-xl" />
                                     </Form.Item>
@@ -501,13 +501,13 @@ const AdminMarketing = () => {
                                     <Form.Item
                                           label="Desconto (%)"
                                           name="discount"
-                                          rules={[{ required: true, message: "Desconto Ã© obrigatÃ³rio" }]}
+                                          rules={[{ required: true, message: "Desconto é obrigatório" }]}
                                     >
                                           <InputNumber min={1} max={100} size="large" style={{ width: "100%" }} className="rounded-xl" />
                                     </Form.Item>
 
                                     <div className="md:col-span-2">
-                                          <Form.Item label="DescriÃ§Ã£o" name="description">
+                                          <Form.Item label="Descrição" name="description">
                                                 <Input.TextArea rows={2} className="rounded-xl" placeholder="Detalhes internos..." />
                                           </Form.Item>
                                     </div>
@@ -549,11 +549,11 @@ const AdminMarketing = () => {
                                     </div>
 
                                     <div className="md:col-span-2">
-                                          <Form.Item label="Produtos EspecÃ­ficos (Opcional)" name="products">
+                                          <Form.Item label="Produtos Específicos (Opcional)" name="products">
                                                 <Select
                                                       mode="multiple"
                                                       size="large"
-                                                      placeholder="Aplicar a produtos especÃ­ficos..."
+                                                      placeholder="Aplicar a produtos específicos..."
                                                       className="rounded-xl"
                                                       maxTagCount="responsive"
                                                 >
@@ -562,7 +562,7 @@ const AdminMarketing = () => {
                                                       ))}
                                                 </Select>
                                           </Form.Item>
-                                          <Form.Item label="Categorias EspecÃ­ficas (Opcional)" name="categories">
+                                          <Form.Item label="Categorias Específicas (Opcional)" name="categories">
                                                 <Select mode="multiple" size="large" placeholder="Aplicar a categorias..." className="rounded-xl">
                                                       {categoryOptions.map((cat) => (
                                                             <Option key={cat} value={cat}>{cat}</Option>
@@ -573,7 +573,7 @@ const AdminMarketing = () => {
 
                                     <div className="md:col-span-2 mt-4 flex justify-end gap-3">
                                           <Button size="large" onClick={() => setModalVisible(false)} className="rounded-xl">Cancelar</Button>
-                                          <Button type="primary" size="large" onClick={() => form.submit()} className="bg-black text-white border-none rounded-xl px-8">Salvar PromoÃ§Ã£o</Button>
+                                          <Button type="primary" size="large" onClick={() => form.submit()} className="bg-black text-white border-none rounded-xl px-8">Salvar Promoção</Button>
                                     </div>
                               </Form>
                         </div>

@@ -1,4 +1,4 @@
-﻿import { createContext, useState, useEffect } from "react";
+�import { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
@@ -12,14 +12,14 @@ export const AuthProvider = ({ children }) => {
     return savedAdmin ? JSON.parse(savedAdmin) : null;
   });
 
-  // Login de cliente - CORRIGIDO: Agora guarda o ID, ROLE e VENDORINFO tambÃ©m
+  // Login de cliente - CORRIGIDO: Agora guarda o ID, ROLE e VENDORINFO também
   const loginUser = ({ id, name, email, token, role, vendorInfo }) => {
     const userData = { id, name, email, token, role, vendorInfo };
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
   };
 
-  // Login de admin - CORRIGIDO: Agora guarda o ID e ROLE tambÃ©m
+  // Login de admin - CORRIGIDO: Agora guarda o ID e ROLE também
   const loginAdmin = ({ id, name, email, token, role }) => {
     const adminData = { id, name, email, token, role };
     setAdmin(adminData);
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
     if (savedAdmin) setAdmin(JSON.parse(savedAdmin));
   }, []);
 
-  // Wrapper para persistir atualizaÃ§Ãµes manuais do user
+  // Wrapper para persistir atualizações manuais do user
   const updateUser = (userData) => {
     setUser(userData);
     if (userData) {

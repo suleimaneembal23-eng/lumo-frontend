@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+�import React, { useState, useEffect } from 'react';
 import { Typography, Tag } from 'antd';
 import dayjs from 'dayjs';
 
@@ -6,12 +6,12 @@ const { Text } = Typography;
 
 /**
  * Componente de contador regressivo.
- * @param {string} targetDate - Data e hora de tÃ©rmino da promoÃ§Ã£o (ISO string).
- * @param {string} textColor - Cor do texto (NÃƒO SERÃ USADA, mas mantida nas props).
+ * @param {string} targetDate - Data e hora de término da promoção (ISO string).
+ * @param {string} textColor - Cor do texto (NÒO SERÁ USADA, mas mantida nas props).
  */
-const CountdownTimer = ({ targetDate, textColor }) => { // A prop textColor Ã© ignorada para o texto.
+const CountdownTimer = ({ targetDate, textColor }) => { // A prop textColor é ignorada para o texto.
     
-    // ... (funÃ§Ã£o calculateTimeLeft e useEffect mantÃªm-se iguais) ...
+    // ... (função calculateTimeLeft e useEffect mantêm-se iguais) ...
 
     const calculateTimeLeft = () => {
         if (!targetDate) return null;
@@ -46,7 +46,7 @@ const CountdownTimer = ({ targetDate, textColor }) => { // A prop textColor Ã©
         return () => clearInterval(timer);
     }, [targetDate]);
 
-    // 4. Formatar a exibiÃ§Ã£o
+    // 4. Formatar a exibição
     const timerComponents = [];
 
     if (timeLeft) {
@@ -57,7 +57,7 @@ const CountdownTimer = ({ targetDate, textColor }) => { // A prop textColor Ã©
             timerComponents.push(
                 <Tag 
                     key={interval} 
-                    // MantÃ©m a cor de fundo da Tag vermelha para destaque
+                    // Mantém a cor de fundo da Tag vermelha para destaque
                     color="red" 
                     style={{ 
                         fontSize: 20, 
@@ -68,14 +68,14 @@ const CountdownTimer = ({ targetDate, textColor }) => { // A prop textColor Ã©
                         textAlign: 'center'
                     }}
                 >
-                    {/* ðŸš¨ CORREÃ‡ÃƒO: COR FORÃ‡ADA PARA PRETO (#000) */}
+                    {/* �xa� CORRE�!ÒO: COR FOR�!ADA PARA PRETO (#000) */}
                     <Text style={{ 
                         color: '#000', // <-- SEMPRE PRETO
                         display: 'block' 
                     }}>
                         {String(value).padStart(2, '0')}
                     </Text>
-                    {/* ðŸš¨ CORREÃ‡ÃƒO: COR FORÃ‡ADA PARA PRETO (#000) */}
+                    {/* �xa� CORRE�!ÒO: COR FOR�!ADA PARA PRETO (#000) */}
                     <Text style={{ 
                         color: '#000', // <-- SEMPRE PRETO
                         fontSize: 12, 
@@ -90,18 +90,18 @@ const CountdownTimer = ({ targetDate, textColor }) => { // A prop textColor Ã©
     }
 
     if (!targetDate) {
-        // ðŸš¨ CORREÃ‡ÃƒO: COR FORÃ‡ADA PARA PRETO (#000)
-        return <Text style={{ color: '#000' }}>PromoÃ§Ã£o sem data de tÃ©rmino definida.</Text>;
+        // �xa� CORRE�!ÒO: COR FOR�!ADA PARA PRETO (#000)
+        return <Text style={{ color: '#000' }}>Promoção sem data de término definida.</Text>;
     }
 
     if (!timeLeft) {
-        // ðŸš¨ CORREÃ‡ÃƒO: COR FORÃ‡ADA PARA PRETO (#000)
-        return <Text style={{ color: '#000', fontSize: 24, fontWeight: 600 }}>PROMOÃ‡ÃƒO TERMINADA!</Text>;
+        // �xa� CORRE�!ÒO: COR FOR�!ADA PARA PRETO (#000)
+        return <Text style={{ color: '#000', fontSize: 24, fontWeight: 600 }}>PROMO�!ÒO TERMINADA!</Text>;
     }
 
     return (
         <div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            {/* ðŸš¨ CORREÃ‡ÃƒO: COR FORÃ‡ADA PARA PRETO (#000) */}
+            {/* �xa� CORRE�!ÒO: COR FOR�!ADA PARA PRETO (#000) */}
             <Text style={{ color: '#000', fontSize: 20, fontWeight: 600, marginRight: 15 }}>
                 Termina em:
             </Text>

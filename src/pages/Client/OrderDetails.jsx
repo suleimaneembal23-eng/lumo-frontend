@@ -1,4 +1,4 @@
-﻿// src/pages/Client/MyProfile.jsx
+�// src/pages/Client/MyProfile.jsx
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, message } from "antd";
 
@@ -20,7 +20,7 @@ const MyProfile = () => {
 
   return (
     <div>
-      <h2>ðŸ‘¤ Meu Perfil</h2>
+      <h2>�x� Meu Perfil</h2>
       <Form form={form} layout="vertical" onFinish={handleSubmit} style={{ maxWidth: 500 }}>
         <Form.Item name="name" label="Nome">
           <Input />
@@ -29,10 +29,10 @@ const MyProfile = () => {
           <Input disabled />
         </Form.Item>
         <Form.Item name="password" label="Nova senha">
-          <Input.Password placeholder="Deixe em branco se nÃ£o quiser mudar" />
+          <Input.Password placeholder="Deixe em branco se não quiser mudar" />
         </Form.Item>
         <Button type="primary" htmlType="submit">
-          Salvar alteraÃ§Ãµes
+          Salvar alterações
         </Button>
       </Form>
     </div>

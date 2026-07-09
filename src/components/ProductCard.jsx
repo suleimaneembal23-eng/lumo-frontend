@@ -1,4 +1,4 @@
-﻿import React, { useContext } from 'react';
+�import React, { useContext } from 'react';
 import { ShoppingCart, Heart, Eye } from 'lucide-react'; // Adicionado Eye
 import { useNavigate } from 'react-router-dom';
 import { SettingsContext } from '../context/SettingsContext';
@@ -54,12 +54,12 @@ const ProductCard = ({ product, formatPrice, onAddToCart, user }) => {
           )}
           {product.inStock && product.stockQuantity > 0 && product.stockQuantity <= (product.lowStockThreshold || 5) && (
             <span className="px-3 py-1 text-xs font-bold bg-orange-500 text-white rounded-full shadow-lg animate-pulse">
-              ÃšLTIMAS {product.stockQuantity}
+              �aLTIMAS {product.stockQuantity}
             </span>
           )}
         </div>
 
-        {/* AÃ§Ãµes RÃ¡pidas (Overlay no Hover) */}
+        {/* Ações Rápidas (Overlay no Hover) */}
         <div className="absolute inset-x-0 bottom-4 flex justify-center gap-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-20 px-4">
           <button
             onClick={handleAddToCart}
@@ -78,7 +78,7 @@ const ProductCard = ({ product, formatPrice, onAddToCart, user }) => {
         </div>
       </div>
 
-      {/* ConteÃºdo */}
+      {/* Conteúdo */}
       <div className="p-5 flex flex-col flex-grow">
         <div className="mb-1">
           <p className="text-xs text-gray-400 uppercase tracking-wide font-medium">

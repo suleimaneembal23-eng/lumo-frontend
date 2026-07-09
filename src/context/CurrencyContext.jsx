@@ -1,4 +1,4 @@
-﻿import { createContext, useState, useContext } from "react";
+�import { createContext, useState, useContext } from "react";
 
 export const CurrencyContext = createContext();
 
@@ -9,7 +9,7 @@ export const CurrencyProvider = ({ children }) => {
     { code: "XOF", symbol: "FCFA", name: "Franco CFA" }
   ];
 
-  // Formatar PreÃ§o â€” FCFA nÃ£o tem cÃªntimos
+  // Formatar Preço � FCFA não tem cêntimos
   // Formato: 43.500 FCFA / 90.000 FCFA (ponto como separador de milhar)
   const formatPrice = (value) => {
     if (value === undefined || value === null) return "";

@@ -1,4 +1,4 @@
-﻿
+�
 import React, { useEffect, useState, useContext } from "react";
 import { Table, Tag, Button, Modal, Descriptions, Typography, Space, Avatar, Steps, Card, Divider } from "antd";
 import { EyeOutlined, ShoppingOutlined, ClockCircleOutlined, CheckCircleOutlined, CarOutlined, HomeOutlined, StopOutlined, WhatsAppOutlined, InfoCircleOutlined } from "@ant-design/icons";
@@ -85,7 +85,7 @@ const MyOrders = () => {
       },
     },
     {
-      title: "AÃ§Ãµes",
+      title: "Ações",
       key: "actions",
       render: (_, record) => (
         <Button
@@ -155,7 +155,7 @@ const MyOrders = () => {
                   {formatPrice(selectedOrder.totalPrice)}
                 </Text>
               </Descriptions.Item>
-              <Descriptions.Item label="EndereÃ§o de Entrega" span={2}>
+              <Descriptions.Item label="Endereço de Entrega" span={2}>
                 {selectedOrder.shippingAddress.line1}
                 {selectedOrder.shippingAddress.line2 && `, ${selectedOrder.shippingAddress.line2}`}
                 <br />
@@ -209,27 +209,27 @@ const MyOrders = () => {
                 </div>
               ))}
             </div>
-            {/* ðŸ’¸ INSTRUÃ‡Ã•ES DE PAGAMENTO (Se pendente) */}
+            {/* �x� INSTRU�!�"ES DE PAGAMENTO (Se pendente) */}
             {selectedOrder.status === 'pending' && (
               <div style={{ marginTop: 20, padding: 15, backgroundColor: "#fffbe6", border: "1px solid #ffe58f", borderRadius: 8 }}>
                 <Title level={5} style={{ color: "#faad14", margin: 0, display: "flex", alignItems: "center", gap: 8 }}>
                   <InfoCircleOutlined /> Aguardando Pagamento
                 </Title>
                 <Paragraph style={{ marginTop: 10, marginBottom: 15 }}>
-                  O seu pedido estÃ¡ reservado, mas precisa de efetuar o pagamento via <strong>{selectedOrder.paymentMethod === 'orange_money' ? 'Orange Money' : selectedOrder.paymentMethod === 'transfer' ? 'TransferÃªncia BancÃ¡ria' : 'pagamento manual'}</strong> para darmos seguimento.
+                  O seu pedido está reservado, mas precisa de efetuar o pagamento via <strong>{selectedOrder.paymentMethod === 'orange_money' ? 'Orange Money' : selectedOrder.paymentMethod === 'transfer' ? 'Transferência Bancária' : 'pagamento manual'}</strong> para darmos seguimento.
                 </Paragraph>
                 
                 {selectedOrder.paymentMethod === 'orange_money' && (
                   <div style={{ background: "#fff", padding: 10, borderRadius: 6, border: "1px solid #d9d9d9", marginBottom: 15 }}>
-                    <Text strong>InstruÃ§Ãµes Orange Money:</Text>
+                    <Text strong>Instruções Orange Money:</Text>
                     <br />
-                    Envie {formatPrice(selectedOrder.totalPrice)} para o nÃºmero: <Text strong copyable style={{ color: "#fa8c16", fontSize: 16 }}>{settings?.paymentConfig?.orangeMoneyNumber || "N/D"}</Text>
+                    Envie {formatPrice(selectedOrder.totalPrice)} para o número: <Text strong copyable style={{ color: "#fa8c16", fontSize: 16 }}>{settings?.paymentConfig?.orangeMoneyNumber || "N/D"}</Text>
                   </div>
                 )}
 
                 {selectedOrder.paymentMethod === 'transfer' && (
                   <div style={{ background: "#fff", padding: 10, borderRadius: 6, border: "1px solid #d9d9d9", marginBottom: 15 }}>
-                    <Text strong>TransferÃªncia BancÃ¡ria:</Text>
+                    <Text strong>Transferência Bancária:</Text>
                     <br />
                     IBAN: <Text strong copyable style={{ color: "#1890ff" }}>{settings?.paymentConfig?.iban || "N/D"}</Text>
                   </div>
@@ -242,7 +242,7 @@ const MyOrders = () => {
                   icon={<WhatsAppOutlined />} 
                   style={{ backgroundColor: "#25D366", borderColor: "#25D366", fontWeight: "bold" }}
                   onClick={() => {
-                    const msg = `OlÃ¡! Quero enviar o comprovativo do meu pedido #${selectedOrder._id.slice(-6).toUpperCase()}. O valor Ã© ${formatPrice(selectedOrder.totalPrice)}.`;
+                    const msg = `Olá! Quero enviar o comprovativo do meu pedido #${selectedOrder._id.slice(-6).toUpperCase()}. O valor é ${formatPrice(selectedOrder.totalPrice)}.`;
                     const whatsappNumber = settings?.contactPhone?.replace(/\D/g, '') || "245XXXXXXX";
                     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
                   }}

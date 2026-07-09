@@ -1,4 +1,4 @@
-﻿import React, { useState, useContext } from "react";
+�import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, LogIn, AlertCircle, Eye, EyeOff } from 'lucide-react';
 
@@ -78,7 +78,7 @@ const Login = () => {
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
         <div className="bg-blue-600 px-8 py-6 text-center">
           <h2 className="text-3xl font-extrabold text-white">Bem-vindo</h2>
-          <p className="text-blue-100 mt-2">FaÃ§a login para continuar</p>
+          <p className="text-blue-100 mt-2">Faça login para continuar</p>
         </div>
 
         <div className="p-8">
@@ -90,21 +90,21 @@ const Login = () => {
                     <AlertCircle className="text-red-600" size={32} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-extrabold mb-2">ðŸš« CONTA BLOQUEADA</h3>
+                    <h3 className="text-xl font-extrabold mb-2">�xa� CONTA BLOQUEADA</h3>
                     <p className="text-red-100 mb-4 leading-relaxed">
-                      Sua conta foi suspensa ou bloqueada. VocÃª nÃ£o pode fazer login no momento.
+                      Sua conta foi suspensa ou bloqueada. Você não pode fazer login no momento.
                     </p>
                     <div className="bg-red-700 p-4 rounded-lg">
-                      <p className="font-bold mb-2">ðŸ“ž Entre em contato com o suporte:</p>
+                      <p className="font-bold mb-2">�x~ Entre em contato com o suporte:</p>
                       <div className="space-y-1 text-sm">
                         {settings?.contactEmail && (
-                          <p>âœ‰ï¸ Email: <a href={`mailto:${settings.contactEmail} `} className="underline font-semibold">{settings.contactEmail}</a></p>
+                          <p>�S0️ Email: <a href={`mailto:${settings.contactEmail} `} className="underline font-semibold">{settings.contactEmail}</a></p>
                         )}
                         {settings?.contactPhone && (
-                          <p>ðŸ“± Telefone: <a href={`tel:${settings.contactPhone} `} className="underline font-semibold">{settings.contactPhone}</a></p>
+                          <p>�x� Telefone: <a href={`tel:${settings.contactPhone} `} className="underline font-semibold">{settings.contactPhone}</a></p>
                         )}
                         {!settings?.contactEmail && !settings?.contactPhone && (
-                          <p className="text-red-100">Por favor, entre em contato atravÃ©s da pÃ¡gina de Contato.</p>
+                          <p className="text-red-100">Por favor, entre em contato através da página de Contato.</p>
                         )}
                       </div>
                     </div>
@@ -119,7 +119,7 @@ const Login = () => {
             )}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email ou UsuÃ¡rio</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Email ou Usuário</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Mail className="text-gray-400" size={20} />
@@ -147,7 +147,7 @@ const Login = () => {
                   value={formData.password}
                   onChange={handleChange}
                   className="w-full pl-10 pr-12 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                  placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+                  placeholder="⬢⬢⬢⬢⬢⬢⬢⬢"
                 />
                 <button
                   type="button"
@@ -174,9 +174,9 @@ const Login = () => {
           </form>
 
           <div className="mt-8 text-center text-sm text-gray-600">
-            NÃ£o tem uma conta?{' '}
+            Não tem uma conta?{' '}
             <Link to="/register" className="font-bold text-blue-600 hover:text-blue-800">
-              Registre-se grÃ¡tis
+              Registre-se grátis
             </Link>
           </div>
         </div>

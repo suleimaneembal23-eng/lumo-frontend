@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useContext } from "react";
+�import React, { useState, useEffect, useContext } from "react";
 import { Table, Button, Modal, Form, Input, message, Card, Typography } from "antd";
 import { PlusOutlined, UserOutlined, ShopOutlined, LockOutlined, GlobalOutlined } from "@ant-design/icons";
 import { AuthContext } from "../context/Authcontext";
@@ -29,7 +29,7 @@ const AdminVendors = () => {
             }
         } catch (error) {
             console.error(error);
-            message.error("Erro de conexÃ£o.");
+            message.error("Erro de conexão.");
         } finally {
             setLoading(false);
         }
@@ -40,7 +40,7 @@ const AdminVendors = () => {
     }, []);
 
     const handleCreateVendor = async (values) => {
-        console.log("ðŸš€ [FRONTEND] Sending Create Vendor Request:", values);
+        console.log("�xa� [FRONTEND] Sending Create Vendor Request:", values);
         message.loading({ content: "Enviando dados...", key: "createVendor" });
 
         try {
@@ -65,14 +65,14 @@ const AdminVendors = () => {
                 message.error({ content: data.message || "Erro ao criar vendedor.", key: "createVendor" });
             }
         } catch (error) {
-            console.error("âŒ [FRONTEND] Error:", error);
-            message.error({ content: "Erro de conexÃ£o com o servidor.", key: "createVendor" });
+            console.error("�R [FRONTEND] Error:", error);
+            message.error({ content: "Erro de conexão com o servidor.", key: "createVendor" });
         }
     };
 
     const columns = [
         {
-            title: "Nome do ResponsÃ¡vel",
+            title: "Nome do Responsável",
             dataIndex: "name",
             key: "name",
             render: (text) => <span className="font-bold">{text}</span>
@@ -98,7 +98,7 @@ const AdminVendors = () => {
             key: "email",
         },
         {
-            title: "Data de CriaÃ§Ã£o",
+            title: "Data de Criação",
             dataIndex: "createdAt",
             key: "createdAt",
             render: (date) => new Date(date).toLocaleDateString(),
@@ -109,7 +109,7 @@ const AdminVendors = () => {
         <div className="p-6">
             <div className="flex justify-between items-center mb-6">
                 <div>
-                    <Title level={2} style={{ marginBottom: 0 }}>GestÃ£o de Colaboradores</Title>
+                    <Title level={2} style={{ marginBottom: 0 }}>Gestão de Colaboradores</Title>
                     <Text type="secondary">Crie e gerencie as contas dos vendedores parceiros.</Text>
                 </div>
                 <Button type="primary" size="large" icon={<PlusOutlined />} onClick={() => setIsModalVisible(true)}>
@@ -119,8 +119,8 @@ const AdminVendors = () => {
 
             {createdVendor && (
                 <div className="mb-8 p-4 bg-green-50 border border-green-200 rounded-lg animate-pulse">
-                    <h3 className="text-green-800 font-bold text-lg mb-2">âœ… Conta Criada com Sucesso!</h3>
-                    <p className="text-sm text-green-700 mb-4">Envie estas credenciais para o seu colaborador. Ele poderÃ¡ alterar a senha depois.</p>
+                    <h3 className="text-green-800 font-bold text-lg mb-2">�S& Conta Criada com Sucesso!</h3>
+                    <p className="text-sm text-green-700 mb-4">Envie estas credenciais para o seu colaborador. Ele poderá alterar a senha depois.</p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-4 rounded border border-green-100 shadow-sm">
                         <div>
@@ -128,7 +128,7 @@ const AdminVendors = () => {
                             <div className="font-mono text-lg">{createdVendor.email}</div>
                         </div>
                         <div>
-                            <span className="text-xs font-bold text-gray-500 uppercase">Senha ProvisÃ³ria</span>
+                            <span className="text-xs font-bold text-gray-500 uppercase">Senha Provisória</span>
                             <div className="font-mono text-lg font-bold text-blue-600 flex items-center gap-2">
                                 {createdVendor.password}
                                 <span className="cursor-pointer text-gray-400 hover:text-blue-600 border px-1 rounded text-xs" onClick={() => { navigator.clipboard.writeText(createdVendor.password); message.success("Senha copiada!") }}>
@@ -169,26 +169,26 @@ const AdminVendors = () => {
                 <Form layout="vertical" onFinish={handleCreateVendor} form={form}>
                     <Form.Item
                         name="name"
-                        label="Nome do ResponsÃ¡vel"
-                        rules={[{ required: true, message: "Insira o nome do responsÃ¡vel" }]}
+                        label="Nome do Responsável"
+                        rules={[{ required: true, message: "Insira o nome do responsável" }]}
                     >
-                        <Input prefix={<UserOutlined />} placeholder="Ex: JoÃ£o da Silva" />
+                        <Input prefix={<UserOutlined />} placeholder="Ex: João da Silva" />
                     </Form.Item>
 
                     <Form.Item
                         name="email"
                         label="Email de Acesso"
-                        rules={[{ required: true, type: "email", message: "Insira um email vÃ¡lido" }]}
+                        rules={[{ required: true, type: "email", message: "Insira um email válido" }]}
                     >
                         <Input prefix={<UserOutlined />} placeholder="colaborador@exemplo.com" />
                     </Form.Item>
 
                     <Form.Item
                         name="storeName"
-                        label="Nome da Loja (PÃºblico)"
+                        label="Nome da Loja (Público)"
                         rules={[{ required: true, message: "Insira o nome da loja" }]}
                     >
-                        <Input prefix={<ShopOutlined />} placeholder="Ex: FarmÃ¡cia Central" />
+                        <Input prefix={<ShopOutlined />} placeholder="Ex: Farmácia Central" />
                     </Form.Item>
 
                     <Form.Item
@@ -196,17 +196,17 @@ const AdminVendors = () => {
                         label="URL da Loja (Slug)"
                         initialValue=""
                         rules={[
-                            { required: true, message: "Insira a URL amigÃ¡vel" },
-                            { pattern: /^[a-z0-9-]+$/, message: "Apenas letras minÃºsculas, nÃºmeros e hifens." }
+                            { required: true, message: "Insira a URL amigável" },
+                            { pattern: /^[a-z0-9-]+$/, message: "Apenas letras minúsculas, números e hifens." }
                         ]}
-                        tooltip={`O endereÃ§o da loja serÃ¡: ${window.location.host}/store/seu-slug`}
+                        tooltip={`O endereço da loja será: ${window.location.host}/store/seu-slug`}
                     >
                         <Input addonBefore={`${window.location.host}/store/`} placeholder="minha-loja" />
                     </Form.Item>
 
                     <Form.Item
                         name="password"
-                        label="Senha ProvisÃ³ria"
+                        label="Senha Provisória"
                         initialValue={`Mudar123!${Math.floor(Math.random() * 1000)}`}
                         rules={[{ required: true, message: "Insira uma senha" }]}
                     >

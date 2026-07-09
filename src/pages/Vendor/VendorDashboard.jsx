@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useContext } from 'react';
+�import React, { useEffect, useState, useContext } from 'react';
 import { Card, Statistic, Row, Col, Typography, Spin, Table, Tag } from 'antd';
 import {
     DollarOutlined,
@@ -30,7 +30,7 @@ const VendorDashboard = () => {
                 const products = await resProducts.json();
 
                 // 2. Minhas Vendas
-                // NOTA: Idealmente terÃ­amos rota /api/orders/vendor-earnings. 
+                // NOTA: Idealmente teríamos rota /api/orders/vendor-earnings. 
                 // Por enquando vou buscar e filtrar no front se a rota /vendor retornar tudo.
                 // Vou assumir que o backend filtra ou vou filtrar aqui.
                 const resOrders = await fetch("/api/orders/vendor", {
@@ -38,17 +38,17 @@ const VendorDashboard = () => {
                 });
                 const orders = await resOrders.json();
 
-                // 3. ðŸ§® CALCULAR SALDO REAL (Iterar sobre itens)
+                // 3. �x�� CALCULAR SALDO REAL (Iterar sobre itens)
                 let totalEarnings = 0;
                 let mySalesCount = 0;
 
-                // SeguranÃ§a: Caso o backend retorne erro ou nÃ£o array
+                // Segurança: Caso o backend retorne erro ou não array
                 if (Array.isArray(orders)) {
                     orders.forEach(order => {
                         if (order.items) {
                             order.items.forEach(item => {
                                 // Verifica se o item tem vendorNet (nova estrutura)
-                                // Se tiver, soma. Se nÃ£o tiver (pedidos antigos), ignora ou usa lÃ³gica antiga.
+                                // Se tiver, soma. Se não tiver (pedidos antigos), ignora ou usa lógica antiga.
                                 if (item.vendorNet) {
                                     totalEarnings += item.vendorNet;
                                 }
@@ -59,7 +59,7 @@ const VendorDashboard = () => {
                 }
 
                 setStats({
-                    totalSales: totalEarnings, // ðŸ’° Saldo LÃ­quido Real!
+                    totalSales: totalEarnings, // �x� Saldo Líquido Real!
                     totalOrders: mySalesCount,
                     totalProducts: products.length || 0,
                     recentOrders: Array.isArray(orders) ? orders.slice(0, 5) : []
@@ -80,22 +80,22 @@ const VendorDashboard = () => {
     return (
         <div>
             <div className="mb-6">
-                <Title level={2}>OlÃ¡, {user?.name.split(' ')[0]} ðŸ‘‹</Title>
-                <Text type="secondary">Aqui estÃ¡ o resumo da sua loja <strong>{user?.vendorInfo?.storeName}</strong></Text>
+                <Title level={2}>Olá, {user?.name.split(' ')[0]} �x9</Title>
+                <Text type="secondary">Aqui está o resumo da sua loja <strong>{user?.vendorInfo?.storeName}</strong></Text>
             </div>
 
             <Row gutter={[16, 16]} className="mb-8">
                 <Col xs={24} sm={8}>
                     <Card bordered={false} className="shadow-sm rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 text-white">
                         <Statistic
-                            title={<span className="text-green-100 font-medium">Saldo DisponÃ­vel (LÃ­quido)</span>}
+                            title={<span className="text-green-100 font-medium">Saldo Disponível (Líquido)</span>}
                             value={Math.round(stats.totalSales).toLocaleString('de-DE')}
                             suffix="FCFA"
                             valueStyle={{ color: 'white', fontWeight: 'bold', fontSize: '1.6rem' }}
                         />
                         <DollarOutlined className="absolute right-4 top-4 text-green-200 opacity-40 text-6xl" />
                         <div className="mt-2 text-xs text-green-100 bg-white/20 inline-block px-2 py-1 rounded">
-                            {user?.vendorInfo?.subscription?.isActive ? "ðŸ’Ž Taxa Semestral (0%)" : "ðŸ“‰ Taxas Aplicadas (10% + 500 FCFA)"}
+                            {user?.vendorInfo?.subscription?.isActive ? "�x} Taxa Semestral (0%)" : "�x0 Taxas Aplicadas (10% + 500 FCFA)"}
                         </div>
                     </Card>
                 </Col>
@@ -134,7 +134,7 @@ const VendorDashboard = () => {
                                         <li key={idx} className="mb-1">
                                             <strong>{item.quantity}x</strong> {item.name} 
                                             <span className="text-gray-500 ml-2">
-                                                (Ref: â‚¬{item.price?.toFixed(2)} / Ganho LÃ­quido: <span className="text-green-600 font-bold">â‚¬{item.vendorNet?.toFixed(2) || "N/A"}</span>)
+                                                (Ref: ��{item.price?.toFixed(2)} / Ganho Líquido: <span className="text-green-600 font-bold">��{item.vendorNet?.toFixed(2) || "N/A"}</span>)
                                             </span>
                                         </li>
                                     ))}

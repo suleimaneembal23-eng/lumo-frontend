@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useContext } from "react";
+�import React, { useState, useEffect, useContext } from "react";
 import {
   Layout,
   Tabs,
@@ -83,7 +83,7 @@ const MyProfile = () => {
       }
     } catch (err) {
       console.error(err);
-      message.error("Erro de conexÃ£o");
+      message.error("Erro de conexão");
     } finally {
       setLoading(false);
     }
@@ -160,7 +160,7 @@ const MyProfile = () => {
       }
     } catch (err) {
       console.error(err);
-      message.error("Erro de conexÃ£o");
+      message.error("Erro de conexão");
     } finally {
       setUpdating(false);
     }
@@ -204,7 +204,7 @@ const MyProfile = () => {
       },
     },
     {
-      title: "AÃ§Ãµes",
+      title: "Ações",
       key: "actions",
       render: (_, record) => (
         <Button size="small" onClick={() => navigate(`/order/${record._id}`)}>
@@ -269,7 +269,7 @@ const MyProfile = () => {
                   </Col>
 
                   <Col span={24}>
-                    <Form.Item name="addressLine1" label="EndereÃ§o (Rua, NÃºmero, Bairro)">
+                    <Form.Item name="addressLine1" label="Endereço (Rua, Número, Bairro)">
                       <Input prefix={<HomeOutlined />} size="large" placeholder="Ex: Rua das Flores, 123" />
                     </Form.Item>
                   </Col>
@@ -279,7 +279,7 @@ const MyProfile = () => {
                     </Form.Item>
                   </Col>
                   <Col span={12}>
-                    <Form.Item name="country" label="PaÃ­s">
+                    <Form.Item name="country" label="País">
                       <Input size="large" placeholder="Ex: Angola" />
                     </Form.Item>
                   </Col>
@@ -297,7 +297,7 @@ const MyProfile = () => {
                     size="large"
                     style={{ background: settings?.primaryColor, borderColor: settings?.primaryColor }}
                   >
-                    Salvar AlteraÃ§Ãµes
+                    Salvar Alterações
                   </Button>
                 </Form.Item>
               </Form>
@@ -311,12 +311,12 @@ const MyProfile = () => {
                 rowKey="_id"
                 loading={loadingOrders}
                 pagination={{ pageSize: 5 }}
-                locale={{ emptyText: "VocÃª ainda nÃ£o fez nenhum pedido." }}
+                locale={{ emptyText: "Você ainda não fez nenhum pedido." }}
               />
             </TabPane>
 
-            {/* ABA 3: SEGURANÃ‡A */}
-            <TabPane tab={<span><LockOutlined /> SeguranÃ§a</span>} key="3">
+            {/* ABA 3: SEGURAN�!A */}
+            <TabPane tab={<span><LockOutlined /> Segurança</span>} key="3">
               <div style={{ maxWidth: 500, margin: "20px auto 0" }}>
                 <Title level={4} style={{ textAlign: "center", marginBottom: 24 }}>Alterar Senha</Title>
                 <Form
@@ -354,7 +354,7 @@ const MyProfile = () => {
                           if (!value || getFieldValue('newPassword') === value) {
                             return Promise.resolve();
                           }
-                          return Promise.reject(new Error('As senhas nÃ£o coincidem!'));
+                          return Promise.reject(new Error('As senhas não coincidem!'));
                         },
                       }),
                     ]}
@@ -383,7 +383,7 @@ const MyProfile = () => {
                   <Space direction="vertical" size="large" style={{ width: "100%" }}>
                     <Popconfirm
                       title="Suspender Conta"
-                      description="Tem certeza? VocÃª nÃ£o poderÃ¡ fazer login atÃ© reativar sua conta."
+                      description="Tem certeza? Você não poderá fazer login até reativar sua conta."
                       onConfirm={async () => {
                         try {
                           const res = await fetch(`/api/clients/${user.id}/suspend`, {
@@ -391,13 +391,13 @@ const MyProfile = () => {
                             headers: { Authorization: `Bearer ${user.token}` }
                           });
                           if (res.ok) {
-                            message.success("Conta suspensa. VocÃª serÃ¡ desconectado.");
+                            message.success("Conta suspensa. Você será desconectado.");
                             setTimeout(() => { logout(); navigate("/"); }, 2000);
                           } else {
                             message.error("Erro ao suspender conta");
                           }
                         } catch (err) {
-                          message.error("Erro de conexÃ£o");
+                          message.error("Erro de conexão");
                         }
                       }}
                       okText="Sim, suspender"
@@ -413,8 +413,8 @@ const MyProfile = () => {
                       title="Eliminar Conta Permanentemente"
                       description={
                         <div>
-                          <p style={{ color: "#ef4444", fontWeight: "bold" }}>âš ï¸ ATENÃ‡ÃƒO: Esta aÃ§Ã£o Ã© IRREVERSÃVEL!</p>
-                          <p>Todos os seus dados, pedidos e histÃ³rico serÃ£o permanentemente deletados.</p>
+                          <p style={{ color: "#ef4444", fontWeight: "bold" }}>�a�️ ATEN�!ÒO: Esta ação é IRREVERSÍVEL!</p>
+                          <p>Todos os seus dados, pedidos e histórico serão permanentemente deletados.</p>
                         </div>
                       }
                       onConfirm={async () => {
@@ -430,7 +430,7 @@ const MyProfile = () => {
                             message.error("Erro ao eliminar conta");
                           }
                         } catch (err) {
-                          message.error("Erro de conexÃ£o");
+                          message.error("Erro de conexão");
                         }
                       }}
                       okText="Sim, eliminar permanentemente"

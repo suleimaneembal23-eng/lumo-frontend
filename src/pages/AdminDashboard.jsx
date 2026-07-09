@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+�import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -55,7 +55,7 @@ const AdminDashboard = () => {
       }
     } catch (err) {
       console.error(err);
-      message.error("Falha de conexÃ£o com o servidor");
+      message.error("Falha de conexão com o servidor");
       setError(true);
     } finally {
       setLoading(false);
@@ -68,7 +68,7 @@ const AdminDashboard = () => {
     } else {
       setLoading(false);
       setError(true);
-      message.warning("SessÃ£o expirada. FaÃ§a login novamente.");
+      message.warning("Sessão expirada. Faça login novamente.");
     }
   }, [token]);
 
@@ -83,13 +83,13 @@ const AdminDashboard = () => {
   if (error || !stats) {
     return (
       <div style={{ textAlign: "center", marginTop: 50 }}>
-        <Title level={4} type="danger">NÃ£o foi possÃ­vel carregar o dashboard</Title>
+        <Title level={4} type="danger">Não foi possível carregar o dashboard</Title>
         <Button type="primary" onClick={fetchStats}>Tentar Novamente</Button>
       </div>
     )
   }
 
-  // Cards de EstatÃ­sticas com Gradiente
+  // Cards de Estatísticas com Gradiente
   const StatCard = ({ title, value, icon, color1, color2, prefix }) => (
     <Card
       bordered={false}
@@ -129,7 +129,7 @@ const AdminDashboard = () => {
     <div style={{ paddingBottom: 40 }}>
       <div style={{ marginBottom: 30 }}>
         <Title level={2} style={{ marginBottom: 0 }}>Dashboard</Title>
-        <Text type="secondary">VisÃ£o geral do desempenho da loja</Text>
+        <Text type="secondary">Visão geral do desempenho da loja</Text>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -158,7 +158,7 @@ const AdminDashboard = () => {
 
               return (
                 <p className={`text-sm font-medium mt-2 flex items-center gap-1 ${isPositive ? 'text-green-500' : 'text-red-500'}`}>
-                  <RocketOutlined /> {isPositive ? '+' : ''}{growth}% este mÃªs
+                  <RocketOutlined /> {isPositive ? '+' : ''}{growth}% este mês
                 </p>
               );
             })()}
@@ -201,7 +201,7 @@ const AdminDashboard = () => {
             <h3 className="text-3xl font-extrabold text-slate-800 m-0 tracking-tight">
               {stats.totalProducts}
             </h3>
-            <p className="text-sm text-gray-400 mt-2 font-medium">No catÃ¡logo</p>
+            <p className="text-sm text-gray-400 mt-2 font-medium">No catálogo</p>
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
         </div>
@@ -298,7 +298,7 @@ const AdminDashboard = () => {
       <Row gutter={[24, 24]} style={{ marginTop: 24 }}>
         <Col xs={24}>
           <Card
-            title={<Title level={4} style={{ margin: 0 }}>ðŸ“Š HistÃ³rico de Vendas Mensais</Title>}
+            title={<Title level={4} style={{ margin: 0 }}>�x` Histórico de Vendas Mensais</Title>}
             bordered={false}
             style={{ borderRadius: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}
           >
@@ -307,10 +307,10 @@ const AdminDashboard = () => {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b-2 border-gray-200">
-                      <th className="text-left py-3 px-4 text-gray-600 font-semibold">MÃªs</th>
+                      <th className="text-left py-3 px-4 text-gray-600 font-semibold">Mês</th>
                       <th className="text-right py-3 px-4 text-gray-600 font-semibold">Pedidos</th>
                       <th className="text-right py-3 px-4 text-gray-600 font-semibold">Faturamento</th>
-                      <th className="text-right py-3 px-4 text-gray-600 font-semibold">MÃ©dia/Pedido</th>
+                      <th className="text-right py-3 px-4 text-gray-600 font-semibold">Média/Pedido</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -345,7 +345,7 @@ const AdminDashboard = () => {
               </div>
             ) : (
               <div className="text-center py-8 text-gray-400">
-                <p>Nenhum dado de vendas disponÃ­vel ainda.</p>
+                <p>Nenhum dado de vendas disponível ainda.</p>
               </div>
             )}
           </Card>

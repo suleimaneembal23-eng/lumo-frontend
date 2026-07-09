@@ -1,4 +1,4 @@
-﻿import React, { useContext } from 'react';
+�import React, { useContext } from 'react';
 import { Facebook, Instagram, Twitter, MapPin, Mail, Phone, Heart } from 'lucide-react';
 import { SettingsContext } from '../context/SettingsContext';
 
@@ -16,7 +16,7 @@ const Footer = () => {
                             {settings?.siteName || "Loja Online"}
                         </h2>
                         <p className="text-sm leading-relaxed text-gray-400">
-                            A sua loja online de eleiÃ§Ã£o. Qualidade premium, entrega rÃ¡pida e dedicaÃ§Ã£o Ã  excelÃªncia.
+                            A sua loja online de eleição. Qualidade premium, entrega rápida e dedicação à excelência.
                         </p>
                         <div className="flex space-x-4 pt-2">
                             <a href="#" className="hover:text-white transition-colors"><Facebook size={20} /></a>
@@ -62,10 +62,10 @@ const Footer = () => {
 
                     {/* Links 1 */}
                     <div>
-                        <h3 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">NavegaÃ§Ã£o</h3>
+                        <h3 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Navegação</h3>
                         <ul className="space-y-2 text-sm">
-                            <li><a href="/" className="hover:text-white transition-colors">InÃ­cio</a></li>
-                            <li><a href="/products" className="hover:text-white transition-colors">CatÃ¡logo</a></li>
+                            <li><a href="/" className="hover:text-white transition-colors">Início</a></li>
+                            <li><a href="/products" className="hover:text-white transition-colors">Catálogo</a></li>
                             <li><a href="/cart" className="hover:text-white transition-colors">Carrinho</a></li>
                             <li><a href="/profile/orders" className="hover:text-white transition-colors">Meus Pedidos</a></li>
                         </ul>
@@ -77,9 +77,9 @@ const Footer = () => {
                         <ul className="space-y-2 text-sm">
                             <li><a href="/shipping" className="hover:text-white transition-colors">Envios: {settings?.maxShippingDays || "3-5"} dias</a></li>
                             <li><a href="/track-order" className="hover:text-white transition-colors">Rastrear Pedido</a></li>
-                            <li><a href="/returns" className="hover:text-white transition-colors">DevoluÃ§Ãµes: {settings?.returnPolicyDays || "30"} dias</a></li>
-                            <li><a href="/terms" className="hover:text-white transition-colors">Termos e CondiÃ§Ãµes</a></li>
-                            <li><a href="/privacy-policy" className="hover:text-white transition-colors">PolÃ­tica de Privacidade</a></li>
+                            <li><a href="/returns" className="hover:text-white transition-colors">Devoluções: {settings?.returnPolicyDays || "30"} dias</a></li>
+                            <li><a href="/terms" className="hover:text-white transition-colors">Termos e Condições</a></li>
+                            <li><a href="/privacy-policy" className="hover:text-white transition-colors">Política de Privacidade</a></li>
                             <li><a href="/faq" className="hover:text-white transition-colors">FAQ</a></li>
                         </ul>
                     </div>
@@ -90,11 +90,11 @@ const Footer = () => {
                         <ul className="space-y-4 text-sm">
                             <li className="flex items-start gap-3">
                                 <MapPin size={18} className="mt-0.5 text-blue-500" style={{ color: settings?.primaryColor }} />
-                                <span>{settings?.address || "EndereÃ§o nÃ£o configurado"}</span>
+                                <span>{settings?.address || "Endereço não configurado"}</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone size={18} className="text-blue-500" style={{ color: settings?.primaryColor }} />
-                                <span>{settings?.contactPhone || "Telefone nÃ£o configurado"}</span>
+                                <span>{settings?.contactPhone || "Telefone não configurado"}</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail size={18} className="text-blue-500" style={{ color: settings?.primaryColor }} />

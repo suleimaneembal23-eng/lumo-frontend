@@ -1,4 +1,4 @@
-﻿import React, { useContext } from "react";
+�import React, { useContext } from "react";
 import { SettingsContext } from "../context/SettingsContext";
 import { 
   ShieldCheck, 
@@ -18,78 +18,78 @@ const PrivacyPolicy = () => {
 
     const sections = [
         {
-            title: "1. InformaÃ§Ãµes que Recolhemos",
+            title: "1. Informações que Recolhemos",
             icon: <Database className="w-6 h-6 text-blue-600" />,
             content: (
                 <>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                        Na {siteName}, a transparÃªncia Ã© o nosso principal compromisso. Para garantir a melhor experiÃªncia de compra, recolhemos as seguintes categorias de informaÃ§Ãµes:
+                        Na {siteName}, a transparência é o nosso principal compromisso. Para garantir a melhor experiência de compra, recolhemos as seguintes categorias de informações:
                     </p>
                     <ul className="space-y-3 text-gray-600 ml-2">
                         <li className="flex items-start gap-3">
                             <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 shrink-0"></span>
-                            <span><strong className="text-gray-900">Dados de IdentificaÃ§Ã£o:</strong> Nome completo, endereÃ§o de correio eletrÃ³nico, nÃºmero de telemÃ³vel e morada de faturaÃ§Ã£o/entrega.</span>
+                            <span><strong className="text-gray-900">Dados de Identificação:</strong> Nome completo, endereço de correio eletrónico, número de telemóvel e morada de faturação/entrega.</span>
                         </li>
                         <li className="flex items-start gap-3">
                             <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 shrink-0"></span>
-                            <span><strong className="text-gray-900">Detalhes de TransaÃ§Ã£o:</strong> HistÃ³rico de encomendas, produtos favoritos, tamanhos habituais e mÃ©todo de pagamento escolhido. Os dados do cartÃ£o nÃ£o sÃ£o guardados nos nossos servidores; sÃ£o processados de forma segura por gateways certificados.</span>
+                            <span><strong className="text-gray-900">Detalhes de Transação:</strong> Histórico de encomendas, produtos favoritos, tamanhos habituais e método de pagamento escolhido. Os dados do cartão não são guardados nos nossos servidores; são processados de forma segura por gateways certificados.</span>
                         </li>
                         <li className="flex items-start gap-3">
                             <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 shrink-0"></span>
-                            <span><strong className="text-gray-900">Dados TÃ©cnicos:</strong> EndereÃ§o IP, tipo de navegador, fuso horÃ¡rio e sistema operativo utilizado para aceder Ã  plataforma.</span>
+                            <span><strong className="text-gray-900">Dados Técnicos:</strong> Endereço IP, tipo de navegador, fuso horário e sistema operativo utilizado para aceder à plataforma.</span>
                         </li>
                     </ul>
                 </>
             )
         },
         {
-            title: "2. UtilizaÃ§Ã£o dos Seus Dados",
+            title: "2. Utilização dos Seus Dados",
             icon: <Eye className="w-6 h-6 text-blue-600" />,
             content: (
                 <>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                        Os dados que partilha connosco tÃªm um propÃ³sito claro: tornar a sua experiÃªncia de compra incrivelmente fluida e segura. Utilizamos as suas informaÃ§Ãµes exclusivamente para:
+                        Os dados que partilha connosco têm um propósito claro: tornar a sua experiência de compra incrivelmente fluida e segura. Utilizamos as suas informações exclusivamente para:
                     </p>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600">
                         <li className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-center gap-3">
-                            <span className="text-xl">ðŸ“¦</span> Processar e enviar encomendas
+                            <span className="text-xl">�x�</span> Processar e enviar encomendas
                         </li>
                         <li className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-center gap-3">
-                            <span className="text-xl">ðŸ’³</span> Gerir pagamentos e reembolsos
+                            <span className="text-xl">�x�</span> Gerir pagamentos e reembolsos
                         </li>
                         <li className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-center gap-3">
-                            <span className="text-xl">ðŸ””</span> Enviar atualizaÃ§Ãµes de rastreio
+                            <span className="text-xl">�x</span> Enviar atualizações de rastreio
                         </li>
                         <li className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-center gap-3">
-                            <span className="text-xl">ðŸ›¡ï¸</span> Prevenir atividades fraudulentas
+                            <span className="text-xl">�x:�️</span> Prevenir atividades fraudulentas
                         </li>
                     </ul>
                 </>
             )
         },
         {
-            title: "3. SeguranÃ§a e EncriptaÃ§Ã£o",
+            title: "3. Segurança e Encriptação",
             icon: <Lock className="w-6 h-6 text-blue-600" />,
             content: (
                 <>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                        A seguranÃ§a dos seus dados Ã© a nossa prioridade nÃºmero um. Implementamos uma infraestrutura robusta para proteger as suas informaÃ§Ãµes contra acessos nÃ£o autorizados.
+                        A segurança dos seus dados é a nossa prioridade número um. Implementamos uma infraestrutura robusta para proteger as suas informações contra acessos não autorizados.
                     </p>
                     <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 text-blue-900">
-                        <p className="font-bold mb-2">CertificaÃ§Ã£o SSL/TLS</p>
+                        <p className="font-bold mb-2">Certificação SSL/TLS</p>
                         <p className="text-sm opacity-90">
-                            Todas as comunicaÃ§Ãµes entre o seu dispositivo e os nossos servidores sÃ£o encriptadas de ponta-a-ponta utilizando protocolos de seguranÃ§a de nÃ­vel bancÃ¡rio. Nenhuma informaÃ§Ã£o pessoal viaja em texto limpo.
+                            Todas as comunicações entre o seu dispositivo e os nossos servidores são encriptadas de ponta-a-ponta utilizando protocolos de segurança de nível bancário. Nenhuma informação pessoal viaja em texto limpo.
                         </p>
                     </div>
                 </>
             )
         },
         {
-            title: "4. PolÃ­tica de Cookies",
+            title: "4. Política de Cookies",
             icon: <Cookie className="w-6 h-6 text-blue-600" />,
             content: (
                 <p className="text-gray-600 leading-relaxed">
-                    A {siteName} utiliza "cookies" e tecnologias semelhantes para melhorar o desempenho do site, guardar os itens no seu carrinho de compras e analisar o trÃ¡fego da plataforma. Ao continuar a navegar, o utilizador concorda com o uso destas tecnologias. Pode gerir ou desativar os cookies a qualquer momento nas configuraÃ§Ãµes do seu navegador.
+                    A {siteName} utiliza "cookies" e tecnologias semelhantes para melhorar o desempenho do site, guardar os itens no seu carrinho de compras e analisar o tráfego da plataforma. Ao continuar a navegar, o utilizador concorda com o uso destas tecnologias. Pode gerir ou desativar os cookies a qualquer momento nas configurações do seu navegador.
                 </p>
             )
         },
@@ -99,10 +99,10 @@ const PrivacyPolicy = () => {
             content: (
                 <>
                     <p className="text-gray-600 mb-4 leading-relaxed">
-                        Em conformidade com a legislaÃ§Ã£o de proteÃ§Ã£o de dados, garantimos-lhe total controlo sobre as suas informaÃ§Ãµes:
+                        Em conformidade com a legislação de proteção de dados, garantimos-lhe total controlo sobre as suas informações:
                     </p>
                     <div className="flex flex-wrap gap-2">
-                        {["Direito ao Acesso", "Direito Ã  RetificaÃ§Ã£o", "Direito ao Esquecimento", "Portabilidade de Dados", "OposiÃ§Ã£o ao Tratamento"].map((direito, idx) => (
+                        {["Direito ao Acesso", "Direito à Retificação", "Direito ao Esquecimento", "Portabilidade de Dados", "Oposição ao Tratamento"].map((direito, idx) => (
                             <span key={idx} className="px-4 py-2 bg-white border border-gray-200 shadow-sm rounded-full text-sm font-bold text-gray-700">
                                 {direito}
                             </span>
@@ -112,11 +112,11 @@ const PrivacyPolicy = () => {
             )
         },
         {
-            title: "6. AlteraÃ§Ãµes Ã  PolÃ­tica",
+            title: "6. Alterações à Política",
             icon: <RefreshCw className="w-6 h-6 text-blue-600" />,
             content: (
                 <p className="text-gray-600 leading-relaxed">
-                    A evoluÃ§Ã£o contÃ­nua da nossa plataforma pode exigir atualizaÃ§Ãµes periÃ³dicas a este documento. Sempre que ocorrerem alteraÃ§Ãµes substanciais na forma como processamos os seus dados, enviaremos um aviso claro por e-mail ou atravÃ©s de um destaque no topo do nosso website.
+                    A evolução contínua da nossa plataforma pode exigir atualizações periódicas a este documento. Sempre que ocorrerem alterações substanciais na forma como processamos os seus dados, enviaremos um aviso claro por e-mail ou através de um destaque no topo do nosso website.
                 </p>
             )
         }
@@ -131,13 +131,13 @@ const PrivacyPolicy = () => {
                         <ShieldCheck size={40} />
                     </div>
                     <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">
-                        PolÃ­tica de Privacidade
+                        Política de Privacidade
                     </h1>
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-                        O seu compromisso com a {siteName} merece a nossa total transparÃªncia. Saiba como protegemos os seus dados todos os dias.
+                        O seu compromisso com a {siteName} merece a nossa total transparência. Saiba como protegemos os seus dados todos os dias.
                     </p>
                     <div className="mt-6 inline-block bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-                        <span className="text-sm font-bold text-gray-400">Ãšltima atualizaÃ§Ã£o:</span>
+                        <span className="text-sm font-bold text-gray-400">�altima atualização:</span>
                         <span className="text-sm font-bold text-gray-700 ml-2">{new Date().toLocaleDateString("pt-PT")}</span>
                     </div>
                 </div>
@@ -167,8 +167,8 @@ const PrivacyPolicy = () => {
                     <div className="bg-gray-900 text-white p-8 md:p-12">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                             <div>
-                                <h3 className="text-2xl font-bold mb-2">Tem alguma dÃºvida?</h3>
-                                <p className="text-gray-400">O nosso Encarregado de ProteÃ§Ã£o de Dados (DPO) estÃ¡ disponÃ­vel para o ajudar.</p>
+                                <h3 className="text-2xl font-bold mb-2">Tem alguma dúvida?</h3>
+                                <p className="text-gray-400">O nosso Encarregado de Proteção de Dados (DPO) está disponível para o ajudar.</p>
                             </div>
                             <a 
                                 href={`mailto:${contactEmail}`}
@@ -183,7 +183,7 @@ const PrivacyPolicy = () => {
 
                 {/* Footer simple text */}
                 <div className="text-center mt-12 text-gray-400 text-sm font-medium">
-                    Â© {new Date().getFullYear()} {siteName}. Protegemos aquilo que Ã© seu.
+                    © {new Date().getFullYear()} {siteName}. Protegemos aquilo que é seu.
                 </div>
             </div>
         </div>

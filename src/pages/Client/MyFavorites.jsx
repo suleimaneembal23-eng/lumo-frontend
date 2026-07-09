@@ -1,17 +1,17 @@
-﻿
+�
 import React, { useEffect, useState, useContext } from "react";
 import { Card, Row, Col, Spin, Typography, Button, message, Empty, Tooltip } from "antd";
 import { HeartTwoTone, EyeOutlined, DeleteOutlined, ShoppingOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/Authcontext";
-import { SettingsContext } from "../../context/SettingsContext"; // ContÃ©m a moeda e a cor primÃ¡ria
+import { SettingsContext } from "../../context/SettingsContext"; // Contém a moeda e a cor primária
 import { usePromotions } from "../../hooks/usePromotions"; // Import hook
 
 const { Title, Text } = Typography;
 
 const MyFavorites = () => {
   const { user } = useContext(AuthContext);
-  // Capturando 'currency' e 'locale' do settings para formataÃ§Ã£o dinÃ¢mica
+  // Capturando 'currency' e 'locale' do settings para formatação dinâmica
   const { settings } = useContext(SettingsContext);
   const { calculateDiscountedPrice } = usePromotions(); // Hook usage
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const MyFavorites = () => {
   const currentLocale = settings?.locale || "pt-PT";
   const primaryColor = settings?.primaryColor || "#1890ff";
 
-  // FunÃ§Ã£o para formataÃ§Ã£o de preÃ§o dinÃ¢mica e profissional
+  // Função para formatação de preço dinâmica e profissional
   const formatPrice = (price) => {
     return new Intl.NumberFormat(currentLocale, {
       style: 'currency',
@@ -56,7 +56,7 @@ const MyFavorites = () => {
   };
 
   const handleRemoveFavorite = async (productId) => {
-    if (!user) return message.warning("FaÃ§a login para remover favoritos");
+    if (!user) return message.warning("Faça login para remover favoritos");
 
     // Otimismo de UI: remove localmente antes de receber a resposta do servidor
     const originalFavorites = favorites;
@@ -79,7 +79,7 @@ const MyFavorites = () => {
     } catch (err) {
       console.error(err);
       setFavorites(originalFavorites); // Reverte a lista
-      message.error("Erro de conexÃ£o ao remover favorito");
+      message.error("Erro de conexão ao remover favorito");
     }
   };
 
@@ -105,7 +105,7 @@ const MyFavorites = () => {
     );
 
   if (!user)
-    return <p style={{ textAlign: "center", padding: "40px" }}>FaÃ§a login para ver seus favoritos</p>;
+    return <p style={{ textAlign: "center", padding: "40px" }}>Faça login para ver seus favoritos</p>;
 
   return (
     <div
@@ -134,10 +134,10 @@ const MyFavorites = () => {
           description={
             <>
               <Text strong style={{ fontSize: 18, color: '#595959' }}>
-                Sua lista de desejos estÃ¡ vazia!
+                Sua lista de desejos está vazia!
               </Text>
               <Text style={{ display: 'block', marginTop: 8 }}>
-                Explore nossos produtos e adicione aqueles que vocÃª mais gosta.
+                Explore nossos produtos e adicione aqueles que você mais gosta.
               </Text>
             </>
           }
@@ -148,7 +148,7 @@ const MyFavorites = () => {
             onClick={() => navigate("/")}
             style={{ fontWeight: 'bold' }}
           >
-            ComeÃ§ar a Comprar
+            Começar a Comprar
           </Button>
         </Empty>
       )}
@@ -206,14 +206,14 @@ const MyFavorites = () => {
                       </div>
                     )}
 
-                    {/* BotÃ£o de remoÃ§Ã£o discreto, mas acessÃ­vel, com Tooltip */}
+                    {/* Botão de remoção discreto, mas acessível, com Tooltip */}
                     <Tooltip title="Remover dos favoritos">
                       <Button
                         type="primary"
                         danger
                         icon={<DeleteOutlined />}
                         shape="circle"
-                        size="small" // Ãcone menor e mais discreto
+                        size="small" // Ícone menor e mais discreto
                         onClick={(e) => {
                           e.stopPropagation();
                           handleRemoveFavorite(product._id);
@@ -223,7 +223,7 @@ const MyFavorites = () => {
                           top: 12,
                           right: 12,
                           zIndex: 10,
-                          backgroundColor: primaryColor, // Usando a cor primÃ¡ria para destaque
+                          backgroundColor: primaryColor, // Usando a cor primária para destaque
                           border: 'none',
                           opacity: 0.8, // Mais sutil
                         }}
@@ -255,7 +255,7 @@ const MyFavorites = () => {
                     ) : (
                       <Text
                         style={{
-                          fontSize: 22, // PreÃ§o em destaque
+                          fontSize: 22, // Preço em destaque
                           color: primaryColor,
                           fontWeight: 800,
                           display: 'block',
@@ -270,7 +270,7 @@ const MyFavorites = () => {
                     type="primary"
                     icon={<EyeOutlined />}
                     block
-                    size="large" // BotÃ£o maior para CTA
+                    size="large" // Botão maior para CTA
                     style={{ borderRadius: 8, fontWeight: "bold" }}
                     onClick={() => navigate(`/product/${product._id}`)}
                   >

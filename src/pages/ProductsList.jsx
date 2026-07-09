@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useContext } from 'react';
+�import React, { useState, useEffect, useContext } from 'react';
 import { Slider, Checkbox, Select, Empty, Spin, Input } from 'antd';
 import { Filter, Search } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
@@ -53,7 +53,7 @@ const ProductsList = () => {
                     setProducts(data);
                     setFilteredProducts(data);
 
-                    // Calcular preÃ§o mÃ¡ximo para o slider
+                    // Calcular preço máximo para o slider
                     const max = Math.max(...data.map(p => p.price), 500);
                     setMaxPrice(Math.ceil(max));
                     setPriceRange([0, Math.ceil(max)]);
@@ -68,14 +68,14 @@ const ProductsList = () => {
         fetchProducts();
     }, []);
 
-    // LÃ³gica de Filtragem e OrdenaÃ§Ã£o
+    // Lógica de Filtragem e Ordenação
     useEffect(() => {
-        // ðŸš€ Aplica descontos globais antes de filtrar
+        // �xa� Aplica descontos globais antes de filtrar
         let result = products.map(p => {
             const discounted = calculateDiscountedPrice(p);
             return {
                 ...discounted,
-                price: discounted.finalPrice, // Atualiza preÃ§o principal para o Card
+                price: discounted.finalPrice, // Atualiza preço principal para o Card
                 originalPrice: discounted.originalPrice
             };
         });
@@ -90,17 +90,17 @@ const ProductsList = () => {
         // 2. Categorias
         if (selectedCategories.length > 0) {
             result = result.filter(p =>
-                // Se o produto tem array de categorias ou string Ãºnica
+                // Se o produto tem array de categorias ou string única
                 Array.isArray(p.category)
                     ? p.category.some(c => selectedCategories.includes(c))
                     : selectedCategories.includes(p.category)
             );
         }
 
-        // 3. PreÃ§o
+        // 3. Preço
         result = result.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
 
-        // 4. OrdenaÃ§Ã£o
+        // 4. Ordenação
         switch (sortOption) {
             case "priceAsc":
                 result.sort((a, b) => a.price - b.price);
@@ -126,7 +126,7 @@ const ProductsList = () => {
         setSelectedCategories(checkedValues);
     };
 
-    // ðŸš€ Infinite Scroll Logic
+    // �xa� Infinite Scroll Logic
     const [visibleCount, setVisibleCount] = useState(12);
 
     useEffect(() => {
@@ -153,7 +153,7 @@ const ProductsList = () => {
     if (loading) {
         return (
             <div className="flex h-[60vh] items-center justify-center">
-                <Spin size="large" tip="Carregando catÃ¡logo..." />
+                <Spin size="large" tip="Carregando catálogo..." />
             </div>
         );
     }
@@ -163,8 +163,8 @@ const ProductsList = () => {
             {/* Header com Busca */}
             <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900">CatÃ¡logo Completo</h1>
-                    <p className="text-gray-500 mt-1">Explore nossa coleÃ§Ã£o de produtos exclusivos.</p>
+                    <h1 className="text-3xl font-bold text-gray-900">Catálogo Completo</h1>
+                    <p className="text-gray-500 mt-1">Explore nossa coleção de produtos exclusivos.</p>
                 </div>
             </div>
 
@@ -188,9 +188,9 @@ const ProductsList = () => {
                             />
                         </div>
 
-                        {/* PreÃ§o */}
+                        {/* Preço */}
                         <div className="mb-6">
-                            <h4 className="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wider">PreÃ§o</h4>
+                            <h4 className="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wider">Preço</h4>
                             <Slider
                                 range
                                 min={0}
@@ -205,7 +205,7 @@ const ProductsList = () => {
                             </div>
                         </div>
 
-                        {/* OrdenaÃ§Ã£o (Sidebar Mobile ou Desktop) */}
+                        {/* Ordenação (Sidebar Mobile ou Desktop) */}
                         <div className="mb-2">
                             <h4 className="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wider">Ordenar por</h4>
                             <Select
@@ -215,8 +215,8 @@ const ProductsList = () => {
                                 className="rounded-md"
                             >
                                 <Option value="newest">Mais Recentes</Option>
-                                <Option value="priceAsc">Menor PreÃ§o</Option>
-                                <Option value="priceDesc">Maior PreÃ§o</Option>
+                                <Option value="priceAsc">Menor Preço</Option>
+                                <Option value="priceDesc">Maior Preço</Option>
                                 <Option value="nameAsc">Nome (A-Z)</Option>
                             </Select>
                         </div>

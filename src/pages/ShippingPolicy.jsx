@@ -1,4 +1,4 @@
-﻿import React, { useContext } from "react";
+�import React, { useContext } from "react";
 import { Typography, Card, Divider, Row, Col, Timeline, Alert } from "antd";
 import { Truck, Clock, MapPin, Package, Store } from "lucide-react";
 import { SettingsContext } from "../context/SettingsContext";
@@ -33,8 +33,8 @@ const ShippingPolicy = () => {
                 <Divider />
 
                 <Alert 
-                    message="Encomendas de MÃºltiplos Vendedores"
-                    description="Como somos um marketplace, se o seu carrinho tiver artigos de diferentes lojas (vendedores), estes serÃ£o preparados e despachados em encomendas separadas, chegando em prazos diferentes! Cada loja tem os seus prÃ³prios custos e parceiros de envio."
+                    message="Encomendas de Múltiplos Vendedores"
+                    description="Como somos um marketplace, se o seu carrinho tiver artigos de diferentes lojas (vendedores), estes serão preparados e despachados em encomendas separadas, chegando em prazos diferentes! Cada loja tem os seus próprios custos e parceiros de envio."
                     type="info"
                     showIcon
                     style={{ marginBottom: 32 }}
@@ -44,8 +44,8 @@ const ShippingPolicy = () => {
                     <Col xs={24} md={12}>
                         <Title level={3}>Custos de Envio</Title>
                         <Paragraph>
-                            Na {siteName}, os vendedores sÃ£o responsÃ¡veis pelo empacotamento e expediÃ§Ã£o dos seus prÃ³prios produtos.
-                            Isto significa que os mÃ©todos de envio e os respectivos preÃ§os dependem inteiramente do vendedor que estÃ¡ a comercializar o artigo.
+                            Na {siteName}, os vendedores são responsáveis pelo empacotamento e expedição dos seus próprios produtos.
+                            Isto significa que os métodos de envio e os respectivos preços dependem inteiramente do vendedor que está a comercializar o artigo.
                         </Paragraph>
 
                         <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 mb-6">
@@ -55,7 +55,7 @@ const ShippingPolicy = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900 m-0">Consulte cada Produto</h4>
-                                    <p className="text-gray-500 m-0">Na pÃ¡gina do artigo encontrarÃ¡ estimativas de tempo e os seus custos de transportadora.</p>
+                                    <p className="text-gray-500 m-0">Na página do artigo encontrará estimativas de tempo e os seus custos de transportadora.</p>
                                 </div>
                             </div>
                             <Divider style={{ margin: "12px 0" }} />
@@ -64,19 +64,19 @@ const ShippingPolicy = () => {
                                     <Package className="text-yellow-600" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-gray-900 m-0">CÃ¡lculo AutomÃ¡tico</h4>
-                                    <p className="text-gray-500 m-0">No Checkout, os portes serÃ£o agrupados (ou separados) por vendedor magicamente para si.</p>
+                                    <h4 className="font-bold text-gray-900 m-0">Cálculo Automático</h4>
+                                    <p className="text-gray-500 m-0">No Checkout, os portes serão agrupados (ou separados) por vendedor magicamente para si.</p>
                                 </div>
                             </div>
                         </div>
 
                         <Paragraph>
-                            * Os prazos de entrega comeÃ§am a contar apÃ³s a plataforma confirmar globalmente o pagamento e notificar os vendedores.
+                            * Os prazos de entrega começam a contar após a plataforma confirmar globalmente o pagamento e notificar os vendedores.
                         </Paragraph>
                     </Col>
 
                     <Col xs={24} md={12}>
-                        <Title level={3}>Processo PadrÃ£o de ExpediÃ§Ã£o</Title>
+                        <Title level={3}>Processo Padrão de Expedição</Title>
                         <Timeline
                             items={[
                                 {
@@ -93,7 +93,7 @@ const ShippingPolicy = () => {
                                 },
                                 {
                                     color: 'gray',
-                                    children: 'Entrega LogÃ­stica (Em TrÃ¢nsito Separadamente)',
+                                    children: 'Entrega Logística (Em Trânsito Separadamente)',
                                 },
                                 {
                                     color: 'green',

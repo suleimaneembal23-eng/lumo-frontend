@@ -1,4 +1,4 @@
-﻿import React, { useState, useContext, useEffect } from "react";
+�import React, { useState, useContext, useEffect } from "react";
 import { Layout, Menu, Dropdown, Button, message } from "antd";
 import {
     AppstoreOutlined,
@@ -9,7 +9,7 @@ import {
     GiftOutlined,
     DownOutlined,
     BarChartOutlined,
-    ShopOutlined, // ðŸª
+    ShopOutlined, // �x��
 } from "@ant-design/icons";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/Authcontext";
@@ -25,7 +25,7 @@ const AdminLayout = ({ children }) => {
     const adminName = "Admin";
     const [lastOrderWebId, setLastOrderWebId] = useState(null);
 
-    // ðŸ”” POLLING DE NOVOS PEDIDOS (A cada 30 segundos)
+    // �x POLLING DE NOVOS PEDIDOS (A cada 30 segundos)
     useEffect(() => {
         const checkNewOrders = async () => {
             try {
@@ -42,15 +42,15 @@ const AdminLayout = ({ children }) => {
                     const latestOrder = data[0];
                     const latestOrderId = latestOrder._id;
 
-                    // Se temos um ID anterior e o novo Ã© diferente, Ã© um novo pedido!
+                    // Se temos um ID anterior e o novo é diferente, é um novo pedido!
                     if (lastOrderWebId && latestOrderId !== lastOrderWebId) {
                         const audio = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg"); // Som sutil
                         audio.play().catch(e => console.log("Audio play blocked"));
 
-                        // NotificaÃ§Ã£o Visual
+                        // Notificação Visual
                         const notification = require("antd").notification;
                         notification.open({
-                            message: "ðŸ”” Novo Pedido Recebido!",
+                            message: "�x Novo Pedido Recebido!",
                             description: `Cliente: ${latestOrder.shippingAddress?.fullName || 'Cliente'} - ${Math.round(latestOrder.totalPrice).toLocaleString('de-DE')} FCFA`,
                             icon: <GiftOutlined style={{ color: "#108ee9" }} />,
                             onClick: () => {
@@ -59,7 +59,7 @@ const AdminLayout = ({ children }) => {
                         });
                     }
 
-                    // Atualiza o ID de referÃªncia
+                    // Atualiza o ID de referência
                     setLastOrderWebId(latestOrderId);
                 }
             } catch (err) {
@@ -67,7 +67,7 @@ const AdminLayout = ({ children }) => {
             }
         };
 
-        // Primeira verificaÃ§Ã£o imediata para setar o ID inicial
+        // Primeira verificação imediata para setar o ID inicial
         checkNewOrders();
 
         const interval = setInterval(checkNewOrders, 30000); // 30 segundos

@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+�import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Row, Col, Card, Spin } from "antd";
 // Assuming API_URL is defined in a config file
@@ -17,7 +17,7 @@ const PromotionProducts = () => {
 
   return (
     <div style={{ padding: 26 }}>
-      <h2>Produtos desta PromoÃ§Ã£o</h2>
+      <h2>Produtos desta Promoção</h2>
 
       <Row gutter={[20, 20]}>
         {products.map(p => (
@@ -29,11 +29,11 @@ const PromotionProducts = () => {
               <h3>{p.name}</h3>
 
               <p style={{ textDecoration: "line-through", color: "gray" }}>
-                â‚¬{p.price}
+                ��{p.price}
               </p>
 
               <p style={{ fontWeight: "bold", color: "red", fontSize: "1.2rem" }}>
-                â‚¬{p.finalPrice}
+                ��{p.finalPrice}
               </p>
             </Card>
           </Col>

@@ -1,4 +1,4 @@
-﻿import React, { useState, useContext } from 'react';
+�import React, { useState, useContext } from 'react';
 import { Search, Package, CheckCircle, Clock, Truck, MapPin, AlertCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { SettingsContext } from '../context/SettingsContext';
@@ -51,7 +51,7 @@ const OrderTracking = () => {
     };
 
     const getStepColor = (step, currentStatus) => {
-        // LÃ³gica simples de progresso visual
+        // Lógica simples de progresso visual
         const statusOrder = ['pending', 'confirmed', 'paid', 'shipped', 'delivered'];
         const currentIndex = statusOrder.indexOf(currentStatus === 'paid' ? 'confirmed' : currentStatus); // Paid trata como confirmed visualmente
         const stepIndex = statusOrder.indexOf(step);
@@ -73,7 +73,7 @@ const OrderTracking = () => {
             <div className="max-w-xl w-full">
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">Rastrear Pedido</h1>
-                    <p className="text-gray-500">Digite o cÃ³digo do pedido e o email utilizado na compra.</p>
+                    <p className="text-gray-500">Digite o código do pedido e o email utilizado na compra.</p>
                 </div>
 
                 <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
@@ -181,7 +181,7 @@ const OrderTracking = () => {
                                     </div>
                                     
                                     <div className="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500 font-medium flex justify-between items-center">
-                                        <span>MÃ©todo de Entrega: <strong className="text-gray-700">{shopOrder.deliveryMethod === 'pickup' ? 'Levantamento na Loja' : 'Entrega Domiciliar'}</strong></span>
+                                        <span>Método de Entrega: <strong className="text-gray-700">{shopOrder.deliveryMethod === 'pickup' ? 'Levantamento na Loja' : 'Entrega Domiciliar'}</strong></span>
                                         <span className="capitalize text-blue-600 bg-blue-50 px-2 py-1 rounded">{shopOrder.status}</span>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@ const OrderTracking = () => {
 
                         <div className="mt-8 pt-4 border-t border-gray-100 text-center">
                             <p className="text-sm text-gray-500">
-                                EndereÃ§o Base: <span className="font-bold text-gray-700">{trackingData.shippingAddress.line1}, {trackingData.shippingAddress.city}, {trackingData.shippingAddress.country}</span>
+                                Endereço Base: <span className="font-bold text-gray-700">{trackingData.shippingAddress.line1}, {trackingData.shippingAddress.city}, {trackingData.shippingAddress.country}</span>
                             </p>
                         </div>
                     </div>

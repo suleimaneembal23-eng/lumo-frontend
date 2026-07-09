@@ -1,7 +1,7 @@
-﻿import { API_URL } from "../config";
+�import { API_URL } from "../config";
 
 export const api = {
-    // ðŸª Buscar dados da loja e produtos do vendedor (PÃºblico)
+    // �x�� Buscar dados da loja e produtos do vendedor (Público)
     fetchVendorStore: async (slug) => {
         try {
             const response = await fetch(`${API_URL}/products/store/${slug}`);
@@ -16,5 +16,5 @@ export const api = {
         }
     },
 
-    // Outras chamadas genÃ©ricas podem ser adicionadas aqui
+    // Outras chamadas genéricas podem ser adicionadas aqui
 };

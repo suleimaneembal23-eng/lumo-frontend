@@ -1,10 +1,10 @@
-﻿export const TOP_CATEGORIES = [
+�export const TOP_CATEGORIES = [
     // Futebol
     "Camisas de Equipas",
-    "Camisas de SeleÃ§Ãµes",
-    "Camisas RetrÃ´",
+    "Camisas de Seleções",
+    "Camisas Retrô",
     "Treino & Academia",
-    "CalÃ§Ãµes & Shorts",
+    "Calções & Shorts",
 
     // Basquete
     "NBA",
@@ -14,25 +14,25 @@
     "Streetwear",
     "Casual",
 
-    // AcessÃ³rios
-    "AcessÃ³rios",
-    "CalÃ§ado",
-    "BonÃ©s & ChapÃ©us",
+    // Acessórios
+    "Acessórios",
+    "Calçado",
+    "Bonés & Chapéus",
     "Mochilas & Bolsas",
 
-    // EletrÃ´nicos
-    "Vapes & Cigarros EletrÃ´nicos",
+    // Eletrônicos
+    "Vapes & Cigarros Eletrônicos",
     "Fones de Ouvido",
     "Gadgets",
 
     // Infantil
-    "CrianÃ§as",
+    "Crianças",
 
     // Destaque
     "Destaques",
     "Top Vendidos",
     "Novidades",
-    "EdiÃ§Ã£o Limitada"
+    "Edição Limitada"
 ];
 
 export const STANDARD_SIZES = ["S", "M", "L", "XL", "XXL", "3XL"];

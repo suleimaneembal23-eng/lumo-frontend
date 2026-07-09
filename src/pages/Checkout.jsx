@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useContext } from "react";
+�import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   CheckCircle, CreditCard, Truck, MapPin,
@@ -31,12 +31,12 @@ const Checkout = () => {
     line1: "",
     city: "", 
     postalCode: "",
-    country: "GuinÃ©-Bissau",
+    country: "Guiné-Bissau",
     phone: ""
   });
 
   const steps = [
-    { id: 1, title: "EndereÃ§o", icon: <MapPin size={20} /> },
+    { id: 1, title: "Endereço", icon: <MapPin size={20} /> },
     { id: 2, title: "Frete", icon: <Truck size={20} /> },
     { id: 3, title: "Pagamento", icon: <CreditCard size={20} /> }
   ];
@@ -62,7 +62,7 @@ const Checkout = () => {
     loadCart();
   }, [user, navigate]);
 
-  // Carregar EndereÃ§o do Perfil
+  // Carregar Endereço do Perfil
   useEffect(() => {
     if (user) {
       fetch(`/api/clients/${user.id}`, {
@@ -75,7 +75,7 @@ const Checkout = () => {
               ...prev,
               line1: data.address.line1 || "",
               city: data.address.city || "",
-              country: data.address.country || "GuinÃ©-Bissau",
+              country: data.address.country || "Guiné-Bissau",
               postalCode: data.address.postalCode || "",
             }));
           }
@@ -85,7 +85,7 @@ const Checkout = () => {
     }
   }, [user]);
 
-  // CÃ¡lculos
+  // Cálculos
   const itemsSubtotal = cart?.items?.reduce((acc, item) => acc + item.price * item.quantity, 0) || 0;
 
   const getShopGroups = () => {
@@ -110,7 +110,7 @@ const Checkout = () => {
     );
   };
 
-  // CÃ¡lculos dinÃ¢micos de Frete
+  // Cálculos dinâmicos de Frete
   const resolveShippingCost = () => {
     let cost = 0;
     const shopGroups = getShopGroups();
@@ -128,13 +128,13 @@ const Checkout = () => {
   const shopGroups = getShopGroups();
 
   useEffect(() => {
-    // Inicializar preferÃªncia de entrega com base no que a loja suporta
+    // Inicializar preferência de entrega com base no que a loja suporta
     if (cart?.items) {
       const initialPrefs = {};
       getShopGroups().forEach(g => {
-        if (g.allowsDelivery && !g.allowsPickup) initialPrefs[g.shopId] = 'home';    // sÃ³ entrega
-        else if (!g.allowsDelivery && g.allowsPickup) initialPrefs[g.shopId] = 'pickup'; // sÃ³ levantamento
-        else initialPrefs[g.shopId] = 'home'; // ambos â†’ default entrega
+        if (g.allowsDelivery && !g.allowsPickup) initialPrefs[g.shopId] = 'home';    // só entrega
+        else if (!g.allowsDelivery && g.allowsPickup) initialPrefs[g.shopId] = 'pickup'; // só levantamento
+        else initialPrefs[g.shopId] = 'home'; // ambos �  default entrega
       });
       setDeliveryPreferences(initialPrefs);
     }
@@ -147,7 +147,7 @@ const Checkout = () => {
     setShippingMethod("standard");
   }, []);
 
-  // LÃ³gica de Levantamento FÃ­sico DinÃ¢mico (MÃºltiplos Parceiros)
+  // Lógica de Levantamento Físico Dinâmico (Múltiplos Parceiros)
   const getPickupLocations = () => {
     if (!cart?.items) return [];
     const locations = [];
@@ -164,8 +164,8 @@ const Checkout = () => {
             address: vAddr?.line1 ? 
               `${vAddr.line1}${vAddr.city ? `, ${vAddr.city}` : ''}${vAddr.country ? `, ${vAddr.country}` : ''}` 
               : 'Morada a Combinar (Contacte a Loja)',
-            phone: vendor.phone || 'Telefone IndisponÃ­vel',
-            email: vendor.email || 'Email IndisponÃ­vel'
+            phone: vendor.phone || 'Telefone Indisponível',
+            email: vendor.email || 'Email Indisponível'
           });
         }
       } else {
@@ -178,7 +178,7 @@ const Checkout = () => {
         locations.push({
           _id: 'Platform',
           name: settings?.siteName || 'Lumo',
-          address: settings?.address || 'Bairro de BelÃ©m, Bissau, GuinÃ©-Bissau',
+          address: settings?.address || 'Bairro de Belém, Bissau, Guiné-Bissau',
           phone: settings?.contactPhone || '+245 95XXXXXXX',
           email: settings?.contactEmail || 'lumobissau@gmail.com'
         });
@@ -199,7 +199,7 @@ const Checkout = () => {
 
       if (hasHomeDelivery) {
         if (!formData.line1 || !formData.city || !formData.phone) {
-          return alert("Por favor, preencha todos os campos obrigatÃ³rios para a entrega ao domicÃ­lio.");
+          return alert("Por favor, preencha todos os campos obrigatórios para a entrega ao domicílio.");
         }
       } 
       if (hasPickup && !formData.phone) {
@@ -220,7 +220,7 @@ const Checkout = () => {
         })),
         shippingAddress: {
           line1: formData.line1 || "Levantamento na Loja",
-          city: formData.city || "Loja FÃ­sica",
+          city: formData.city || "Loja Física",
           country: formData.country,
           postalCode: formData.postalCode || "0000-000",
           phone: formData.phone
@@ -229,7 +229,7 @@ const Checkout = () => {
         itemsPrice: itemsSubtotal,
         shippingPrice: shippingCost,
         totalPrice: total,
-        deliveryPreferences, // Mapeamento das opÃ§Ãµes por loja
+        deliveryPreferences, // Mapeamento das opções por loja
         paymentResult: additionalData.paymentResult || null,
         status: additionalData.paymentResult?.status === 'succeeded' ? 'paid' : 'pending'
       };
@@ -276,11 +276,11 @@ const Checkout = () => {
             <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle size={48} />
             </div>
-            <h2 className="text-3xl font-black text-gray-900 mb-2">Pagamento ConcluÃ­do!</h2>
+            <h2 className="text-3xl font-black text-gray-900 mb-2">Pagamento Concluído!</h2>
             <p className="text-gray-600 mb-8 text-lg">A sua encomenda foi registada com sucesso.</p>
             
             <div className="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
-              <p className="text-sm font-bold text-gray-500 uppercase mb-2">O Seu CÃ³digo de Rastreio (Order ID)</p>
+              <p className="text-sm font-bold text-gray-500 uppercase mb-2">O Seu Código de Rastreio (Order ID)</p>
               <div className="flex items-center justify-center gap-3">
                 <span className="text-2xl font-mono font-bold tracking-wider text-black bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-200">
                   {successOrderId.toUpperCase()}
@@ -288,7 +288,7 @@ const Checkout = () => {
                 <button 
                   onClick={() => {
                     navigator.clipboard.writeText(successOrderId);
-                    alert("CÃ³digo copiado para a Ã¡rea de transferÃªncia!");
+                    alert("Código copiado para a área de transferência!");
                   }}
                   className="bg-blue-600 text-white px-4 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors"
                 >
@@ -296,7 +296,7 @@ const Checkout = () => {
                 </button>
               </div>
               <p className="text-xs text-gray-400 mt-4">
-                Guarde este cÃ³digo. Pode usÃ¡-lo na pÃ¡gina "Rastrear Pedido" para saber o estado da sua compra.
+                Guarde este código. Pode usá-lo na página "Rastrear Pedido" para saber o estado da sua compra.
               </p>
             </div>
 
@@ -305,7 +305,7 @@ const Checkout = () => {
                 onClick={() => navigate("/")}
                 className="px-8 py-4 border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition-colors"
               >
-                Voltar Ã  Loja
+                Voltar à Loja
               </button>
               <button 
                 onClick={() => navigate("/client/dashboard/orders")}
@@ -337,14 +337,14 @@ const Checkout = () => {
             {/* STEP 1: ADDRESS */}
             {currentStep === 1 && (
               <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 animate-slideDown">
-                <h2 className="text-xl font-bold mb-6 flex items-center gap-2"><MapPin className="text-blue-600" /> EndereÃ§o Principal (se aplicÃ¡vel)</h2>
+                <h2 className="text-xl font-bold mb-6 flex items-center gap-2"><MapPin className="text-blue-600" /> Endereço Principal (se aplicável)</h2>
                 
-                <p className="text-gray-500 mb-6">Preencha o seu endereÃ§o de entrega principal. No prÃ³ximo passo, poderÃ¡ escolher se deseja receber em casa ou levantar na loja, para cada item separadamente.</p>
+                <p className="text-gray-500 mb-6">Preencha o seu endereço de entrega principal. No próximo passo, poderá escolher se deseja receber em casa ou levantar na loja, para cada item separadamente.</p>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">EndereÃ§o (Rua, Bairro, NÃºmero)</label>
-                    <input type="text" name="line1" value={formData.line1} onChange={handleInputChange} className="w-full p-3 border border-gray-200 rounded-xl focus:border-blue-500 outline-none" placeholder="ObrigatÃ³rio para envios ao domicÃ­lio" />
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Endereço (Rua, Bairro, Número)</label>
+                    <input type="text" name="line1" value={formData.line1} onChange={handleInputChange} className="w-full p-3 border border-gray-200 rounded-xl focus:border-blue-500 outline-none" placeholder="Obrigatório para envios ao domicílio" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -353,15 +353,15 @@ const Checkout = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        CÃ³digo Postal <span className="text-gray-400 text-xs">(opcional)</span>
+                        Código Postal <span className="text-gray-400 text-xs">(opcional)</span>
                       </label>
                       <input type="text" name="postalCode" value={formData.postalCode} onChange={handleInputChange} className="w-full p-3 border border-gray-200 rounded-xl focus:border-blue-500 outline-none" placeholder="Se existir" />
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">PaÃ­s</label>
-                      <input type="text" name="country" value="GuinÃ©-Bissau" readOnly className="w-full p-3 border border-gray-100 bg-gray-50 rounded-xl text-gray-500 outline-none cursor-not-allowed" />
+                      <label className="block text-sm font-medium text-gray-700 mb-1">País</label>
+                      <input type="text" name="country" value="Guiné-Bissau" readOnly className="w-full p-3 border border-gray-100 bg-gray-50 rounded-xl text-gray-500 outline-none cursor-not-allowed" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Telefone <span className="text-red-500">*</span></label>
@@ -394,7 +394,7 @@ const Checkout = () => {
                           <Building2 size={18} className="text-gray-400" /> {group.shopName}
                         </h3>
 
-                        {/* ðŸ›ï¸ Mini resumo dos produtos desta loja */}
+                        {/* �x:�️ Mini resumo dos produtos desta loja */}
                         <div className="flex flex-wrap gap-2 my-3">
                           {group.items.map(item => (
                             <div key={item._id || item.productId} className="flex items-center gap-2 bg-gray-50 border border-gray-100 p-2 rounded-lg">
@@ -405,26 +405,26 @@ const Checkout = () => {
                               />
                               <div className="flex flex-col pr-2">
                                 <span className="text-xs font-bold text-gray-800 leading-tight line-clamp-1 max-w-[140px]">{item.name}</span>
-                                <span className="text-[10px] text-gray-500">Qtd: {item.quantity} {item.selectedSize && item.selectedSize !== 'Ãšnico' ? `| Tam: ${item.selectedSize}` : ''}</span>
+                                <span className="text-[10px] text-gray-500">Qtd: {item.quantity} {item.selectedSize && item.selectedSize !== '�anico' ? `| Tam: ${item.selectedSize}` : ''}</span>
                               </div>
                             </div>
                           ))}
                         </div>
 
-                        {/* Aviso de mÃ©todo Ãºnico */}
+                        {/* Aviso de método único */}
                         {onlyPickup && (
                           <div className="mb-3 bg-amber-50 border border-amber-200 text-amber-700 rounded-lg px-3 py-2 text-sm flex items-center gap-2">
-                            ðŸª <span>Esta loja <strong>nÃ£o faz envios</strong> â€” apenas levantamento na loja fÃ­sica.</span>
+                            �x�� <span>Esta loja <strong>não faz envios</strong> � apenas levantamento na loja física.</span>
                           </div>
                         )}
                         {onlyDelivery && (
                           <div className="mb-3 bg-blue-50 border border-blue-200 text-blue-700 rounded-lg px-3 py-2 text-sm flex items-center gap-2">
-                            ðŸšš <span>Esta loja <strong>sÃ³ faz envio para casa</strong> â€” levantamento fÃ­sico indisponÃ­vel.</span>
+                            �xaa <span>Esta loja <strong>só faz envio para casa</strong> � levantamento físico indisponível.</span>
                           </div>
                         )}
 
                         <div className="flex gap-4">
-                          {/* BotÃ£o Entrega em Casa */}
+                          {/* Botão Entrega em Casa */}
                           <button
                             disabled={!group.allowsDelivery}
                             onClick={() => group.allowsDelivery && setDeliveryPreferences(prev => ({ ...prev, [group.shopId]: 'home' }))}
@@ -437,10 +437,10 @@ const Checkout = () => {
                           >
                             <Truck size={20} />
                             Receber em Casa
-                            {!group.allowsDelivery && <span className="text-xs font-normal">IndisponÃ­vel</span>}
+                            {!group.allowsDelivery && <span className="text-xs font-normal">Indisponível</span>}
                           </button>
 
-                          {/* BotÃ£o Levantamento */}
+                          {/* Botão Levantamento */}
                           <button
                             disabled={!group.allowsPickup}
                             onClick={() => group.allowsPickup && setDeliveryPreferences(prev => ({ ...prev, [group.shopId]: 'pickup' }))}
@@ -453,14 +453,14 @@ const Checkout = () => {
                           >
                             <Building2 size={20} />
                             Levantar na Loja
-                            {!group.allowsPickup && <span className="text-xs font-normal">IndisponÃ­vel</span>}
+                            {!group.allowsPickup && <span className="text-xs font-normal">Indisponível</span>}
                           </button>
                         </div>
 
                         {/* Morada de levantamento */}
                         {deliveryPreferences[group.shopId] === 'pickup' && group.pickupAddress?.line1 && (
                           <div className="mt-3 bg-green-50 rounded-lg p-3 text-sm text-green-700">
-                            ðŸ“ <strong>Morada:</strong> {group.pickupAddress.line1}{group.pickupAddress.city ? `, ${group.pickupAddress.city}` : ''}
+                            �x� <strong>Morada:</strong> {group.pickupAddress.line1}{group.pickupAddress.city ? `, ${group.pickupAddress.city}` : ''}
                           </div>
                         )}
                       </div>
@@ -486,14 +486,14 @@ const Checkout = () => {
                     className={`p-4 border rounded-xl flex flex-col items-center justify-center gap-2 transition-all ${paymentMethod === 'transfer' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}
                   >
                     <Building2 size={32} />
-                    <span className="font-bold text-sm text-center">TransferÃªncia BancÃ¡ria</span>
+                    <span className="font-bold text-sm text-center">Transferência Bancária</span>
                   </button>
                   <button
                     onClick={() => setPaymentMethod('credit_card')}
                     className={`p-4 border rounded-xl flex flex-col items-center justify-center gap-2 transition-all ${paymentMethod === 'credit_card' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}
                   >
                     <CreditCard size={32} />
-                    <span className="font-bold text-sm">CartÃ£o de CrÃ©dito</span>
+                    <span className="font-bold text-sm">Cartão de Crédito</span>
                   </button>
                   <button
                     onClick={() => setPaymentMethod('orange_money')}
@@ -505,13 +505,13 @@ const Checkout = () => {
 
 
 
-                  {/* ðŸ§ª Simulation Button */}
+                  {/* �x�� Simulation Button */}
                   <button
                     onClick={() => setPaymentMethod('simulation')}
                     className={`p-4 border rounded-xl flex flex-col items-center justify-center gap-2 transition-all ${paymentMethod === 'simulation' ? 'border-purple-600 bg-purple-50 text-purple-700' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}
                   >
                     <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-xs font-mono">SIM</div>
-                    <span className="font-bold text-sm">SimulaÃ§Ã£o</span>
+                    <span className="font-bold text-sm">Simulação</span>
                   </button>
                 </div>
 
@@ -538,30 +538,30 @@ const Checkout = () => {
                     <div className="bg-gray-50 p-4 rounded-xl text-sm text-gray-600 mb-6 border border-gray-100 italic">
                       {paymentMethod === 'simulation' && (
                         <div className="text-purple-700 font-medium not-italic">
-                          ðŸ§ª **MODO DE TESTE ATIVADO**
-                          <p className="mt-2 text-sm text-gray-600 font-normal">Esta opÃ§Ã£o simula um pedido finalizado manualmente. Ãštil para testar o envio de e-mails sem usar cartÃµes reais.</p>
+                          �x�� **MODO DE TESTE ATIVADO**
+                          <p className="mt-2 text-sm text-gray-600 font-normal">Esta opção simula um pedido finalizado manualmente. �atil para testar o envio de e-mails sem usar cartões reais.</p>
                         </div>
                       )}
 
                       {/* Orange Money Info */}
                       {paymentMethod === 'orange_money' && (
                         <div>
-                          <p className="font-bold text-gray-800 mb-2">InstruÃ§Ãµes Orange Money:</p>
-                          <p className="mb-2">Envie o valor exato ({getDisplayPrice(total)}) para o nÃºmero:</p>
+                          <p className="font-bold text-gray-800 mb-2">Instruções Orange Money:</p>
+                          <p className="mb-2">Envie o valor exato ({getDisplayPrice(total)}) para o número:</p>
                           <div className="bg-white p-3 rounded-lg border border-orange-200 font-mono text-xl font-bold text-center mb-2 text-orange-600 shadow-inner">
-                            {settings?.paymentConfig?.orangeMoneyNumber || "NÃºmero nÃ£o configurado"}
+                            {settings?.paymentConfig?.orangeMoneyNumber || "Número não configurado"}
                           </div>
-                          <p className="text-xs text-orange-600 mt-2">Indique a referÃªncia enviada para o seu email.</p>
+                          <p className="text-xs text-orange-600 mt-2">Indique a referência enviada para o seu email.</p>
                         </div>
                       )}
 
-                      {/* TransferÃªncia Info */}
+                      {/* Transferência Info */}
                       {paymentMethod === 'transfer' && (
                         <div>
-                          <p className="font-bold text-gray-800 mb-2">TransferÃªncia BancÃ¡ria:</p>
-                          <p className="mb-2">FaÃ§a a transferÃªncia para o seguinte IBAN:</p>
+                          <p className="font-bold text-gray-800 mb-2">Transferência Bancária:</p>
+                          <p className="mb-2">Faça a transferência para o seguinte IBAN:</p>
                           <div className="bg-white p-3 rounded-lg border border-blue-200 font-mono text-xl font-bold text-center mb-2 text-blue-600 shadow-inner">
-                            {settings?.paymentConfig?.iban || "IBAN nÃ£o configurado"}
+                            {settings?.paymentConfig?.iban || "IBAN não configurado"}
                           </div>
                         </div>
                       )}
@@ -589,7 +589,7 @@ const Checkout = () => {
                     </div>
                     <div className="flex-1">
                       <p className="font-bold text-gray-900 truncate">{item.name}</p>
-                      {/* PersonalizaÃ§Ã£o */}
+                      {/* Personalização */}
                       <div className="text-xs text-gray-500">
                         {item.customization?.name && <span>{item.customization.name} {item.customization.number}</span>}
                         {item.customization?.hasBadge && <span className="block text-blue-600 font-bold">+ Patch Champions</span>}
@@ -601,7 +601,7 @@ const Checkout = () => {
               </div>
               <div className="border-t border-gray-100 pt-4 space-y-2">
                 <div className="flex justify-between text-gray-600"><span>Subtotal</span><span>{getDisplayPrice(itemsSubtotal)}</span></div>
-                <div className="flex justify-between text-gray-600"><span>Frete</span><span>{shippingCost === 0 && (settings?.freeShippingThreshold > 0 && itemsSubtotal >= settings.freeShippingThreshold) ? "GRÃTIS" : getDisplayPrice(shippingCost)}</span></div>
+                <div className="flex justify-between text-gray-600"><span>Frete</span><span>{shippingCost === 0 && (settings?.freeShippingThreshold > 0 && itemsSubtotal >= settings.freeShippingThreshold) ? "GRÁTIS" : getDisplayPrice(shippingCost)}</span></div>
                 <div className="flex justify-between text-xl font-bold text-gray-900 pt-2"><span>Total</span><span>{getDisplayPrice(total)}</span></div>
               </div>
             </div>

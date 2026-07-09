@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+�import React, { useState } from 'react';
 import { Modal, Button, message, Spin } from 'antd';
 import { Shield, Sparkles } from 'lucide-react';
 import { Elements } from '@stripe/react-stripe-js';
@@ -70,7 +70,7 @@ const SubscriptionForm = ({ planType, amount, onSuccess, onCancel, token }) => {
                     const activationData = await activationResponse.json();
 
                     if (activationResponse.ok) {
-                        message.success('ParabÃ©ns! Assinatura Premium Ativada! ðŸŽ‰');
+                        message.success('Parabéns! Assinatura Premium Ativada! �x}0');
                         onSuccess(activationData.subscription);
                     } else {
                         throw new Error(activationData.message || "Erro ao ativar assinatura no servidor.");
@@ -103,7 +103,7 @@ const SubscriptionForm = ({ planType, amount, onSuccess, onCancel, token }) => {
 
             <div className="p-5 border border-gray-200 rounded-xl bg-white shadow-sm">
                 <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
-                    <Shield size={16} className="text-blue-600" /> Insira os dados do cartÃ£o
+                    <Shield size={16} className="text-blue-600" /> Insira os dados do cartão
                 </label>
                 <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <CardElement
@@ -154,7 +154,7 @@ const VendorSubscriptionModal = ({ isVisible, onClose, planType, token, onSucces
 
     return (
         <Modal
-            title={<span className="text-xl font-bold text-gray-800">Ativar Assinatura Premium ðŸ’Ž</span>}
+            title={<span className="text-xl font-bold text-gray-800">Ativar Assinatura Premium �x}</span>}
             open={isVisible}
             onCancel={onClose}
             footer={null}

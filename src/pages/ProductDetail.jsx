@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useContext, useCallback, useMemo } from "react";
+�import React, { useEffect, useState, useContext, useCallback, useMemo } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ShoppingCart, Heart, Star, Truck, RefreshCw, Shield, Check, Minus, Plus, Tag, Share2, ChevronRight } from 'lucide-react';
@@ -23,7 +23,7 @@ const ProductDetail = () => {
 
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState("S");
-  const [selectedAttributes, setSelectedAttributes] = useState({}); // ðŸŽ¨ {Sabor: "Menta", Cor: "Azul"}
+  const [selectedAttributes, setSelectedAttributes] = useState({}); // �x}� {Sabor: "Menta", Cor: "Azul"}
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
 
@@ -66,7 +66,7 @@ const ProductDetail = () => {
 
   // --- Actions ---
   const applyCoupon = async () => {
-    if (!couponCode) return alert("Digite o cÃ³digo do cupom");
+    if (!couponCode) return alert("Digite o código do cupom");
     try {
       const validateRes = await fetch("/api/marketing/promotions/validate-coupon", {
         method: "POST",
@@ -77,7 +77,7 @@ const ProductDetail = () => {
       if (!validateRes.ok) {
         const err = await validateRes.json();
         setManualCoupon(null);
-        return alert(err.message || "Cupom invÃ¡lido");
+        return alert(err.message || "Cupom inválido");
       }
 
       const couponData = await validateRes.json();
@@ -94,7 +94,7 @@ const ProductDetail = () => {
         });
         alert(`Cupom "${couponData.code}" aplicado! (${couponData.discount}% OFF)`);
       } else {
-        alert("A promoÃ§Ã£o automÃ¡tica atual oferece um desconto maior!");
+        alert("A promoção automática atual oferece um desconto maior!");
         setManualCoupon(null);
       }
     } catch (err) {
@@ -112,7 +112,7 @@ const ProductDetail = () => {
         setProduct(data);
         setSelectedSize((data.size && data.size.length > 0) ? data.size[0] : null);
 
-        // ðŸŽ¨ Inicializar atributos com a primeira opÃ§Ã£o de cada um
+        // �x}� Inicializar atributos com a primeira opção de cada um
         if (data.attributes && data.attributes.length > 0) {
           const initialAttrs = {};
           data.attributes.forEach(attr => {
@@ -158,7 +158,7 @@ const ProductDetail = () => {
       price: finalPrice,
       image: product.image,
       selectedSize,
-      selectedAttributes, // ðŸŽ¨ Atributos selecionados
+      selectedAttributes, // �x}� Atributos selecionados
       quantity,
       shopId: product.shopId,
       shopName: product.shopId?.vendorInfo?.storeName || product.shopId?.name
@@ -173,7 +173,7 @@ const ProductDetail = () => {
       price: finalPrice,
       image: product.image,
       selectedSize,
-      selectedAttributes, // ðŸŽ¨ Atributos selecionados
+      selectedAttributes, // �x}� Atributos selecionados
       quantity,
       shopId: product.shopId,
       shopName: product.shopId?.vendorInfo?.storeName || product.shopId?.name
@@ -192,7 +192,7 @@ const ProductDetail = () => {
 
   const submitFeedback = async () => {
     if (!user) return;
-    if (!newComment.trim()) return alert("Escreva um comentÃ¡rio");
+    if (!newComment.trim()) return alert("Escreva um comentário");
 
     const url = editingFeedbackId
       ? `/api/feedback/${editingFeedbackId}`
@@ -261,7 +261,7 @@ const ProductDetail = () => {
               {product.name}
             </h1>
 
-            {/* ðŸª VENDOR INFO */}
+            {/* �x�� VENDOR INFO */}
             {product.shopId && product.shopId.vendorInfo?.slug && (
               <div className="mb-4">
                 <span className="text-gray-500">Vendido por: </span>
@@ -280,12 +280,12 @@ const ProductDetail = () => {
                 <span className="ml-1 text-gray-700 font-bold">{avgRating}</span>
               </div>
               <span className="text-gray-400">|</span>
-              <span className="text-gray-500">{feedbacks.length} avaliaÃ§Ãµes</span>
+              <span className="text-gray-500">{feedbacks.length} avaliações</span>
               <span className="text-gray-400">|</span>
               {product.inStock ? (
                 product.stockQuantity > 0 && product.stockQuantity <= (product.lowStockThreshold || 5) ? (
                   <span className="text-red-500 font-bold animate-pulse">
-                    ðŸ”¥ Ãšltimas {product.stockQuantity} unidades!
+                    �x� �altimas {product.stockQuantity} unidades!
                   </span>
                 ) : (
                   <span className="text-green-600 font-medium">Em Stock</span>
@@ -295,7 +295,7 @@ const ProductDetail = () => {
               )}
             </div>
 
-            {/* PREÃ‡O */}
+            {/* PRE�!O */}
             <div className="mb-8">
               {effectiveProduct.onSale && (
                 <span className="text-gray-400 text-lg line-through block">
@@ -337,7 +337,7 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              {/* ðŸŽ¨ ATRIBUTOS DINÃ‚MICOS (Sabor, Cor, etc.) */}
+              {/* �x}� ATRIBUTOS DIN�MICOS (Sabor, Cor, etc.) */}
               {product.attributes && product.attributes.length > 0 && product.attributes.map((attr, index) => (
                 <div key={index}>
                   <span className="block text-sm font-medium text-gray-700 mb-3">
@@ -385,7 +385,7 @@ const ProductDetail = () => {
 
             </div>
 
-            {/* BOTÃ•ES DE AÃ‡ÃƒO */}
+            {/* BOT�"ES DE A�!ÒO */}
             <div className="flex flex-col gap-3 mb-8">
               <div className="grid grid-cols-2 gap-3">
                 <button
@@ -430,15 +430,15 @@ const ProductDetail = () => {
               <div className="flex items-center gap-3">
                 <Truck className="text-blue-500" size={20} />
                 <div className="flex flex-col">
-                  <span className="font-bold text-gray-900">DisponÃ­vel para Entrega</span>
+                  <span className="font-bold text-gray-900">Disponível para Entrega</span>
                   <span className="text-xs text-gray-500">
                     {product.shopId?.vendorInfo?.shippingSettings?.deliveryTime || product.deliveryTime || "Envio calculado no checkout"}
                   </span>
                   {settings?.freeShippingThreshold > 0 && (
                     <span className="text-xs font-bold text-green-600 mt-0.5">
                       {finalPrice * quantity >= settings.freeShippingThreshold
-                        ? "Frete GrÃ¡tis disponÃ­vel!"
-                        : `Frete GrÃ¡tis acima de ${formatPrice(settings.freeShippingThreshold)}`
+                        ? "Frete Grátis disponível!"
+                        : `Frete Grátis acima de ${formatPrice(settings.freeShippingThreshold)}`
                       }
                     </span>
                   )}
@@ -446,7 +446,7 @@ const ProductDetail = () => {
               </div>
               <div className="flex items-center gap-3">
                 <RefreshCw className="text-green-500" size={20} />
-                <span>{product.shopId?.vendorInfo?.shippingSettings?.returnPolicy || product.returnTime || settings?.returnTime || "14 dias para devoluÃ§Ã£o"}</span>
+                <span>{product.shopId?.vendorInfo?.shippingSettings?.returnPolicy || product.returnTime || settings?.returnTime || "14 dias para devolução"}</span>
               </div>
               <div className="flex items-center gap-3">
                 <Shield className="text-yellow-500" size={20} />
@@ -472,9 +472,9 @@ const ProductDetail = () => {
                   : "text-gray-500 hover:text-gray-800"
                   }`}
               >
-                {tab === "description" && "DescriÃ§Ã£o"}
-                {tab === "specs" && "Detalhes TÃ©cnicos"}
-                {tab === "reviews" && `AvaliaÃ§Ãµes (${feedbacks.length})`}
+                {tab === "description" && "Descrição"}
+                {tab === "specs" && "Detalhes Técnicos"}
+                {tab === "reviews" && `Avaliações (${feedbacks.length})`}
                 {activeTab === tab && (
                   <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 rounded-t-full"></span>
                 )}
@@ -485,7 +485,7 @@ const ProductDetail = () => {
           <div className="min-h-[200px]">
             {activeTab === "description" && (
               <div className="prose max-w-none text-gray-600 leading-relaxed">
-                {product.description || "Sem descriÃ§Ã£o disponÃ­vel."}
+                {product.description || "Sem descrição disponível."}
               </div>
             )}
 
@@ -506,15 +506,15 @@ const ProductDetail = () => {
                   )}
                   {product.technicalDetails && (
                     <div className="col-span-2 border-b border-gray-200 pb-2">
-                      <dt className="text-sm font-medium text-gray-500">Detalhes TÃ©cnicos</dt>
+                      <dt className="text-sm font-medium text-gray-500">Detalhes Técnicos</dt>
                       <dd className="mt-1 text-sm text-gray-900 whitespace-pre-wrap">{product.technicalDetails}</dd>
                     </div>
                   )}
 
-                  {/* ðŸŽ¨ ATRIBUTOS DINÃ‚MICOS */}
+                  {/* �x}� ATRIBUTOS DIN�MICOS */}
                   {product.attributes && product.attributes.length > 0 && (
                     <div className="col-span-2">
-                      <dt className="text-sm font-medium text-gray-500 mb-3">OpÃ§Ãµes DisponÃ­veis</dt>
+                      <dt className="text-sm font-medium text-gray-500 mb-3">Opções Disponíveis</dt>
                       <dd className="space-y-3">
                         {product.attributes.map((attr, index) => (
                           <div key={index} className="flex items-center gap-2 flex-wrap">
@@ -539,7 +539,7 @@ const ProductDetail = () => {
               <div className="max-w-3xl">
                 {user && (
                   <div className="bg-gray-50 p-6 rounded-2xl mb-8">
-                    <h3 className="font-bold mb-4">Deixe sua avaliaÃ§Ã£o</h3>
+                    <h3 className="font-bold mb-4">Deixe sua avaliação</h3>
                     <div className="flex gap-2 mb-4">
                       {[1, 2, 3, 4, 5].map(star => (
                         <button key={star} onClick={() => setNewRating(star)} className="focus:outline-none">
@@ -552,17 +552,17 @@ const ProductDetail = () => {
                       onChange={(e) => setNewComment(e.target.value)}
                       className="w-full p-4 rounded-xl border border-gray-200 outline-none focus:border-blue-500 mb-4"
                       rows="3"
-                      placeholder="O que vocÃª achou do produto?"
+                      placeholder="O que você achou do produto?"
                     ></textarea>
                     <button onClick={submitFeedback} className="px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">
-                      Enviar AvaliaÃ§Ã£o
+                      Enviar Avaliação
                     </button>
                   </div>
                 )}
 
                 <div className="space-y-6">
                   {feedbacks.length === 0 ? (
-                    <p className="text-gray-500 italic">Nenhuma avaliaÃ§Ã£o ainda.</p>
+                    <p className="text-gray-500 italic">Nenhuma avaliação ainda.</p>
                   ) : (
                     feedbacks.map(fb => (
                       <div key={fb._id} className="border-b border-gray-100 pb-6">
@@ -571,7 +571,7 @@ const ProductDetail = () => {
                             {fb.client?.name ? fb.client.name.charAt(0) : "U"}
                           </div>
                           <div>
-                            <p className="font-bold text-gray-900">{fb.client?.name || "AnÃ´nimo"}</p>
+                            <p className="font-bold text-gray-900">{fb.client?.name || "Anônimo"}</p>
                             <div className="flex">
                               {[1, 2, 3, 4, 5].map(star => (
                                 <Star key={star} size={12} className={star <= fb.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-200"} />

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+�import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 const StripeForm = ({ amount, onSuccess, onCancel, customerName }) => {
@@ -82,7 +82,7 @@ const StripeForm = ({ amount, onSuccess, onCancel, customerName }) => {
                 </button>
             </div>
             <p className="text-xs text-gray-400 text-center mt-2">
-                SeguranÃ§a garantida por Stripe. Utilize cartÃµes de teste (ex: 4242 4242...). NÃ£o armazenamos dados reais.
+                Segurança garantida por Stripe. Utilize cartões de teste (ex: 4242 4242...). Não armazenamos dados reais.
             </p>
         </form>
     );

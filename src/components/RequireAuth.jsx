@@ -1,4 +1,4 @@
-﻿import React, { useContext } from "react";
+�import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/Authcontext";
 import { Spin } from "antd";
@@ -12,7 +12,7 @@ const RequireAuth = ({ children, role = "client" }) => {
     return <div style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}><Spin size="large" /></div>;
   }
 
-  // VerificaÃ§Ã£o para Admin
+  // Verificação para Admin
   if (role === "admin") {
     if (!adminToken) {
       return <Navigate to="/login" state={{ from: location }} replace />;
@@ -20,7 +20,7 @@ const RequireAuth = ({ children, role = "client" }) => {
     return children;
   }
 
-  // VerificaÃ§Ã£o para Cliente
+  // Verificação para Cliente
   if (!user && !localStorage.getItem("token")) {
      return <Navigate to="/login" state={{ from: location }} replace />;
   }

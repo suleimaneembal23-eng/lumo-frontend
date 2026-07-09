@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useContext } from 'react';
+�import React, { useState, useEffect, useContext } from 'react';
 import { Table, Button, Modal, Form, Input, InputNumber, Select, Upload, message, Switch, Card, Tag, Tabs, Row, Col, Divider, Popconfirm } from 'antd';
 import { PlusOutlined, UploadOutlined, EditOutlined, DeleteOutlined, InfoCircleOutlined, SkinOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../context/Authcontext';
@@ -10,12 +10,12 @@ const { Option } = Select;
 const { TextArea } = Input;
 
 const VendorProducts = () => {
-    const { user, setUser } = useContext(AuthContext); // PrecisarÃ¡ do setUser para atualizar state
+    const { user, setUser } = useContext(AuthContext); // Precisará do setUser para atualizar state
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     
-    // ðŸ’³ Estados do Modal de Assinatura
+    // �x� Estados do Modal de Assinatura
     const [isSubModalVisible, setIsSubModalVisible] = useState(false);
     const [selectedPlan, setSelectedPlan] = useState('monthly');
 
@@ -26,7 +26,7 @@ const VendorProducts = () => {
     const [form] = Form.useForm();
     const [catalogs, setCatalogs] = useState([]);
 
-    // ðŸ’Ž LÃ³gica de Assinatura
+    // �x} Lógica de Assinatura
     const isPremium = user?.vendorInfo?.subscription?.isActive; // True se for pagante
 
     const fetchProducts = async () => {
@@ -83,7 +83,7 @@ const VendorProducts = () => {
             }
         } catch (error) {
             console.error(error);
-            message.error("Erro de conexÃ£o.");
+            message.error("Erro de conexão.");
         } finally {
             setUploading(false);
         }
@@ -132,21 +132,21 @@ const VendorProducts = () => {
             }
         } catch (error) {
             console.error(error);
-            message.error("Erro de conexÃ£o.");
+            message.error("Erro de conexão.");
         }
     };
 
     const handleDelete = async (id) => {
-        console.log("ðŸ—‘ï¸ [Frontend] Clicou para apagar. ID:", id);
+        console.log("�x️ [Frontend] Clicou para apagar. ID:", id);
 
         Modal.confirm({
             title: 'Tem certeza que deseja apagar?',
-            content: 'Esta aÃ§Ã£o nÃ£o pode ser desfeita.',
+            content: 'Esta ação não pode ser desfeita.',
             okText: 'Sim, Apagar',
             okType: 'danger',
             cancelText: 'Cancelar',
             onOk: async () => {
-                console.log("ðŸ—‘ï¸ [Frontend] Confirmou apagar. Enviando request...");
+                console.log("�x️ [Frontend] Confirmou apagar. Enviando request...");
                 try {
                     const res = await fetch(`/api/products/${id}`, {
                         method: "DELETE",
@@ -154,17 +154,17 @@ const VendorProducts = () => {
                     });
 
                     if (res.ok) {
-                        console.log("âœ… [Frontend] Produto removido com sucesso.");
+                        console.log("�S& [Frontend] Produto removido com sucesso.");
                         message.success("Produto removido.");
                         fetchProducts();
                     } else {
                         const err = await res.json();
-                        console.error("âŒ [Frontend] Erro ao remover:", err);
+                        console.error("�R [Frontend] Erro ao remover:", err);
                         message.error(err.message || "Erro ao remover.");
                     }
                 } catch (error) {
-                    console.error("âŒ [Frontend] Erro de rede:", error);
-                    message.error("Erro de conexÃ£o.");
+                    console.error("�R [Frontend] Erro de rede:", error);
+                    message.error("Erro de conexão.");
                 }
             }
         });
@@ -199,7 +199,7 @@ const VendorProducts = () => {
             )
         },
         {
-            title: 'PreÃ§o & Receita',
+            title: 'Preço & Receita',
             dataIndex: 'price',
             align: 'center',
             width: 150,
@@ -214,12 +214,12 @@ const VendorProducts = () => {
                             <div className="text-xs text-gray-400 line-through">{record.originalPrice.toLocaleString('fr-FR')} FCFA</div>
                         )}
                         {!isPremium && (
-                            <div className="text-xs text-red-500 mt-1" title="ComissÃ£o 10% + 500 FCFA">
+                            <div className="text-xs text-red-500 mt-1" title="Comissão 10% + 500 FCFA">
                                 Taxa: {Math.round((price * 0.10) + 500).toLocaleString('fr-FR')} FCFA
                             </div>
                         )}
                         <div className="text-xs text-green-600 font-semibold mt-1">
-                            ðŸ’° Receita: {revenue.toLocaleString('fr-FR')} FCFA
+                            �x� Receita: {revenue.toLocaleString('fr-FR')} FCFA
                         </div>
                     </div>
                 );
@@ -259,14 +259,14 @@ const VendorProducts = () => {
                         {stock ? (
                             <>
                                 <Tag color={isLowStock ? "warning" : "success"} className="mb-1">
-                                    {isLowStock ? 'âš ï¸ Stock Baixo' : 'Em Stock'}
+                                    {isLowStock ? '�a�️ Stock Baixo' : 'Em Stock'}
                                 </Tag>
                                 <div className={`text-sm font-semibold ${isLowStock ? 'text-red-600' : 'text-gray-700'}`}>
                                     {stockQty} un.
                                 </div>
                                 {isLowStock && (
                                     <div className="text-xs text-red-500 font-bold mt-1">
-                                        ðŸ”¥ Repor!
+                                        �x� Repor!
                                     </div>
                                 )}
                             </>
@@ -281,7 +281,7 @@ const VendorProducts = () => {
             }
         },
         {
-            title: 'ObservaÃ§Ãµes do Admin',
+            title: 'Observações do Admin',
             dataIndex: 'adminNotes',
             render: note => note ? (
                 <div className="bg-yellow-50 p-2 rounded border border-yellow-100 text-xs text-yellow-700 max-w-xs">
@@ -290,7 +290,7 @@ const VendorProducts = () => {
             ) : <span className="text-gray-300">-</span>
         },
         {
-            title: 'AÃ§Ãµes',
+            title: 'Ações',
             key: 'actions',
             align: 'right',
             render: (_, record) => (
@@ -299,10 +299,10 @@ const VendorProducts = () => {
                         <Button icon={<EditOutlined />} onClick={() => openEditModal(record)} disabled={record.isBlocked} />
                         <Popconfirm
                             title="Tem certeza que deseja apagar?"
-                            description="Esta aÃ§Ã£o nÃ£o pode ser desfeita."
+                            description="Esta ação não pode ser desfeita."
                             onConfirm={() => handleDelete(record._id)}
                             okText="Sim"
-                            cancelText="NÃ£o"
+                            cancelText="Não"
                         >
                             <Button danger icon={<DeleteOutlined />} disabled={record.isBlocked} />
                         </Popconfirm>
@@ -314,7 +314,7 @@ const VendorProducts = () => {
         }
     ];
 
-    // ðŸ’³ Ao assinar com sucesso, atualizar estado local para esconder banner na hora
+    // �x� Ao assinar com sucesso, atualizar estado local para esconder banner na hora
     const handleSubscriptionSuccess = (newSubscriptionData) => {
         setIsSubModalVisible(false);
         const updatedUser = {
@@ -330,18 +330,18 @@ const VendorProducts = () => {
 
     return (
         <div className="max-w-6xl mx-auto">
-            {/* ðŸ’Ž Banner para UsuÃ¡rios GrÃ¡tis */}
+            {/* �x} Banner para Usuários Grátis */}
             {!isPremium && (
                 <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white mb-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 animate-fadeIn">
                     <div>
-                        <h2 className="text-2xl font-bold text-white m-0 mb-2">ðŸ’Ž Desbloqueie o Poder Total!</h2>
+                        <h2 className="text-2xl font-bold text-white m-0 mb-2">�x} Desbloqueie o Poder Total!</h2>
                         <p className="text-indigo-100 m-0 max-w-xl">
-                            VocÃª estÃ¡ no plano GrÃ¡tis. Upgrade para Premium para ter controle total, 0% de taxas e editar seus produtos livremente.
+                            Você está no plano Grátis. Upgrade para Premium para ter controle total, 0% de taxas e editar seus produtos livremente.
                         </p>
                         <div className="flex gap-4 mt-4">
                             <div className="bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/20">
                                 <span className="block text-xs text-indigo-200 uppercase">Vagas Restantes</span>
-                                <span className="text-xl font-bold">ðŸ”¥ {Math.max(0, 5 - products.length)}/5</span>
+                                <span className="text-xl font-bold">�x� {Math.max(0, 5 - products.length)}/5</span>
                             </div>
                         </div>
                     </div>
@@ -369,7 +369,7 @@ const VendorProducts = () => {
                 <div>
                     <h1 className="text-2xl font-bold m-0">Meus Produtos</h1>
                     <p className="text-gray-500 m-0">
-                        {isPremium ? "Gerencie seu catÃ¡logo de ofertas." : "Seus produtos sÃ£o gerenciados pela nossa equipe."}
+                        {isPremium ? "Gerencie seu catálogo de ofertas." : "Seus produtos são gerenciados pela nossa equipe."}
                     </p>
                 </div>
                 {isPremium && (
@@ -398,7 +398,7 @@ const VendorProducts = () => {
                 title={
                     <div className="py-2">
                         <h3 className="text-xl font-bold m-0">{editingProduct ? "Editar Produto" : "Novo Produto"}</h3>
-                        <p className="text-gray-500 text-sm font-normal m-0">{editingProduct ? "Atualize as informaÃ§Ãµes abaixo" : "Preencha os detalhes do seu novo item"}</p>
+                        <p className="text-gray-500 text-sm font-normal m-0">{editingProduct ? "Atualize as informações abaixo" : "Preencha os detalhes do seu novo item"}</p>
                     </div>
                 }
                 open={isModalVisible}
@@ -412,20 +412,20 @@ const VendorProducts = () => {
                     <Tabs defaultActiveKey="1" items={[
                         {
                             key: '1',
-                            label: 'InformaÃ§Ãµes BÃ¡sicas',
+                            label: 'Informações Básicas',
                             children: (
                                 <div className="pt-4">
-                                    <Form.Item label="Nome do Produto" name="name" rules={[{ required: true, message: 'O nome Ã© obrigatÃ³rio' }]}>
-                                        <Input placeholder="Ex: Moletom BÃ¡sico Preto" className="font-medium" />
+                                    <Form.Item label="Nome do Produto" name="name" rules={[{ required: true, message: 'O nome é obrigatório' }]}>
+                                        <Input placeholder="Ex: Moletom Básico Preto" className="font-medium" />
                                     </Form.Item>
 
                                     <Row gutter={16}>
                                         <Col span={24}>
-                                            <Form.Item label="CatÃ¡logos do Produto" name="category" rules={[{ required: true, message: 'Selecione ou crie pelo menos um catÃ¡logo' }]}>
+                                            <Form.Item label="Catálogos do Produto" name="category" rules={[{ required: true, message: 'Selecione ou crie pelo menos um catálogo' }]}>
                                                 <Select
                                                     mode="tags"
                                                     style={{ width: '100%' }}
-                                                    placeholder="Selecione ou digite para criar novo catÃ¡logo (Ex: Camisa, TÃªnis, AcessÃ³rio)..."
+                                                    placeholder="Selecione ou digite para criar novo catálogo (Ex: Camisa, Tênis, Acessório)..."
                                                     tokenSeparators={[',']}
                                                 >
                                                     {catalogs.map(cat => <Option key={cat} value={cat}>{cat}</Option>)}
@@ -434,7 +434,7 @@ const VendorProducts = () => {
                                         </Col>
                                     </Row>
 
-                                    <Form.Item label="DescriÃ§Ã£o Detalhada" name="description" rules={[{ required: true, message: 'A descriÃ§Ã£o Ã© obrigatÃ³ria' }]}>
+                                    <Form.Item label="Descrição Detalhada" name="description" rules={[{ required: true, message: 'A descrição é obrigatória' }]}>
                                         <TextArea rows={4} placeholder="Descreva o material, detalhes do design, etc." />
                                     </Form.Item>
                                 </div>
@@ -442,13 +442,13 @@ const VendorProducts = () => {
                         },
                         {
                             key: '2',
-                            label: 'PreÃ§o & Estoque',
+                            label: 'Preço & Estoque',
                             children: (
                                 <div className="pt-4">
                                     <Row gutter={16}>
                                         <Col span={12}>
                                             <div className="bg-gray-50 p-4 rounded-xl mb-4 border border-gray-100">
-                                                <Form.Item label="PreÃ§o Final (FCFA)" name="price" rules={[{ required: true, message: 'Defina o preÃ§o' }]} className="mb-0">
+                                                <Form.Item label="Preço Final (FCFA)" name="price" rules={[{ required: true, message: 'Defina o preço' }]} className="mb-0">
                                                     <InputNumber
                                                       min={0} step={500}
                                                       style={{ width: '100%' }}
@@ -458,12 +458,12 @@ const VendorProducts = () => {
                                                       parser={v => v.replace(/\./g, '')}
                                                     />
                                                 </Form.Item>
-                                                <p className="text-xs text-gray-500 mt-2">Valor que o cliente pagarÃ¡. MÃ­nimo: 25 FCFA.</p>
+                                                <p className="text-xs text-gray-500 mt-2">Valor que o cliente pagará. Mínimo: 25 FCFA.</p>
                                             </div>
                                         </Col>
                                         <Col span={12}>
                                             <div className="bg-gray-50 p-4 rounded-xl mb-4 border border-gray-100">
-                                                <Form.Item label="PreÃ§o Original (FCFA)" name="originalPrice" className="mb-0">
+                                                <Form.Item label="Preço Original (FCFA)" name="originalPrice" className="mb-0">
                                                     <InputNumber
                                                       min={0} step={500}
                                                       style={{ width: '100%' }}
@@ -480,7 +480,7 @@ const VendorProducts = () => {
 
                                     <Divider />
 
-                                    <h4 className="font-bold mb-4">GestÃ£o de Estoque</h4>
+                                    <h4 className="font-bold mb-4">Gestão de Estoque</h4>
                                     <Row gutter={16}>
                                         <Col span={12}>
                                             <Form.Item label="Quantidade Total" name="stockQuantity" rules={[{ required: true, message: 'Informe a quantidade' }]}>
@@ -488,7 +488,7 @@ const VendorProducts = () => {
                                             </Form.Item>
                                         </Col>
                                         <Col span={12}>
-                                            <Form.Item label="Alerta de Estoque Baixo" name="lowStockThreshold" tooltip="O sistema enviarÃ¡ um email e mostrarÃ¡ etiqueta de 'Ãšltimas Unidades' quando o estoque chegar a este nÃºmero.">
+                                            <Form.Item label="Alerta de Estoque Baixo" name="lowStockThreshold" tooltip="O sistema enviará um email e mostrará etiqueta de '�altimas Unidades' quando o estoque chegar a este número.">
                                                 <InputNumber min={0} style={{ width: '100%' }} className="rounded-xl" placeholder="Ex: 5" size="large" />
                                             </Form.Item>
                                         </Col>
@@ -496,7 +496,7 @@ const VendorProducts = () => {
 
                                     <div className="flex items-center justify-between bg-white p-4 border border-gray-200 rounded-xl mt-2">
                                         <div>
-                                            <span className="font-bold block">VisÃ­vel na Loja</span>
+                                            <span className="font-bold block">Visível na Loja</span>
                                             <span className="text-sm text-gray-500">Pausar a venda deste produto manualmente?</span>
                                         </div>
                                         <Form.Item name="inStock" valuePropName="checked" initialValue={true} className="mb-0">
@@ -508,14 +508,14 @@ const VendorProducts = () => {
                         },
                         {
                             key: '3',
-                            label: 'PersonalizaÃ§Ã£o',
+                            label: 'Personalização',
                             children: (
                                 <div className="pt-4">
                                     <div className="bg-blue-50 p-4 rounded-xl mb-6 border border-blue-100">
-                                        <h4 className="flex items-center gap-2 text-blue-800 font-bold m-0"><InfoCircleOutlined /> Atributos DinÃ¢micos</h4>
+                                        <h4 className="flex items-center gap-2 text-blue-800 font-bold m-0"><InfoCircleOutlined /> Atributos Dinâmicos</h4>
                                         <p className="text-blue-600 text-sm m-0 mt-1">
-                                            Adicione opÃ§Ãµes personalizadas para seu produto. <br />
-                                            Ex: <strong>Sabor</strong>: [Menta, Uva] ou <strong>Material</strong>: [AlgodÃ£o, PoliÃ©ster].
+                                            Adicione opções personalizadas para seu produto. <br />
+                                            Ex: <strong>Sabor</strong>: [Menta, Uva] ou <strong>Material</strong>: [Algodão, Poliéster].
                                         </p>
                                     </div>
 
@@ -537,14 +537,14 @@ const VendorProducts = () => {
                                                             <Form.Item
                                                                 {...restField}
                                                                 name={[name, 'options']}
-                                                                label="OpÃ§Ãµes DisponÃ­veis"
-                                                                rules={[{ required: true, message: 'Adicione pelo menos uma opÃ§Ã£o' }]}
+                                                                label="Opções Disponíveis"
+                                                                rules={[{ required: true, message: 'Adicione pelo menos uma opção' }]}
                                                                 className="mb-0"
                                                             >
                                                                 <Select
                                                                     mode="tags"
                                                                     style={{ width: '100%' }}
-                                                                    placeholder="Digite e dÃª Enter (Ex: Morango)"
+                                                                    placeholder="Digite e dê Enter (Ex: Morango)"
                                                                     tokenSeparators={[',']}
                                                                     open={false}
                                                                 />
@@ -564,7 +564,7 @@ const VendorProducts = () => {
                         },
                         {
                             key: '4',
-                            label: 'MÃ­dia',
+                            label: 'Mídia',
                             children: (
                                 <div className="pt-4 text-center">
                                     <Form.Item label="Foto Principal" required>
@@ -593,13 +593,13 @@ const VendorProducts = () => {
                     <div className="flex justify-end gap-3 pt-6 border-t border-gray-100 mt-4">
                         <Button size="large" onClick={() => setIsModalVisible(false)}>Cancelar</Button>
                         <Button type="primary" htmlType="submit" size="large" className="bg-blue-600 px-8 font-bold">
-                            {editingProduct ? "Salvar AlteraÃ§Ãµes" : "Publicar Produto"}
+                            {editingProduct ? "Salvar Alterações" : "Publicar Produto"}
                         </Button>
                     </div>
                 </Form>
             </Modal>
 
-            {/* ðŸ’³ Modal de Pagamento Stripe para Assinatura */}
+            {/* �x� Modal de Pagamento Stripe para Assinatura */}
             <VendorSubscriptionModal
                 isVisible={isSubModalVisible}
                 onClose={() => setIsSubModalVisible(false)}

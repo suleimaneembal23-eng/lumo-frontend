@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useContext, useCallback, useMemo } from "react";
+�import React, { useEffect, useState, useContext, useCallback, useMemo } from "react";
 import {
   Layout, Menu, Avatar, Typography, Button, Table, Modal, Descriptions, Empty, Card, Row, Col, Form, Input, Dropdown, Space, message, Tooltip, Tag as AntdTag, Tabs, Steps, Statistic,
 } from "antd";
@@ -43,7 +43,7 @@ const ClientDashboard = () => {
 
   const token = localStorage.getItem("userToken") || localStorage.getItem("token") || "";
 
-  // Estilos e FormataÃ§Ã£o de Moeda
+  // Estilos e Formatação de Moeda
   const rawCurrency = currency?.toUpperCase();
   const adjustedCurrency = rawCurrency === 'FCFA' ? 'XOF' : rawCurrency;
   const currentCurrency = adjustedCurrency || "EUR";
@@ -68,7 +68,7 @@ const ClientDashboard = () => {
     return <AntdTag color={color}>{text}</AntdTag>;
   };
 
-  // --- FunÃ§Ãµes de Fetch ---
+  // --- Funções de Fetch ---
   const fetchProfile = useCallback(async (id) => {
     try {
       let res = await fetch(`/api/clients/${id}`, { headers: { Authorization: `Bearer ${token}` } });
@@ -90,7 +90,7 @@ const ClientDashboard = () => {
     try {
       const res = await fetch(`/api/orders/user`, { headers: { Authorization: `Bearer ${token}` } });
       let data = res.ok ? await res.json() : [];
-      // Mapear shopOrders para order.items caso o backend jÃ¡ use o novo formato
+      // Mapear shopOrders para order.items caso o backend já use o novo formato
       if (Array.isArray(data)) {
         data = data.map(o => {
           if (!o.items && o.shopOrders) {
@@ -120,12 +120,12 @@ const ClientDashboard = () => {
       if (res.ok) {
         const allPromos = await res.json();
         const activePromos = allPromos.filter(p => p.active && !p.isNewUserCoupon);
-        // Prioriza Daily Deal, senÃ£o pega a primeira
+        // Prioriza Daily Deal, senão pega a primeira
         const bestPromo = activePromos.find(p => p.isDailyDeal) || activePromos[0];
         setPromoBanner(bestPromo);
       }
     } catch (err) {
-      console.error("Erro ao buscar promoÃ§Ãµes:", err);
+      console.error("Erro ao buscar promoções:", err);
     }
   }, []);
 
@@ -140,12 +140,12 @@ const ClientDashboard = () => {
     fetchPromotions();
   }, [authUser, fetchProfile, fetchOrders, fetchFavorites, fetchPromotions]);
 
-  // --- FunÃ§Ãµes de AÃ§Ã£o ---
+  // --- Funções de Ação ---
   const handleSaveProfile = async (values) => {
     setSavingProfile(true);
     try {
       const id = JSON.parse(localStorage.getItem("user"))?.id || JSON.parse(localStorage.getItem("user"))?._id || profile?._id || profile?.id;
-      if (!id) throw new Error("ID do usuÃ¡rio nÃ£o encontrado");
+      if (!id) throw new Error("ID do usuário não encontrado");
 
       const body = {
         name: values.name,
@@ -175,7 +175,7 @@ const ClientDashboard = () => {
     setLoadingPassword(true);
     try {
       const id = authUser?.id || authUser?._id || profile?._id;
-      if (!id) throw new Error("UsuÃ¡rio nÃ£o identificado.");
+      if (!id) throw new Error("Usuário não identificado.");
 
       const res = await fetch(`/api/clients/${id}/change-password`, {
         method: "POST",
@@ -207,7 +207,7 @@ const ClientDashboard = () => {
   };
 
   const handleRemoveFavorite = async (productId) => {
-    if (!token) return message.warning("FaÃ§a login para remover favoritos");
+    if (!token) return message.warning("Faça login para remover favoritos");
     const originalFavorites = favorites;
     setFavorites(prev => prev.filter(p => p._id !== productId));
     try {
@@ -218,7 +218,7 @@ const ClientDashboard = () => {
   };
 
   const handleAddToFavorite = async (productOrId) => {
-    if (!token) return message.warning("FaÃ§a login para adicionar favoritos");
+    if (!token) return message.warning("Faça login para adicionar favoritos");
     const productId = productOrId._id || productOrId.productId?._id || productOrId;
 
     // Optimistic UI
@@ -241,7 +241,7 @@ const ClientDashboard = () => {
   };
 
   const handleFavAddToCart = (product) => {
-    if (!product || !product._id || !product.inStock) return message.warning(product.inStock ? "Detalhes do produto indisponÃ­veis." : "Produto esgotado.");
+    if (!product || !product._id || !product.inStock) return message.warning(product.inStock ? "Detalhes do produto indisponíveis." : "Produto esgotado.");
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const productId = product._id;
@@ -260,13 +260,13 @@ const ClientDashboard = () => {
   const handleLogout = () => {
     if (typeof contextLogout === "function") contextLogout();
     else { localStorage.removeItem("userToken"); localStorage.removeItem("user"); }
-    message.success("SessÃ£o encerrada com sucesso!");
+    message.success("Sessão encerrada com sucesso!");
     navigate("/");
   };
 
   // --- Colunas da Tabela e Elementos de UI ---
   const columns = useMemo(() => ([
-    { title: "ID", dataIndex: "_id", key: "_id", render: (id) => (id ? id.slice(-6).toUpperCase() : "â€”") },
+    { title: "ID", dataIndex: "_id", key: "_id", render: (id) => (id ? id.slice(-6).toUpperCase() : "�") },
     { title: "Data", dataIndex: "createdAt", key: "createdAt", render: (d) => new Date(d).toLocaleString() },
     { title: "Total", dataIndex: "totalPrice", key: "totalPrice", render: (v) => formatPrice(v) },
     {
@@ -276,7 +276,7 @@ const ClientDashboard = () => {
       render: (s) => <OrderTag status={s} />,
     },
     {
-      title: "AÃ§Ãµes", key: "actions",
+      title: "Ações", key: "actions",
       render: (_, record) => (
         <Space>
           <Button icon={<EyeOutlined />} onClick={() => { setSelectedOrder(record); setOrderModalVisible(true); }}>Ver detalhes</Button>
@@ -341,7 +341,7 @@ const ClientDashboard = () => {
             {
               key: "home",
               icon: <HomeOutlined style={{ fontSize: 18 }} />,
-              label: "VisÃ£o Geral",
+              label: "Visão Geral",
               style: { marginBottom: 8, borderRadius: 12, fontWeight: 600 }
             },
             {
@@ -434,15 +434,15 @@ const ClientDashboard = () => {
         <Content className="p-8">
           <div className="max-w-7xl mx-auto min-h-[85vh]">
 
-            {/* ðŸ  INÃCIO (DASHBOARD) */}
+            {/* �x�� INÍCIO (DASHBOARD) */}
             {selectedKey === "home" && (
               <>
                 <div className="mb-8">
-                  <h1 className="text-3xl font-extrabold text-gray-800 m-0">Bem-vindo de volta, {userName?.split(' ')[0]}! ðŸ‘‹</h1>
-                  <p className="text-gray-500 mt-1">Aqui estÃ¡ o que estÃ¡ acontecendo com sua conta hoje.</p>
+                  <h1 className="text-3xl font-extrabold text-gray-800 m-0">Bem-vindo de volta, {userName?.split(' ')[0]}! �x9</h1>
+                  <p className="text-gray-500 mt-1">Aqui está o que está acontecendo com sua conta hoje.</p>
                 </div>
 
-                {/* BANNER DE PROMOÃ‡ÃƒO / BOAS VINDAS */}
+                {/* BANNER DE PROMO�!ÒO / BOAS VINDAS */}
                 {promoBanner ? (
                   <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-violet-600 to-indigo-700 text-white shadow-xl shadow-indigo-200 mb-10 transform transition hover:scale-[1.01] duration-300">
                     <div className="absolute top-0 right-0 p-12 opacity-10 transform rotate-12 scale-150 pointer-events-none">
@@ -459,7 +459,7 @@ const ClientDashboard = () => {
                         <p className="text-indigo-100 text-lg max-w-xl">
                           {promoBanner.description || (promoBanner.isDailyDeal
                             ? `Desconto de ${Math.abs(promoBanner.discount).toFixed(0)}% ativado!`
-                            : `Use o cÃ³digo e ganhe ${Math.abs(promoBanner.discount).toFixed(0)}% OFF!`)}
+                            : `Use o código e ganhe ${Math.abs(promoBanner.discount).toFixed(0)}% OFF!`)}
                         </p>
                         {!promoBanner.isDailyDeal && (
                           <div className="mt-6 flex items-center gap-3 bg-white/10 w-fit p-2 rounded-2xl backdrop-blur-sm border border-white/20">
@@ -483,8 +483,8 @@ const ClientDashboard = () => {
                   <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-[2rem] p-10 text-white mb-10 shadow-lg relative overflow-hidden">
                     <div className="relative z-10 flex justify-between items-center">
                       <div>
-                        <h2 className="text-3xl font-bold text-white mb-2">Nova ColeÃ§Ã£o DisponÃ­vel</h2>
-                        <p className="text-gray-300">Descubra os lanÃ§amentos exclusivos desta temporada.</p>
+                        <h2 className="text-3xl font-bold text-white mb-2">Nova Coleção Disponível</h2>
+                        <p className="text-gray-300">Descubra os lançamentos exclusivos desta temporada.</p>
                       </div>
                       <Button type="primary" size="large" className="bg-white text-black border-none font-bold rounded-xl" onClick={() => navigate("/")}>
                         Explorar Loja
@@ -530,7 +530,7 @@ const ClientDashboard = () => {
                   </div>
                 </div>
 
-                {/* TRACKING E HISTÃ“RICO RECENTE */}
+                {/* TRACKING E HIST�RICO RECENTE */}
                 <Row gutter={24}>
                   <Col span={24}>
                     <div className="bg-white rounded-[2rem] p-8 shadow-[0_2px_20px_rgba(0,0,0,0.04)] border border-gray-100 h-full">
@@ -549,7 +549,7 @@ const ClientDashboard = () => {
                                 </div>
                                 <div>
                                   <span className="block font-bold text-gray-900">Pedido #{order._id.slice(-6).toUpperCase()}</span>
-                                  <span className="text-sm text-gray-500">{new Date(order.createdAt).toLocaleDateString()} â€¢ {order.items.length} itens</span>
+                                  <span className="text-sm text-gray-500">{new Date(order.createdAt).toLocaleDateString()} ⬢ {order.items.length} itens</span>
                                 </div>
                               </div>
                               <div className="flex items-center justify-between w-full md:w-auto mt-4 md:mt-0 gap-6">
@@ -569,7 +569,7 @@ const ClientDashboard = () => {
               </>
             )}
 
-            {/* ðŸ“¦ MEUS PEDIDOS */}
+            {/* �x� MEUS PEDIDOS */}
             {selectedKey === "orders" && (
               <>
                 <div className="mb-8 flex justify-between items-end">
@@ -582,10 +582,10 @@ const ClientDashboard = () => {
                 {orders.length === 0 ? (
                   <div className="bg-white rounded-[2rem] p-16 text-center border border-dashed border-gray-200">
                     <ShoppingIcon style={{ fontSize: 64, color: '#e5e7eb', marginBottom: 24 }} />
-                    <h3 className="text-xl font-bold text-gray-900">VocÃª ainda nÃ£o fez compras</h3>
-                    <p className="text-gray-500 mb-8 max-w-md mx-auto">Explore nossa coleÃ§Ã£o e encontre os produtos das suas marcas favoritas hoje mesmo.</p>
+                    <h3 className="text-xl font-bold text-gray-900">Você ainda não fez compras</h3>
+                    <p className="text-gray-500 mb-8 max-w-md mx-auto">Explore nossa coleção e encontre os produtos das suas marcas favoritas hoje mesmo.</p>
                     <Button type="primary" size="large" className="bg-black border-none rounded-xl h-12 px-8" onClick={() => navigate('/')}>
-                      ComeÃ§ar a Comprar
+                      Começar a Comprar
                     </Button>
                   </div>
                 ) : (
@@ -602,7 +602,7 @@ const ClientDashboard = () => {
                                 <span className="font-bold text-lg text-gray-900">Pedido #{order._id.slice(-6).toUpperCase()}</span>
                                 <OrderTag status={order.status} />
                               </div>
-                              <span className="text-gray-500 text-sm">Realizado em {new Date(order.createdAt).toLocaleDateString()} Ã s {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                              <span className="text-gray-500 text-sm">Realizado em {new Date(order.createdAt).toLocaleDateString()} às {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                             </div>
                           </div>
                           <div className="text-right">
@@ -657,12 +657,12 @@ const ClientDashboard = () => {
               </>
             )}
 
-            {/* â¤ï¸ FAVORITOS */}
+            {/* ❤️ FAVORITOS */}
             {selectedKey === "favorites" && (
               <>
                 <div className="mb-8">
                   <h1 className="text-3xl font-extrabold text-gray-900 m-0">Lista de Desejos</h1>
-                  <p className="text-gray-500 mt-2">Guarde para mais tarde os itens que vocÃª amou.</p>
+                  <p className="text-gray-500 mt-2">Guarde para mais tarde os itens que você amou.</p>
                 </div>
 
                 {loadingFavs ? (
@@ -670,7 +670,7 @@ const ClientDashboard = () => {
                 ) : favorites.length === 0 ? (
                   <div className="text-center py-20 bg-white rounded-[2rem] border border-gray-100">
                     <HeartTwoTone twoToneColor="#eb2f96" style={{ fontSize: 60, marginBottom: 20 }} />
-                    <h3 className="text-xl font-bold">Sua lista estÃ¡ vazia</h3>
+                    <h3 className="text-xl font-bold">Sua lista está vazia</h3>
                     <Button type="primary" className="mt-6 rounded-xl bg-black border-none h-12 px-8" onClick={() => navigate('/')}>Ir para a Loja</Button>
                   </div>
                 ) : (
@@ -712,12 +712,12 @@ const ClientDashboard = () => {
               </>
             )}
 
-            {/* ðŸ‘¤ PERFIL */}
+            {/* �x� PERFIL */}
             {selectedKey === "profile" && (
               <>
                 <div className="mb-8">
                   <h1 className="text-3xl font-extrabold text-gray-900 m-0">Meu Perfil</h1>
-                  <p className="text-gray-500 mt-2">Gerencie seus dados pessoais, endereÃ§os e seguranÃ§a.</p>
+                  <p className="text-gray-500 mt-2">Gerencie seus dados pessoais, endereços e segurança.</p>
                 </div>
 
                 <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 min-h-[500px]">
@@ -732,7 +732,7 @@ const ClientDashboard = () => {
                         key: 'info',
                         children: (
                           <div className="max-w-xl pl-8 py-2">
-                            <h3 className="text-xl font-bold mb-6">InformaÃ§Ãµes BÃ¡sicas</h3>
+                            <h3 className="text-xl font-bold mb-6">Informações Básicas</h3>
                             <Form layout="vertical" form={profileForm} onFinish={handleSaveProfile} initialValues={profile} size="large">
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <Form.Item label="Nome Completo" name="name" rules={[{ required: true }]} className="md:col-span-2">
@@ -746,22 +746,22 @@ const ClientDashboard = () => {
                                 </Form.Item>
                               </div>
 
-                              <h3 className="text-xl font-bold mt-8 mb-6">EndereÃ§o de Entrega</h3>
-                              <Form.Item label="EndereÃ§o (Rua, NÃºmero, Comp.)" name="addressLine1">
+                              <h3 className="text-xl font-bold mt-8 mb-6">Endereço de Entrega</h3>
+                              <Form.Item label="Endereço (Rua, Número, Comp.)" name="addressLine1">
                                 <Input className="rounded-xl" />
                               </Form.Item>
                               <div className="grid grid-cols-2 gap-4">
                                 <Form.Item label="Cidade" name="city">
                                   <Input className="rounded-xl" />
                                 </Form.Item>
-                                <Form.Item label="PaÃ­s" name="country">
+                                <Form.Item label="País" name="country">
                                   <Input className="rounded-xl" />
                                 </Form.Item>
                               </div>
 
                               <Form.Item className="mt-4">
                                 <Button type="primary" htmlType="submit" loading={savingProfile} className="bg-black h-12 px-8 rounded-xl font-bold border-none">
-                                  Salvar AlteraÃ§Ãµes
+                                  Salvar Alterações
                                 </Button>
                               </Form.Item>
                             </Form>
@@ -769,13 +769,13 @@ const ClientDashboard = () => {
                         )
                       },
                       {
-                        label: <span className="flex items-center gap-2"><LockOutlined /> SeguranÃ§a</span>,
+                        label: <span className="flex items-center gap-2"><LockOutlined /> Segurança</span>,
                         key: 'security',
                         children: (
                           <div className="max-w-md pl-8 py-2">
                             <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6 mb-8">
                               <h4 className="font-bold text-orange-800 mb-2">Proteja sua conta</h4>
-                              <p className="text-orange-700 text-sm">Use uma senha forte e nÃ£o a compartilhe com ninguÃ©m.</p>
+                              <p className="text-orange-700 text-sm">Use uma senha forte e não a compartilhe com ninguém.</p>
                             </div>
 
                             <Form layout="vertical" form={passwordForm} onFinish={handlePasswordChange} size="large">
@@ -791,7 +791,7 @@ const ClientDashboard = () => {
                                 rules={[{ required: true }, ({ getFieldValue }) => ({
                                   validator(_, value) {
                                     if (!value || getFieldValue('newPassword') === value) return Promise.resolve();
-                                    return Promise.reject(new Error('As senhas nÃ£o coincidem!'));
+                                    return Promise.reject(new Error('As senhas não coincidem!'));
                                   },
                                 })]}
                               >
@@ -824,14 +824,14 @@ const ClientDashboard = () => {
         footer={null}
         width={800}
         centered
-        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">âœ•</span>}
+        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">�S"</span>}
       >
         {selectedOrder && (
           <div className="p-4">
             <div className="flex justify-between items-center mb-6">
               <div>
                 <h2 className="text-2xl font-black text-gray-900 m-0">Pedido #{selectedOrder._id.slice(-6).toUpperCase()}</h2>
-                <p className="text-gray-500 m-0">Detalhes completos da transaÃ§Ã£o</p>
+                <p className="text-gray-500 m-0">Detalhes completos da transação</p>
               </div>
               <OrderTag status={selectedOrder.status} />
             </div>
@@ -846,12 +846,12 @@ const ClientDashboard = () => {
 
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                     <p className="text-blue-100 text-sm mb-1 uppercase tracking-wider font-bold">
-                      {selectedOrder.paymentMethod === 'mbway' ? 'Enviar para MB WAY' : 'IBAN para TransferÃªncia'}
+                      {selectedOrder.paymentMethod === 'mbway' ? 'Enviar para MB WAY' : 'IBAN para Transferência'}
                     </p>
                     <p className="text-2xl font-mono font-black tracking-widest mb-4">
                       {selectedOrder.paymentMethod === 'mbway'
-                        ? (settings?.paymentConfig?.mbWayNumber || "NÃ£o configurado")
-                        : (settings?.paymentConfig?.bankTransferInfo || "NÃ£o configurado")}
+                        ? (settings?.paymentConfig?.mbWayNumber || "Não configurado")
+                        : (settings?.paymentConfig?.bankTransferInfo || "Não configurado")}
                     </p>
 
                     <div className="flex justify-between items-end border-t border-white/10 pt-4">
@@ -860,14 +860,14 @@ const ClientDashboard = () => {
                         <p className="text-xl font-bold">{formatPrice(selectedOrder.totalPrice)}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-blue-100 text-xs mb-0">ReferÃªncia / DescriÃ§Ã£o</p>
+                        <p className="text-blue-100 text-xs mb-0">Referência / Descrição</p>
                         <p className="font-mono font-bold bg-white/20 px-2 py-1 rounded text-sm">Pedido #{selectedOrder._id.slice(-6).toUpperCase()}</p>
                       </div>
                     </div>
                   </div>
 
                   <p className="text-blue-200 text-xs mt-4 text-center">
-                    ApÃ³s o pagamento, o status serÃ¡ atualizado em atÃ© 24h.
+                    Após o pagamento, o status será atualizado em até 24h.
                   </p>
                 </div>
               </div>
@@ -900,7 +900,7 @@ const ClientDashboard = () => {
                   <div className="flex-1">
                     <h4 className="font-bold text-gray-900 m-0">{it.name}</h4>
                     <p className="text-gray-500 text-xs m-0">Tamanho: {it.size || "U"} | Qtd: {it.quantity}</p>
-                    {/* PersonalizaÃ§Ã£o */}
+                    {/* Personalização */}
                     {(it.customization?.name || it.customization?.number || it.customization?.hasBadge) && (
                       <div className="text-xs text-gray-500 bg-gray-50 p-1 rounded mt-1 inline-block">
                         {(it.customization.name || it.customization.number) && (

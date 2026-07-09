@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useContext } from "react";
+�import React, { useEffect, useState, useContext } from "react";
 import { Table, Button, Modal, Form, Input, InputNumber, Switch, DatePicker, Select, Card, Tag, Typography, message, Space } from "antd";
 import { PercentageOutlined, PlusOutlined, DeleteOutlined, EditOutlined, ThunderboltOutlined } from "@ant-design/icons";
 import { AuthContext } from "../../context/Authcontext";
@@ -43,9 +43,9 @@ const VendorPromotions = () => {
             });
             const data = await res.json();
             if (res.ok) setPromotions(data);
-            else message.error(data.message || "Erro ao carregar promoÃ§Ãµes");
+            else message.error(data.message || "Erro ao carregar promoções");
         } catch (error) {
-            message.error("Erro na comunicaÃ§Ã£o com o servidor.");
+            message.error("Erro na comunicação com o servidor.");
         } finally {
             setLoading(false);
         }
@@ -89,7 +89,7 @@ const VendorPromotions = () => {
             });
 
             if (res.ok) {
-                message.success(`PromoÃ§Ã£o ${editingId ? "atualizada" : "criada"} com sucesso!`);
+                message.success(`Promoção ${editingId ? "atualizada" : "criada"} com sucesso!`);
                 setIsModalOpen(false);
                 fetchPromotions();
             } else {
@@ -97,7 +97,7 @@ const VendorPromotions = () => {
                 message.error(errorData.message || "Erro ao salvar.");
             }
         } catch (error) {
-            message.error("Erro na comunicaÃ§Ã£o HTTP.");
+            message.error("Erro na comunicação HTTP.");
         }
     };
 
@@ -109,7 +109,7 @@ const VendorPromotions = () => {
             });
 
             if (res.ok) {
-                message.success("PromoÃ§Ã£o eliminada!");
+                message.success("Promoção eliminada!");
                 fetchPromotions();
             } else {
                 message.error("Erro ao eliminar.");
@@ -141,7 +141,7 @@ const VendorPromotions = () => {
 
     const columns = [
         {
-            title: 'CÃ³digo / TÃ­tulo',
+            title: 'Código / Título',
             dataIndex: 'title',
             key: 'title',
             render: (text, record) => (
@@ -196,7 +196,7 @@ const VendorPromotions = () => {
             )
         },
         {
-            title: 'AÃ§Ãµes',
+            title: 'Ações',
             key: 'action',
             render: (_, record) => (
                 <Space>
@@ -212,9 +212,9 @@ const VendorPromotions = () => {
             <div className="max-w-4xl mx-auto py-12 px-6 text-center">
                 <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 p-12 rounded-3xl shadow-2xl text-white">
                     <PercentageOutlined className="text-6xl text-yellow-400 mb-6 drop-shadow-lg" />
-                    <h1 className="text-4xl font-extrabold mb-4">Motor de PromoÃ§Ãµes Exclusivo</h1>
+                    <h1 className="text-4xl font-extrabold mb-4">Motor de Promoções Exclusivo</h1>
                     <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                        A funcionalidade de criaÃ§Ã£o livre de promoÃ§Ãµes, cupÃµes de desconto e campanhas "Flash Sale" Ã© reservada para <strong>Vendedores Premium</strong>.
+                        A funcionalidade de criação livre de promoções, cupões de desconto e campanhas "Flash Sale" é reservada para <strong>Vendedores Premium</strong>.
                     </p>
                     <Button type="primary" size="large" className="bg-gradient-to-r from-yellow-400 to-yellow-500 border-none text-black font-bold h-12 px-8 rounded-full shadow-lg hover:scale-105 transition-transform">
                         Fazer Upgrade para Premium
@@ -229,14 +229,14 @@ const VendorPromotions = () => {
             <div className="flex justify-between items-center mb-8">
                 <div>
                     <h1 className="text-3xl font-bold m-0 flex items-center gap-3 text-gray-900">
-                        <PercentageOutlined className="text-purple-600" /> GestÃ£o de PromoÃ§Ãµes Premium
+                        <PercentageOutlined className="text-purple-600" /> Gestão de Promoções Premium
                     </h1>
                     <p className="text-gray-500 m-0 mt-2 text-base">
-                        Crie campanhas, cupÃµes e oferas "Flash" de forma autÃ³noma.
+                        Crie campanhas, cupões e oferas "Flash" de forma autónoma.
                     </p>
                 </div>
                 <Button type="primary" icon={<PlusOutlined />} size="large" className="bg-purple-600 rounded-full font-bold shadow-md hover:bg-purple-700" onClick={() => handleOpenModal()}>
-                    Nova PromoÃ§Ã£o
+                    Nova Promoção
                 </Button>
             </div>
 
@@ -252,7 +252,7 @@ const VendorPromotions = () => {
             </Card>
 
             <Modal
-                title={editingId ? "Editar PromoÃ§Ã£o" : "Criar Nova PromoÃ§Ã£o"}
+                title={editingId ? "Editar Promoção" : "Criar Nova Promoção"}
                 open={isModalOpen}
                 onCancel={() => setIsModalOpen(false)}
                 footer={null}
@@ -261,10 +261,10 @@ const VendorPromotions = () => {
             >
                 <Form form={form} layout="vertical" onFinish={handleSave} className="mt-4">
                     <div className="grid grid-cols-2 gap-4">
-                        <Form.Item name="title" label="TÃ­tulo PÃºblico (Ex: VerÃ£o Louco)" rules={[{ required: true }]}>
+                        <Form.Item name="title" label="Título Público (Ex: Verão Louco)" rules={[{ required: true }]}>
                             <Input size="large" />
                         </Form.Item>
-                        <Form.Item name="code" label="CÃ³digo do CupÃ£o" rules={[{ required: true }]}>
+                        <Form.Item name="code" label="Código do Cupão" rules={[{ required: true }]}>
                             <Input size="large" className="uppercase font-mono" />
                         </Form.Item>
                     </div>
@@ -278,20 +278,20 @@ const VendorPromotions = () => {
                         </Form.Item>
                     </div>
 
-                    <Form.Item name="categories" label="Aplicar aos CatÃ¡logos (Seus Produtos)" rules={[{ required: true, message: "Insira pelo menos 1 categoria." }]}>
+                    <Form.Item name="categories" label="Aplicar aos Catálogos (Seus Produtos)" rules={[{ required: true, message: "Insira pelo menos 1 categoria." }]}>
                         <Select mode="tags" size="large" placeholder="Selecione ou crie tags">
                             {catalogs.map(c => <Option key={c.key} value={c.key}>{c.label}</Option>)}
                         </Select>
                     </Form.Item>
 
-                    <Form.Item name="description" label="DescriÃ§Ã£o Interna / Notas">
+                    <Form.Item name="description" label="Descrição Interna / Notas">
                         <Input.TextArea rows={3} />
                     </Form.Item>
 
                     <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 mb-6 flex items-center justify-between">
                         <div>
                             <div className="font-bold flex items-center gap-2"><ThunderboltOutlined className="text-yellow-500" /> Destaque de Home Page (Oferta do Dia)</div>
-                            <div className="text-xs text-gray-500 mt-1 max-w-sm">Ativa o banner automÃ¡tico e risca os preÃ§os visivelmente na pÃ¡gina inicial sob "Oferta do Dia" para os seus produtos elegÃ­veis. SÃ“ UMA PODE ESTAR ATIVA.</div>
+                            <div className="text-xs text-gray-500 mt-1 max-w-sm">Ativa o banner automático e risca os preços visivelmente na página inicial sob "Oferta do Dia" para os seus produtos elegíveis. S� UMA PODE ESTAR ATIVA.</div>
                         </div>
                         <Form.Item name="isDailyDeal" valuePropName="checked" className="m-0">
                             <Switch />
@@ -301,7 +301,7 @@ const VendorPromotions = () => {
                     <div className="flex justify-end gap-3 mt-6 pt-6 border-t border-gray-100">
                         <Button onClick={() => setIsModalOpen(false)}>Cancelar</Button>
                         <Button type="primary" htmlType="submit" className="bg-purple-600 text-white font-bold">
-                            Salvar PromoÃ§Ã£o
+                            Salvar Promoção
                         </Button>
                     </div>
                 </Form>

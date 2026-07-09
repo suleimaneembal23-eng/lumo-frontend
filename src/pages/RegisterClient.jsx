@@ -1,4 +1,4 @@
-﻿import React, { useState, useContext } from "react";
+�import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User, Mail, Lock, Gift, Copy, Check, AlertCircle, X } from 'lucide-react';
 
@@ -32,7 +32,7 @@ const RegisterClient = () => {
     setError(null);
 
     if (formData.password !== formData.confirm) {
-      setError("As senhas nÃ£o coincidem.");
+      setError("As senhas não coincidem.");
       return;
     }
 
@@ -69,7 +69,7 @@ const RegisterClient = () => {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(welcomeCode);
-    alert("CÃ³digo copiado!");
+    alert("Código copiado!");
   };
 
   return (
@@ -77,7 +77,7 @@ const RegisterClient = () => {
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
         <div className="bg-gray-900 px-8 py-6 text-center">
           <h2 className="text-3xl font-extrabold text-white">Criar Conta</h2>
-          <p className="text-gray-400 mt-2">Junte-se a nÃ³s e aproveite ofertas exclusivas</p>
+          <p className="text-gray-400 mt-2">Junte-se a nós e aproveite ofertas exclusivas</p>
         </div>
 
         <div className="p-8">
@@ -108,7 +108,7 @@ const RegisterClient = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Nome de UsuÃ¡rio</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Nome de Usuário</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <User className="text-gray-400" size={18} />
@@ -190,9 +190,9 @@ const RegisterClient = () => {
           </form>
 
           <div className="mt-8 text-center text-sm text-gray-600">
-            JÃ¡ tem uma conta?{' '}
+            Já tem uma conta?{' '}
             <Link to="/login" className="font-bold text-blue-600 hover:text-blue-800">
-              FaÃ§a Login
+              Faça Login
             </Link>
           </div>
         </div>
@@ -208,7 +208,7 @@ const RegisterClient = () => {
               </div>
             </div>
 
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Bem-vindo Ã  Lumo!</h2>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Bem-vindo à Lumo!</h2>
             <p className="text-gray-500 mb-6">
               Obrigado por se registrar. Como presente de boas-vindas, preparemos um presente especial para sua primeira compra:
             </p>
@@ -220,7 +220,7 @@ const RegisterClient = () => {
                 <button
                   onClick={copyToClipboard}
                   className="p-2 hover:bg-yellow-200 rounded-lg transition-colors text-yellow-700"
-                  title="Copiar cÃ³digo"
+                  title="Copiar código"
                 >
                   <Copy size={20} />
                 </button>

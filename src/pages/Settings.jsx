@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useContext } from "react";
+�import React, { useEffect, useState, useContext } from "react";
 import {
   Card,
   Form,
@@ -50,7 +50,7 @@ const Settings = () => {
     setInitialLoading(true);
     try {
       const res = await fetch(`/api/settings`);
-      if (!res.ok) throw new Error("Erro ao carregar definiÃ§Ãµes.");
+      if (!res.ok) throw new Error("Erro ao carregar definições.");
       const data = await res.json();
       setSettingsData(data);
 
@@ -88,7 +88,7 @@ const Settings = () => {
 
     } catch (err) {
       console.error(err);
-      message.error("Erro ao carregar definiÃ§Ãµes do site.");
+      message.error("Erro ao carregar definições do site.");
     } finally {
       setInitialLoading(false);
     }
@@ -117,18 +117,18 @@ const Settings = () => {
 
       if (!res.ok) {
         const err = await res.json();
-        throw new Error(err.message || "Erro ao salvar as definiÃ§Ãµes.");
+        throw new Error(err.message || "Erro ao salvar as definições.");
       }
 
       const updatedData = await res.json();
       setSettingsData(updatedData);
       form.setFieldsValue(updatedData);
       refreshSettings();
-      message.success("DefiniÃ§Ãµes atualizadas com sucesso!");
+      message.success("Definições atualizadas com sucesso!");
       setEditing(false);
     } catch (err) {
       console.error(err);
-      message.error(err.message || "Erro ao atualizar definiÃ§Ãµes.");
+      message.error(err.message || "Erro ao atualizar definições.");
     } finally {
       setLoading(false);
     }
@@ -146,22 +146,22 @@ const Settings = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      if (!res.ok) throw new Error("Erro ao eliminar definiÃ§Ãµes.");
+      if (!res.ok) throw new Error("Erro ao eliminar definições.");
       setSettingsData(null);
       form.resetFields();
       setEditing(true);
       refreshSettings();
-      message.success("DefiniÃ§Ãµes eliminadas com sucesso!");
+      message.success("Definições eliminadas com sucesso!");
     } catch (err) {
       console.error(err);
-      message.error(err.message || "Erro ao eliminar definiÃ§Ãµes.");
+      message.error(err.message || "Erro ao eliminar definições.");
     }
   };
 
   if (initialLoading) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <Spin size="large" tip="Carregando configuraÃ§Ãµes..." />
+        <Spin size="large" tip="Carregando configurações..." />
       </div>
     );
   }
@@ -180,17 +180,17 @@ const Settings = () => {
               <Input size="large" className="rounded-xl" placeholder="srstore.fc@gmail.com" />
             </Form.Item>
           </div>
-          <Form.Item name="siteDescription" label="DescriÃ§Ã£o do Site" rules={[{ required: true }]}>
-            <Input.TextArea rows={3} className="rounded-xl" placeholder="Breve descriÃ§Ã£o sobre a loja..." />
+          <Form.Item name="siteDescription" label="Descrição do Site" rules={[{ required: true }]}>
+            <Input.TextArea rows={3} className="rounded-xl" placeholder="Breve descrição sobre a loja..." />
           </Form.Item>
-          <Form.Item name="aboutUs" label="Sobre NÃ³s (PÃ¡gina)">
-            <Input.TextArea rows={5} className="rounded-xl" placeholder="ConteÃºdo da secÃ§Ã£o Sobre NÃ³s..." />
+          <Form.Item name="aboutUs" label="Sobre Nós (Página)">
+            <Input.TextArea rows={5} className="rounded-xl" placeholder="Conteúdo da secção Sobre Nós..." />
           </Form.Item>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Form.Item name="footerNote" label="Nota de RodapÃ©">
-              <Input className="rounded-xl" placeholder="Â© 2026 Lumo..." />
+            <Form.Item name="footerNote" label="Nota de Rodapé">
+              <Input className="rounded-xl" placeholder="© 2026 Lumo..." />
             </Form.Item>
-            <Form.Item name="supportHours" label="HorÃ¡rio de Suporte">
+            <Form.Item name="supportHours" label="Horário de Suporte">
               <Input className="rounded-xl" placeholder="Ex: Seg-Sex 9h-18h" />
             </Form.Item>
           </div>
@@ -203,14 +203,14 @@ const Settings = () => {
       children: (
         <div className="grid grid-cols-1 gap-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Form.Item name="address" label="Morada FÃ­sica" rules={[{ required: true }]}>
+            <Form.Item name="address" label="Morada Física" rules={[{ required: true }]}>
               <Input size="large" className="rounded-xl" prefix={<InfoCircleOutlined className="text-gray-300" />} />
             </Form.Item>
             <Form.Item name="contactPhone" label="Telefone" rules={[{ required: true }]}>
               <Input size="large" className="rounded-xl" prefix={<PhoneOutlined className="text-gray-300" />} />
             </Form.Item>
           </div>
-          <Form.Item name="contactInfo" label="InformaÃ§Ãµes Adicionais de Contato">
+          <Form.Item name="contactInfo" label="Informações Adicionais de Contato">
             <Input.TextArea rows={3} className="rounded-xl" placeholder="WhatsApp, Redes Sociais..." />
           </Form.Item>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -229,16 +229,16 @@ const Settings = () => {
       label: <span className="flex items-center gap-2"><BgColorsOutlined /> Visual</span>,
       children: (
         <div className="flex gap-8 justify-around p-8 bg-gray-50 rounded-2xl border border-gray-100">
-          <Form.Item name="primaryColor" label="Cor PrimÃ¡ria" className="text-center">
+          <Form.Item name="primaryColor" label="Cor Primária" className="text-center">
             <div className="flex flex-col items-center gap-2">
               <Input type="color" className="w-20 h-20 p-1 rounded-xl cursor-pointer shadow-sm" />
-              <span className="text-xs text-gray-500">BotÃµes, Destaques</span>
+              <span className="text-xs text-gray-500">Botões, Destaques</span>
             </div>
           </Form.Item>
-          <Form.Item name="secondaryColor" label="Cor SecundÃ¡ria" className="text-center">
+          <Form.Item name="secondaryColor" label="Cor Secundária" className="text-center">
             <div className="flex flex-col items-center gap-2">
               <Input type="color" className="w-20 h-20 p-1 rounded-xl cursor-pointer shadow-sm" />
-              <span className="text-xs text-gray-500">SecundÃ¡rios</span>
+              <span className="text-xs text-gray-500">Secundários</span>
             </div>
           </Form.Item>
           <Form.Item name="backgroundColor" label="Cor de Fundo" className="text-center">
@@ -252,14 +252,14 @@ const Settings = () => {
     },
     {
       key: '4',
-      label: <span className="flex items-center gap-2"><CarOutlined /> LogÃ­stica</span>,
+      label: <span className="flex items-center gap-2"><CarOutlined /> Logística</span>,
       children: (
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Form.Item name="maxShippingDays" label="Prazo Entrega (dias)" rules={[{ required: true }]}>
               <InputNumber min={1} max={30} className="w-full rounded-xl" size="large" />
             </Form.Item>
-            <Form.Item name="returnPolicyDays" label="Prazo DevoluÃ§Ã£o (dias)" rules={[{ required: true }]}>
+            <Form.Item name="returnPolicyDays" label="Prazo Devolução (dias)" rules={[{ required: true }]}>
               <InputNumber min={1} max={60} className="w-full rounded-xl" size="large" />
             </Form.Item>
           </div>
@@ -267,17 +267,17 @@ const Settings = () => {
             <Form.Item name="shippingInfo" label="Info. Envio">
               <Input.TextArea rows={3} className="rounded-xl" />
             </Form.Item>
-            <Form.Item name="returnInfo" label="Info. DevoluÃ§Ã£o">
+            <Form.Item name="returnInfo" label="Info. Devolução">
               <Input.TextArea rows={3} className="rounded-xl" />
             </Form.Item>
           </div>
 
-          <Divider orientation="left">ConfiguraÃ§Ã£o AvanÃ§ada de Envio</Divider>
+          <Divider orientation="left">Configuração Avançada de Envio</Divider>
           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 mb-6">
             <Form.Item
               name="freeShippingThreshold"
-              label="Entrega GrÃ¡tis acima de (FCFA)"
-              extra="Defina 0 para desativar. Se o subtotal atingir este valor, o envio serÃ¡ grÃ¡tis."
+              label="Entrega Grátis acima de (FCFA)"
+              extra="Defina 0 para desativar. Se o subtotal atingir este valor, o envio será grátis."
             >
               <InputNumber min={0} step={500} className="w-full rounded-xl" addonAfter="FCFA" size="large"
                 formatter={v => `${v}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
@@ -285,7 +285,7 @@ const Settings = () => {
             </Form.Item>
           </div>
 
-          <Divider orientation="left">MÃ©todos de Envio (OpÃ§Ãµes para o Cliente)</Divider>
+          <Divider orientation="left">Métodos de Envio (Opções para o Cliente)</Divider>
           <Form.List name="shippingMethods">
             {(fields, { add, remove }) => (
               <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex flex-col gap-4">
@@ -295,7 +295,7 @@ const Settings = () => {
                       {...restField}
                       name={[name, 'name']}
                       label="Nome (Ex: Standard)"
-                      rules={[{ required: true, message: 'Nome obrigatÃ³rio' }]}
+                      rules={[{ required: true, message: 'Nome obrigatório' }]}
                       className="flex-1 mb-0 w-full"
                     >
                       <Input placeholder="Standard" />
@@ -304,7 +304,7 @@ const Settings = () => {
                       {...restField}
                       name={[name, 'deliveryTime']}
                       label="Prazo (Ex: 3-5 dias)"
-                      rules={[{ required: true, message: 'Prazo obrigatÃ³rio' }]}
+                      rules={[{ required: true, message: 'Prazo obrigatório' }]}
                       className="flex-1 mb-0 w-full"
                     >
                       <Input placeholder="3-5 dias" />
@@ -312,8 +312,8 @@ const Settings = () => {
                     <Form.Item
                       {...restField}
                       name={[name, 'price']}
-                      label="PreÃ§o (FCFA)"
-                      rules={[{ required: true, message: 'PreÃ§o obrigatÃ³rio' }]}
+                      label="Preço (FCFA)"
+                      rules={[{ required: true, message: 'Preço obrigatório' }]}
                       className="w-40 mb-0"
                     >
                       <InputNumber min={0} step={500} placeholder="FCFA" addonAfter="FCFA"
@@ -323,7 +323,7 @@ const Settings = () => {
                     <Button type="text" danger onClick={() => remove(name)} icon={<DeleteOutlined />} shape="circle" />
                   </div>
                 ))}
-                <Button type="dashed" onClick={() => add()} block icon={<EditOutlined />} className="mt-2 rounded-xl h-12">Adicionar MÃ©todo de Envio</Button>
+                <Button type="dashed" onClick={() => add()} block icon={<EditOutlined />} className="mt-2 rounded-xl h-12">Adicionar Método de Envio</Button>
               </div>
             )}
           </Form.List>
@@ -337,18 +337,18 @@ const Settings = () => {
                     <Form.Item
                       {...restField}
                       name={[name, 'country']}
-                      rules={[{ required: true, message: 'PaÃ­s obrigatÃ³rio' }]}
+                      rules={[{ required: true, message: 'País obrigatório' }]}
                       className="flex-1"
                     >
-                      <Select showSearch placeholder="PaÃ­s" className="rounded-lg w-full">
-                        <Option value="default">PadrÃ£o (Resto do Mundo)</Option>
+                      <Select showSearch placeholder="País" className="rounded-lg w-full">
+                        <Option value="default">Padrão (Resto do Mundo)</Option>
                         {countries.map((c) => (<Option key={c} value={c}>{c}</Option>))}
                       </Select>
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'cost']}
-                      rules={[{ required: true, message: 'Custo obrigatÃ³rio' }]}
+                      rules={[{ required: true, message: 'Custo obrigatório' }]}
                     >
                       <InputNumber placeholder="FCFA" min={0} step={500} addonAfter="FCFA" className="rounded-lg"
                         formatter={v => `${v}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
@@ -380,36 +380,36 @@ const Settings = () => {
 
 
 
-          <Divider orientation="left">ConfiguraÃ§Ã£o de PersonalizaÃ§Ã£o</Divider>
+          <Divider orientation="left">Configuração de Personalização</Divider>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-yellow-50 p-6 rounded-2xl border border-yellow-100">
-            <Form.Item name="customizationPrice" label="PreÃ§o Nome/NÃºmero (FCFA)" rules={[{ required: true }]}>
+            <Form.Item name="customizationPrice" label="Preço Nome/Número (FCFA)" rules={[{ required: true }]}>
               <InputNumber min={0} step={500} className="w-full rounded-xl" addonAfter="FCFA"
                 formatter={v => `${v}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                 parser={v => v.replace(/\./g, '')} />
             </Form.Item>
-            <Form.Item name="badgePrice" label="PreÃ§o Patch/Badge (FCFA)" rules={[{ required: true }]}>
+            <Form.Item name="badgePrice" label="Preço Patch/Badge (FCFA)" rules={[{ required: true }]}>
               <InputNumber min={0} step={500} className="w-full rounded-xl" addonAfter="FCFA"
                 formatter={v => `${v}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                 parser={v => v.replace(/\./g, '')} />
             </Form.Item>
           </div>
 
-          <Divider orientation="left">ConfiguraÃ§Ã£o de Pagamento</Divider>
+          <Divider orientation="left">Configuração de Pagamento</Divider>
           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-            <Form.Item label="NÃºmero MB WAY (TelemÃ³vel)" name={['paymentConfig', 'mbWayNumber']}>
+            <Form.Item label="Número MB WAY (Telemóvel)" name={['paymentConfig', 'mbWayNumber']}>
               <Input prefix={<PhoneOutlined />} className="rounded-xl" placeholder="Ex: 912345678" />
             </Form.Item>
-            <Form.Item label="NÃºmero Orange Money (Opcional)" name={['paymentConfig', 'orangeMoneyNumber']}>
+            <Form.Item label="Número Orange Money (Opcional)" name={['paymentConfig', 'orangeMoneyNumber']}>
               <Input prefix={<PhoneOutlined className="text-orange-500" />} className="rounded-xl" placeholder="Ex: +245 9XXXXXXX" />
             </Form.Item>
-            <Form.Item label="Dados BancÃ¡rios (IBAN/NIB)" name={['paymentConfig', 'bankTransferInfo']}>
+            <Form.Item label="Dados Bancários (IBAN/NIB)" name={['paymentConfig', 'bankTransferInfo']}>
               <Input.TextArea rows={3} className="rounded-xl" prefix={<BankOutlined />} placeholder="IBAN: PT50..." />
             </Form.Item>
             <Form.Item name={['paymentConfig', 'creditCardEnabled']} valuePropName="checked" className="mb-0">
               <div className="bg-white p-3 rounded-xl inline-block border border-gray-200">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" className="w-4 h-4" />
-                  <span className="font-medium">Habilitar SimulaÃ§Ã£o de CartÃ£o de CrÃ©dito</span>
+                  <span className="font-medium">Habilitar Simulação de Cartão de Crédito</span>
                 </label>
               </div>
             </Form.Item>
@@ -424,7 +424,7 @@ const Settings = () => {
         <div className="bg-purple-50 p-6 rounded-2xl border border-purple-100">
           <Title level={5} className="text-purple-700 m-0 mb-4">Cupom de Boas-Vindas</Title>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Form.Item name="welcomeCouponCode" label="CÃ³digo">
+            <Form.Item name="welcomeCouponCode" label="Código">
               <Input className="rounded-xl" prefix={<GiftOutlined />} />
             </Form.Item>
             <Form.Item name="welcomeCouponDiscount" label="Desconto (%)">
@@ -440,13 +440,13 @@ const Settings = () => {
     <div className="min-h-[85vh] bg-white rounded-3xl p-8 shadow-sm border border-gray-100 relative">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 m-0 tracking-tight">DefiniÃ§Ãµes da Loja</h1>
-          <p className="text-gray-500 mt-2">Configure a identidade, logÃ­stica e pagamentos.</p>
+          <h1 className="text-3xl font-bold text-gray-900 m-0 tracking-tight">Definições da Loja</h1>
+          <p className="text-gray-500 mt-2">Configure a identidade, logística e pagamentos.</p>
         </div>
         <Space>
           {!editing && (
             <Button type="primary" size="large" icon={<EditOutlined />} shape="round" className="bg-black hover:bg-gray-800 border-none px-6" onClick={() => setEditing(true)}>
-              Editar ConfiguraÃ§Ãµes
+              Editar Configurações
             </Button>
           )}
           {editing && (
@@ -466,7 +466,7 @@ const Settings = () => {
             <div className="relative z-10">
               <Badge status="processing" text={<span className="text-green-400 font-bold">Loja Ativa</span>} className="mb-4" />
               <h2 className="text-4xl font-extrabold m-0 text-white mb-2">{settingsData?.siteName || "Sua Loja"}</h2>
-              <p className="text-gray-300 text-lg max-w-2xl">{settingsData?.siteDescription || "Sem descriÃ§Ã£o definida."}</p>
+              <p className="text-gray-300 text-lg max-w-2xl">{settingsData?.siteDescription || "Sem descrição definida."}</p>
               <div className="mt-8 flex gap-4">
                 <span className="bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10 flex items-center gap-2"><GlobalOutlined /> {settingsData?.currency || "EUR"}</span>
                 <span className="bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10 flex items-center gap-2"><PhoneOutlined /> {settingsData?.contactPhone || "Sem telefone"}</span>
@@ -474,7 +474,7 @@ const Settings = () => {
             </div>
           </div>
 
-          {/* Coluna 1: Contato e EndereÃ§o */}
+          {/* Coluna 1: Contato e Endereço */}
           <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
             <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2"><InfoCircleOutlined className="text-blue-500" /> Contato Comercial</h3>
             <div className="text-gray-600 space-y-3">
@@ -488,9 +488,9 @@ const Settings = () => {
             </div>
           </div>
 
-          {/* Coluna 2: LogÃ­stica e Taxas */}
+          {/* Coluna 2: Logística e Taxas */}
           <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
-            <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2"><CarOutlined className="text-orange-500" /> LogÃ­stica</h3>
+            <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2"><CarOutlined className="text-orange-500" /> Logística</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white p-4 rounded-xl border border-gray-200">
                 <span className="block text-3xl font-bold text-slate-800">{settingsData?.maxShippingDays || 0}</span>
@@ -498,31 +498,31 @@ const Settings = () => {
               </div>
               <div className="bg-white p-4 rounded-xl border border-gray-200">
                 <span className="block text-3xl font-bold text-slate-800">{settingsData?.returnPolicyDays || 0}</span>
-                <span className="text-xs text-gray-500 font-bold uppercase">Dias DevoluÃ§Ã£o</span>
+                <span className="text-xs text-gray-500 font-bold uppercase">Dias Devolução</span>
               </div>
             </div>
 
           </div>
 
-          {/* Coluna 3: MÃ©todos de Pagamento */}
+          {/* Coluna 3: Métodos de Pagamento */}
           <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
             <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2"><DollarOutlined className="text-green-500" /> Pagamentos</h3>
             <div className="space-y-4">
               <div className={`p-4 rounded-xl border ${settingsData?.paymentConfig?.mbWayNumber ? 'bg-orange-50 border-orange-200' : 'bg-gray-100 border-gray-200 opacity-50'}`}>
                 <div className="font-bold text-orange-700 mb-1">MB WAY</div>
-                <div className="text-sm">{settingsData?.paymentConfig?.mbWayNumber || "NÃ£o configurado"}</div>
+                <div className="text-sm">{settingsData?.paymentConfig?.mbWayNumber || "Não configurado"}</div>
               </div>
               <div className={`p-4 rounded-xl border ${settingsData?.paymentConfig?.orangeMoneyNumber ? 'bg-orange-50 border-orange-200' : 'bg-gray-100 border-gray-200 opacity-50'}`}>
                 <div className="font-bold text-orange-700 mb-1">Orange Money</div>
-                <div className="text-sm">{settingsData?.paymentConfig?.orangeMoneyNumber || "NÃ£o configurado"}</div>
+                <div className="text-sm">{settingsData?.paymentConfig?.orangeMoneyNumber || "Não configurado"}</div>
               </div>
               <div className={`p-4 rounded-xl border ${settingsData?.paymentConfig?.bankTransferInfo ? 'bg-slate-50 border-slate-200' : 'bg-gray-100 border-gray-200 opacity-50'}`}>
-                <div className="font-bold text-slate-700 mb-1">Transf. BancÃ¡ria</div>
-                <div className="text-xs whitespace-pre-wrap">{settingsData?.paymentConfig?.bankTransferInfo || "NÃ£o configurado"}</div>
+                <div className="font-bold text-slate-700 mb-1">Transf. Bancária</div>
+                <div className="text-xs whitespace-pre-wrap">{settingsData?.paymentConfig?.bankTransferInfo || "Não configurado"}</div>
               </div>
               <div className={`p-4 rounded-xl border ${settingsData?.paymentConfig?.creditCardEnabled ? 'bg-blue-50 border-blue-200' : 'bg-gray-100 border-gray-200 opacity-50'}`}>
-                <div className="font-bold text-blue-700 mb-1">CartÃ£o de CrÃ©dito</div>
-                <div className="text-sm">{settingsData?.paymentConfig?.creditCardEnabled ? 'Ativado (SimulaÃ§Ã£o)' : 'Desativado'}</div>
+                <div className="font-bold text-blue-700 mb-1">Cartão de Crédito</div>
+                <div className="text-sm">{settingsData?.paymentConfig?.creditCardEnabled ? 'Ativado (Simulação)' : 'Desativado'}</div>
               </div>
             </div>
           </div>
@@ -533,7 +533,7 @@ const Settings = () => {
               <div className="bg-white p-3 rounded-full shadow-sm text-purple-600"><GiftOutlined style={{ fontSize: 24 }} /></div>
               <div>
                 <p className="font-bold text-purple-900 m-0">Cupom de Boas-vindas</p>
-                <p className="text-purple-600 m-0 text-sm">OfereÃ§a desconto para novos clientes</p>
+                <p className="text-purple-600 m-0 text-sm">Ofereça desconto para novos clientes</p>
               </div>
             </div>
             <div className="text-right">

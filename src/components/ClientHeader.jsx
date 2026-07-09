@@ -1,4 +1,4 @@
-﻿import React, { useContext } from "react";
+�import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Layout, Button, Space, Avatar, Typography, Dropdown, Menu, message } from "antd";
 import { HomeOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
@@ -13,7 +13,7 @@ const ClientHeader = () => {
 
   const handleLogout = () => {
     logout(); // limpa o contexto global
-    message.success("SessÃ£o encerrada com sucesso!");
+    message.success("Sessão encerrada com sucesso!");
     navigate("/"); // volta direto pra home
   };
 
@@ -24,7 +24,7 @@ const ClientHeader = () => {
         if (key === "logout") handleLogout();
       }}
       items={[
-        { key: "home", label: "ðŸ  Voltar Ã  Home", icon: <HomeOutlined /> },
+        { key: "home", label: "�x�� Voltar à Home", icon: <HomeOutlined /> },
         { key: "logout", label: "Sair", icon: <LogoutOutlined /> },
       ]}
     />

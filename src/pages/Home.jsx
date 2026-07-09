@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useContext, useCallback } from "react";
+�import React, { useEffect, useState, useContext, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Search, RefreshCw, Truck, Shield, Flame, Star, ShoppingBag, ArrowRight, Zap } from 'lucide-react';
 
@@ -92,29 +92,29 @@ const Home = () => {
         });
     };
 
-    // Filtrar promoÃ§Ãµes de "novos usuÃ¡rios" para NÃƒO exibir no preÃ§o de vitrine
+    // Filtrar promoções de "novos usuários" para NÒO exibir no preço de vitrine
     const eligiblePromotions = activePromotions.filter(p => {
-        // Palavras-chave para identificar promoÃ§Ãµes de novos usuÃ¡rios
+        // Palavras-chave para identificar promoções de novos usuários
         const keywords = ["novo", "mimo", "boas-vindas", "bem-vindo", "welcome", "primeira compra"];
         const title = p.title?.toLowerCase() || "";
         const desc = p.description?.toLowerCase() || "";
 
-        // Sempre excluir cupons de boas-vindas do cÃ¡lculo de preÃ§o automÃ¡tico
+        // Sempre excluir cupons de boas-vindas do cálculo de preço automático
         if (keywords.some(k => title.includes(k) || desc.includes(k))) {
             return false;
         }
         return true;
     });
 
-    // ðŸš€ APLICAÃ‡ÃƒO GLOBAL DE DESCONTOS
-    // Processa todos os produtos para encontrar o melhor desconto aplicÃ¡vel
+    // �xa� APLICA�!ÒO GLOBAL DE DESCONTOS
+    // Processa todos os produtos para encontrar o melhor desconto aplicável
     const processedProducts = products.map(product => {
         let bestDiscount = 0;
         let appliedPromo = null;
 
-        // Verifica todas as promoÃ§Ãµes elegÃ­veis (excluindo cupons de novo usuÃ¡rio se jÃ¡ logado, etc)
+        // Verifica todas as promoções elegíveis (excluindo cupons de novo usuário se já logado, etc)
         eligiblePromotions.forEach(promo => {
-            if (promo.isNewUserCoupon) return; // Ignora cupons de boas-vindas no cÃ¡lculo automÃ¡tico de preÃ§o
+            if (promo.isNewUserCoupon) return; // Ignora cupons de boas-vindas no cálculo automático de preço
 
             const appliesToProduct =
                 promo.products.includes(product._id) ||
@@ -157,7 +157,7 @@ const Home = () => {
 
     const dailyDealPromotion = activePromotions.find(p => p.isDailyDeal && p.active);
 
-    // Produtos em destaque e filtrados para seÃ§Ãµes (Baseado nos produtos jÃ¡ processados com desconto)
+    // Produtos em destaque e filtrados para seções (Baseado nos produtos já processados com desconto)
     const featuredProducts = processedProducts.filter(p => p.featured).slice(0, 4);
 
     const promoProducts = dailyDealPromotion
@@ -186,15 +186,15 @@ const Home = () => {
 
             <div className="relative h-full flex flex-col justify-center px-8 md:px-16 max-w-4xl">
                 <span className="inline-block px-4 py-1.5 bg-yellow-400 text-black font-bold text-sm uppercase tracking-wider rounded-full mb-6 w-fit animate-slideDown">
-                    {mainPromoForBanner?.title ? "Destaque da Semana" : `Bem-vindo Ã  ${settings?.siteName || "Lumo"}`}
+                    {mainPromoForBanner?.title ? "Destaque da Semana" : `Bem-vindo à ${settings?.siteName || "Lumo"}`}
                 </span>
 
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-                    {mainPromoForBanner?.description || settings?.bannerTitle || "Sua Nova ExperiÃªncia de Compras"}
+                    {mainPromoForBanner?.description || settings?.bannerTitle || "Sua Nova Experiência de Compras"}
                 </h1>
 
                 <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-xl leading-relaxed">
-                    {settings?.bannerSubtitle || "Encontre os melhores produtos das melhores lojas. Qualidade premium e entrega rÃ¡pida para todo o paÃ­s."}
+                    {settings?.bannerSubtitle || "Encontre os melhores produtos das melhores lojas. Qualidade premium e entrega rápida para todo o país."}
                 </p>
 
                 <div className="flex flex-wrap gap-4">
@@ -202,7 +202,7 @@ const Home = () => {
                         onClick={scrollToProducts}
                         className="px-8 py-4 bg-white text-gray-900 font-bold text-lg rounded-full hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2"
                     >
-                        Ver ColeÃ§Ã£o
+                        Ver Coleção
                         <ArrowRight size={20} />
                     </button>
 
@@ -221,8 +221,8 @@ const Home = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 px-4">
             {[
                 { icon: <Flame className="text-red-500" size={32} />, title: "Qualidade Premium", desc: "Produtos oficiais" },
-                { icon: <RefreshCw className="text-green-500" size={32} />, title: "Troca GrÃ¡tis", desc: "AtÃ© 30 dias" },
-                { icon: <Truck className="text-blue-500" size={32} />, title: "Envio RÃ¡pido", desc: "Entrega expressa" },
+                { icon: <RefreshCw className="text-green-500" size={32} />, title: "Troca Grátis", desc: "Até 30 dias" },
+                { icon: <Truck className="text-blue-500" size={32} />, title: "Envio Rápido", desc: "Entrega expressa" },
                 { icon: <Shield className="text-yellow-500" size={32} />, title: "Pagamento Seguro", desc: "100% Protegido" },
             ].map((item, idx) => (
                 <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow">
@@ -293,7 +293,7 @@ const Home = () => {
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-3xl font-bold flex items-center gap-3">
                             <ShoppingBag className="text-blue-600" />
-                            CatÃ¡logo
+                            Catálogo
                         </h2>
                     </div>
 
