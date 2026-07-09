@@ -1,6 +1,6 @@
-export const API_URL = (() => {
-    const hostname = window.location.hostname;
-    // Se estiver rodando no localhost ou IP local (rede), aponta para a porta do backend
-    // Assumindo que o backend roda na mesma máquina na porta 5000
-    return `http://${hostname}:5000/api`;
-})();
+export const API_URL = process.env.NODE_ENV === 'production'
+    ? "/api"
+    : (() => {
+        const hostname = window.location.hostname;
+        return `http://${hostname}:5000/api`;
+    })();
