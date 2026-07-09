@@ -218,7 +218,7 @@ const Home = () => {
     );
 
     const BenefitsBar = () => (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16 px-4">
             {[
                 { icon: <Flame className="text-red-500" size={32} />, title: "Qualidade Premium", desc: "Produtos oficiais" },
                 { icon: <RefreshCw className="text-green-500" size={32} />, title: "Troca Grátis", desc: "Até 30 dias" },
