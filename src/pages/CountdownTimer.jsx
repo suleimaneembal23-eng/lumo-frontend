@@ -1,4 +1,4 @@
-�import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typography, Tag } from 'antd';
 import dayjs from 'dayjs';
 

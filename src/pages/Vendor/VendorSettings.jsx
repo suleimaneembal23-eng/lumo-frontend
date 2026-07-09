@@ -1,4 +1,4 @@
-�import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Form, Input, Button, Card, InputNumber, Switch, message, Upload, Alert } from 'antd';
 import { UploadOutlined, ShopOutlined, TruckOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../context/Authcontext';

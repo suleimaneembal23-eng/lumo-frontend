@@ -1,4 +1,4 @@
-�import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Card, Statistic, Row, Col, Typography, Spin, Table, Tag } from 'antd';
 import {
     DollarOutlined,

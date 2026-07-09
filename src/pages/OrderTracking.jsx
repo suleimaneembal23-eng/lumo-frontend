@@ -1,4 +1,4 @@
-�import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Search, Package, CheckCircle, Clock, Truck, MapPin, AlertCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { SettingsContext } from '../context/SettingsContext';

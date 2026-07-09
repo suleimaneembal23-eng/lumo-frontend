@@ -1,3 +1,3 @@
-�export const countries = [
+export const countries = [
     "Guiné-Bissau"
 ];

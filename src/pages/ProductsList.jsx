@@ -1,4 +1,4 @@
-�import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Slider, Checkbox, Select, Empty, Spin, Input } from 'antd';
 import { Filter, Search } from 'lucide-react';
 import ProductCard from '../components/ProductCard';

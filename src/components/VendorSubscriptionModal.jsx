@@ -1,4 +1,4 @@
-�import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, message, Spin } from 'antd';
 import { Shield, Sparkles } from 'lucide-react';
 import { Elements } from '@stripe/react-stripe-js';

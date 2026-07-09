@@ -1,4 +1,4 @@
-�import React, { useContext } from "react";
+import React, { useContext } from "react";
 import { Typography, Card, Divider, Row, Col } from "antd";
 import { BookOutlined, CheckCircleOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import { SettingsContext } from "../context/SettingsContext";

@@ -1,4 +1,4 @@
-�import React, { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Input, Button, Row, Col, Badge, Avatar } from "antd";
 import { ShoppingCartOutlined, MenuOutlined, SearchOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";

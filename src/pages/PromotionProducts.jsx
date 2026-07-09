@@ -1,4 +1,4 @@
-�import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Row, Col, Card, Spin } from "antd";
 // Assuming API_URL is defined in a config file

@@ -1,4 +1,4 @@
-�import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Table, Button, Modal, Form, Input, InputNumber, Select, Upload, message, Switch, Card, Tag, Tabs, Row, Col, Divider, Popconfirm } from 'antd';
 import { PlusOutlined, UploadOutlined, EditOutlined, DeleteOutlined, InfoCircleOutlined, SkinOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../context/Authcontext';

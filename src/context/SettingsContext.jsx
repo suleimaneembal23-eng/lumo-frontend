@@ -1,4 +1,4 @@
-﻿import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import useSettings from "../hooks/useSettings";
 
 export const SettingsContext = createContext();

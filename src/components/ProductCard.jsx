@@ -1,4 +1,4 @@
-�import React, { useContext } from 'react';
+import React, { useContext } from 'react';
 import { ShoppingCart, Heart, Eye } from 'lucide-react'; // Adicionado Eye
 import { useNavigate } from 'react-router-dom';
 import { SettingsContext } from '../context/SettingsContext';

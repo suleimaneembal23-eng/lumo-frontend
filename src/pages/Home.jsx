@@ -1,4 +1,4 @@
-�import React, { useEffect, useState, useContext, useCallback } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Search, RefreshCw, Truck, Shield, Flame, Star, ShoppingBag, ArrowRight, Zap } from 'lucide-react';
 

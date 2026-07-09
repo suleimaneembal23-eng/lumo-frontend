@@ -1,4 +1,4 @@
-�import React, { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Facebook, Instagram, Twitter, MapPin, Mail, Phone, Heart } from 'lucide-react';
 import { SettingsContext } from '../context/SettingsContext';
 

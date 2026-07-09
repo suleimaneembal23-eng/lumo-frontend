@@ -1,4 +1,4 @@
-�import React, { useContext } from "react";
+import React, { useContext } from "react";
 import { Typography, Card, Collapse, Divider } from "antd";
 import { HelpCircle } from "lucide-react";
 import { SettingsContext } from "../context/SettingsContext";

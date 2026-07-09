@@ -1,4 +1,4 @@
-﻿import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { AuthContext } from "./Authcontext";
 import { cartService } from "../services/cartService";
 

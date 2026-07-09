@@ -1,4 +1,4 @@
-�import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 // import { useDebounce } from '../hooks/useDebounce'; // Criaremos este hook ou faremos in-line

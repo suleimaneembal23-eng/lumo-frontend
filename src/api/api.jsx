@@ -1,4 +1,4 @@
-�import { API_URL } from "../config";
+import { API_URL } from "../config";
 
 export const api = {
     // �x�� Buscar dados da loja e produtos do vendedor (Público)

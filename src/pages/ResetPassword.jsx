@@ -1,4 +1,4 @@
-�import React, { useState } from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Card, message, Typography } from "antd";
 import { LockOutlined } from "@ant-design/icons";
 import { useNavigate, useParams } from "react-router-dom";

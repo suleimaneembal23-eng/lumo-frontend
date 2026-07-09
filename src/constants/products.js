@@ -1,4 +1,4 @@
-�export const TOP_CATEGORIES = [
+export const TOP_CATEGORIES = [
     // Futebol
     "Camisas de Equipas",
     "Camisas de Seleções",

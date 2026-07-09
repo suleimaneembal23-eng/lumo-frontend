@@ -1,4 +1,4 @@
-�export const API_URL = (() => {
+export const API_URL = (() => {
     const hostname = window.location.hostname;
     // Se estiver rodando no localhost ou IP local (rede), aponta para a porta do backend
     // Assumindo que o backend roda na mesma máquina na porta 5000

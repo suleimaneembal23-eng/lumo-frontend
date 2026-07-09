@@ -1,4 +1,4 @@
-�import React, { useEffect, useState, useContext, useCallback, useMemo } from "react";
+import React, { useEffect, useState, useContext, useCallback, useMemo } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ShoppingCart, Heart, Star, Truck, RefreshCw, Shield, Check, Minus, Plus, Tag, Share2, ChevronRight } from 'lucide-react';
