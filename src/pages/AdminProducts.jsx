@@ -367,7 +367,7 @@ const AdminProducts = () => {
             ),
         },
         {
-            title: "Categorias",
+            title: "Categorias", responsive: ["md"],
             dataIndex: "category",
             render: (cats) =>
                 (Array.isArray(cats) ? cats : [cats]).map((c, i) => (
@@ -377,7 +377,7 @@ const AdminProducts = () => {
                 )),
         },
         {
-            title: "Colaborador",
+            title: "Colaborador", responsive: ["md"],
             dataIndex: "shopId",
             render: (shopId) => {
                 if (!shopId) return <Tag color="default">Admin</Tag>;
@@ -407,7 +407,7 @@ const AdminProducts = () => {
             ),
         },
         {
-            title: "Stock",
+            title: "Stock", responsive: ["md"],
             dataIndex: "inStock",
             render: (inStock) => (
                 <Tag color={inStock ? "green" : "red"}>
@@ -501,7 +501,7 @@ const AdminProducts = () => {
 
             {/* Tabela Estilizada */}
             <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
-                <Table scroll={{ x: "max-content" }}
+                <Table 
                     columns={columns}
                     dataSource={filtered}
                     loading={loading}

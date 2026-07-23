@@ -108,7 +108,7 @@ const MyOrders = () => {
           <Title level={2} style={{ margin: 0 }}>Meus Pedidos</Title>
         </div>
 
-        <Table scroll={{ x: "max-content" }}
+        <Table 
           columns={columns}
           dataSource={orders}
           rowKey="_id"

@@ -238,7 +238,7 @@ const VendorOrders = () => {
                 <div className="mb-4 text-gray-700 font-semibold flex items-center gap-2">
                     <UnorderedListOutlined className="text-blue-500" /> Itens deste Pedido (Que lhe pertencem)
                 </div>
-                <Table scroll={{ x: "max-content" }}
+                <Table 
                     columns={itemColumns}
                     dataSource={record.items}
                     pagination={false}
@@ -264,7 +264,7 @@ const VendorOrders = () => {
             </div>
 
             <Card bordered={false} className="shadow-sm rounded-2xl overflow-hidden border border-gray-100">
-                <Table scroll={{ x: "max-content" }}
+                <Table 
                     columns={columns}
                     expandable={{
                         expandedRowRender,

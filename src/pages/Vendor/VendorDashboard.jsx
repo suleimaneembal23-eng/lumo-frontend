@@ -121,7 +121,7 @@ const VendorDashboard = () => {
 
             <Title level={4} className="mb-4">Pedidos Recentes</Title>
             <Card bordered={false} className="shadow-sm rounded-xl overflow-hidden">
-                <Table scroll={{ x: "max-content" }}
+                <Table 
                     dataSource={stats.recentOrders}
                     rowKey="_id"
                     pagination={false}

@@ -266,7 +266,7 @@ const AdminMarketing = () => {
                   render: val => <span className="text-green-600 font-bold text-lg">{val}% OFF</span>
             },
             {
-                  title: "Validade",
+                  title: "Validade", responsive: ["md"],
                   dataIndex: "validUntil",
                   key: "validUntil",
                   render: (val) => {
@@ -330,7 +330,7 @@ const AdminMarketing = () => {
                               </div>
 
                               <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
-                                    <Table scroll={{ x: "max-content" }}
+                                    <Table 
                                           dataSource={promotions}
                                           rowKey="_id"
                                           pagination={{ pageSize: 6 }}

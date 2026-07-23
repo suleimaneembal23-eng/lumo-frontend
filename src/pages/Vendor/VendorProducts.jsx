@@ -230,6 +230,7 @@ const VendorProducts = () => {
             dataIndex: 'salesCount',
             align: 'center',
             width: 100,
+            responsive: ['md'],
             sorter: (a, b) => (a.salesCount || 0) - (b.salesCount || 0),
             render: (count) => (
                 <div className="text-center">
@@ -245,6 +246,7 @@ const VendorProducts = () => {
             dataIndex: 'inStock',
             align: 'center',
             width: 140,
+            responsive: ['md'],
             filters: [
                 { text: 'Em Stock', value: true },
                 { text: 'Esgotado', value: false }
@@ -385,12 +387,13 @@ const VendorProducts = () => {
             </div>
 
             <Card bordered={false} className="shadow-sm rounded-2xl overflow-hidden">
-                <Table scroll={{ x: "max-content" }}
+                <Table
                     columns={columns}
                     dataSource={products}
                     rowKey="_id"
                     loading={loading}
-                    pagination={{ pageSize: 6 }}
+                    pagination={{ pageSize: 8 }}
+                    className="shadow-sm"
                 />
             </Card>
 

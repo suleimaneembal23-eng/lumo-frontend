@@ -79,7 +79,7 @@ const ProductCard = ({ product, formatPrice, onAddToCart, user }) => {
       </div>
 
       {/* Conteúdo */}
-      <div className="p-5 flex flex-col flex-grow">
+      <div className="p-3 md:p-5 flex flex-col flex-grow">
         <div className="mb-1">
           <p className="text-xs text-gray-400 uppercase tracking-wide font-medium">
             {product.category?.[0] || 'Futebol'}

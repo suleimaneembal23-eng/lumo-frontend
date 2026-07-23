@@ -160,7 +160,7 @@ const AdminOrders = () => {
       },
     },
     {
-      title: "Data",
+      title: "Data", responsive: ["md"],
       dataIndex: "createdAt",
       key: "createdAt",
       render: val => new Date(val).toLocaleDateString("pt-PT")
@@ -215,7 +215,7 @@ const AdminOrders = () => {
       </div>
 
       <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
-        <Table scroll={{ x: "max-content" }}
+        <Table 
           columns={columns}
           dataSource={orders}
           rowKey="_id"

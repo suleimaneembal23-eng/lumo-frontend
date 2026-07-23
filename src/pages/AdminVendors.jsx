@@ -151,7 +151,7 @@ const AdminVendors = () => {
             )}
 
             <Card bordered={false} className="shadow-sm rounded-xl">
-                <Table scroll={{ x: "max-content" }}
+                <Table 
                     columns={columns}
                     dataSource={vendors}
                     rowKey="_id"
