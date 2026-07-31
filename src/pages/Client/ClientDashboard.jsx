@@ -439,15 +439,15 @@ const ClientDashboard = () => {
         <Content className="p-3 md:p-8 overflow-x-hidden">
           <div className="max-w-7xl mx-auto min-h-[85vh] w-full">
 
-            {/* �x�� INÍCIO (DASHBOARD) */}
+            {/* 🏠 INÍCIO (DASHBOARD) */}
             {selectedKey === "home" && (
               <>
                 <div className="mb-8">
-                  <h1 className="text-3xl font-extrabold text-gray-800 m-0">Bem-vindo de volta, {userName?.split(' ')[0]}! �x9</h1>
+                  <h1 className="text-3xl font-extrabold text-gray-800 m-0">Bem-vindo de volta, {userName?.split(' ')[0]}! 👋</h1>
                   <p className="text-gray-500 mt-1">Aqui está o que está acontecendo com sua conta hoje.</p>
                 </div>
 
-                {/* BANNER DE PROMO�!ÒO / BOAS VINDAS */}
+                {/* BANNER DE PROMOÇÃO / BOAS VINDAS */}
                 {promoBanner ? (
                   <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-violet-600 to-indigo-700 text-white shadow-xl shadow-indigo-200 mb-10 transform transition hover:scale-[1.01] duration-300">
                     <div className="absolute top-0 right-0 p-12 opacity-10 transform rotate-12 scale-150 pointer-events-none">
@@ -829,7 +829,7 @@ const ClientDashboard = () => {
         footer={null}
         width={800}
         centered
-        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">�S"</span>}
+        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">✖</span>}
       >
         {selectedOrder && (
           <div className="p-4">

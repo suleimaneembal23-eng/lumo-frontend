@@ -298,7 +298,7 @@ const AdminDashboard = () => {
       <Row gutter={[24, 24]} style={{ marginTop: 24 }}>
         <Col xs={24}>
           <Card
-            title={<Title level={4} style={{ margin: 0 }}>�x` Histórico de Vendas Mensais</Title>}
+            title={<Title level={4} style={{ margin: 0 }}>📊 Histórico de Vendas Mensais</Title>}
             bordered={false}
             style={{ borderRadius: 12, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}
           >
