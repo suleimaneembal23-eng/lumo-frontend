@@ -325,11 +325,21 @@ const ClientDashboard = () => {
         }}
         className="shadow-xl shadow-gray-200/50"
       >
-        <div className="flex items-center justify-center py-8">
-          <div className="bg-black text-white p-2 rounded-xl mr-2">
-            <RocketOutlined style={{ fontSize: 20 }} />
+        <div className="flex items-center justify-between px-6 py-8 relative">
+          <div className="flex items-center mx-auto">
+            <div className="bg-black text-white p-2 rounded-xl mr-2">
+              <RocketOutlined style={{ fontSize: 20 }} />
+            </div>
+            {!collapsed && <span className="text-xl font-bold tracking-tight text-gray-900">Lumo</span>}
           </div>
-          {!collapsed && <span className="text-xl font-bold tracking-tight text-gray-900">Lumo</span>}
+          {!collapsed && (
+            <button 
+              onClick={() => setCollapsed(true)}
+              className="md:hidden absolute right-4 top-8 p-2 text-gray-500 hover:text-black bg-gray-100 rounded-full flex items-center justify-center w-8 h-8 font-bold"
+            >
+              ✖
+            </button>
+          )}
         </div>
 
         <Menu

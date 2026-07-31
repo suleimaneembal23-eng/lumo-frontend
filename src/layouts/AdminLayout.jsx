@@ -108,7 +108,7 @@ const AdminLayout = ({ children }) => {
                 collapsible 
                 collapsed={collapsed} 
                 onCollapse={setCollapsed}
-                className="absolute md:relative z-50 h-full"
+                className="absolute md:relative z-50 min-h-screen"
             >
                 <div
                     style={{
