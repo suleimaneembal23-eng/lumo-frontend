@@ -436,8 +436,8 @@ const ClientDashboard = () => {
           </div>
         </Header>
 
-        <Content className="p-8">
-          <div className="max-w-7xl mx-auto min-h-[85vh]">
+        <Content className="p-3 md:p-8 overflow-x-hidden">
+          <div className="max-w-7xl mx-auto min-h-[85vh] w-full">
 
             {/* �x�� INÍCIO (DASHBOARD) */}
             {selectedKey === "home" && (
@@ -634,7 +634,7 @@ const ClientDashboard = () => {
                                 </div>
                               )}
                             </div>
-                            <div className="text-sm text-gray-600">
+                            <div className="text-sm text-gray-600 break-words whitespace-normal">
                               <span className="font-semibold">{order.items.length} {order.items.length === 1 ? 'item' : 'itens'}:</span>{' '}
                               {order.items.slice(0, 2).map(item => item.name).join(', ')}
                               {order.items.length > 2 && ` e mais ${order.items.length - 2}`}
@@ -725,10 +725,10 @@ const ClientDashboard = () => {
                   <p className="text-gray-500 mt-2">Gerencie seus dados pessoais, endereços e segurança.</p>
                 </div>
 
-                <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 min-h-[500px]">
+                <div className="bg-white rounded-[2rem] p-4 md:p-8 shadow-sm border border-gray-100 min-h-[500px]">
                   <Tabs
                     defaultActiveKey="info"
-                    tabPosition="left"
+                    tabPosition={window.innerWidth < 768 ? "top" : "left"}
                     size="large"
                     className="profile-tabs"
                     items={[
@@ -736,7 +736,7 @@ const ClientDashboard = () => {
                         label: <span className="flex items-center gap-2"><UserOutlined /> Dados Pessoais</span>,
                         key: 'info',
                         children: (
-                          <div className="max-w-xl pl-8 py-2">
+                          <div className="max-w-xl md:pl-8 py-2">
                             <h3 className="text-xl font-bold mb-6">Informações Básicas</h3>
                             <Form layout="vertical" form={profileForm} onFinish={handleSaveProfile} initialValues={profile} size="large">
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -777,7 +777,7 @@ const ClientDashboard = () => {
                         label: <span className="flex items-center gap-2"><LockOutlined /> Segurança</span>,
                         key: 'security',
                         children: (
-                          <div className="max-w-md pl-8 py-2">
+                          <div className="max-w-md md:pl-8 py-2">
                             <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6 mb-8">
                               <h4 className="font-bold text-orange-800 mb-2">Proteja sua conta</h4>
                               <p className="text-orange-700 text-sm">Use uma senha forte e não a compartilhe com ninguém.</p>

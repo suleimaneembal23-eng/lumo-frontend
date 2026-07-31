@@ -37,6 +37,9 @@ html, body {
     text-align: center !important;
     border: none !important;
     padding: 10px 0 !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
   }
   
   /* Linha separadora entre células (exceto a última) */
