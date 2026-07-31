@@ -7,6 +7,48 @@ html, body {
   width: 100%;
 }
 
+/* =========================================
+   REVOLUÇÃO MOBILE: Tabelas -> Cards
+   Isto converte as tabelas Ant Design em 
+   Cartões Verticais apenas no telemóvel
+========================================= */
+@media (max-width: 768px) {
+  /* Esconder cabeçalho da tabela */
+  .ant-table-wrapper .ant-table-thead {
+    display: none !important;
+  }
+  
+  /* Transformar as linhas em cartões */
+  .ant-table-wrapper .ant-table-tbody > tr {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 16px;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    background: #fff !important;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05) !important;
+  }
+
+  /* Transformar as células em linhas dentro do cartão */
+  .ant-table-wrapper .ant-table-tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    border: none !important;
+    padding: 10px 0 !important;
+  }
+  
+  /* Linha separadora entre células (exceto a última) */
+  .ant-table-wrapper .ant-table-tbody > tr > td:not(:last-child) {
+    border-bottom: 1px dashed #f3f4f6 !important;
+  }
+  
+  /* Garantir que imagens/botões ficam centrados se necessário */
+  .ant-table-wrapper .ant-table-tbody > tr > td > div {
+    justify-content: center;
+  }
+}
 
 @layer components {
   /* .btn-primary {

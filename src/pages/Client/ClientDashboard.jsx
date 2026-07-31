@@ -585,7 +585,7 @@ const ClientDashboard = () => {
                 </div>
 
                 {orders.length === 0 ? (
-                  <div className="bg-white rounded-[2rem] p-16 text-center border border-dashed border-gray-200">
+                  <div className="bg-white rounded-[2rem] p-6 md:p-16 text-center border border-dashed border-gray-200">
                     <ShoppingIcon style={{ fontSize: 64, color: '#e5e7eb', marginBottom: 24 }} />
                     <h3 className="text-xl font-bold text-gray-900">Você ainda não fez compras</h3>
                     <p className="text-gray-500 mb-8 max-w-md mx-auto">Explore nossa coleção e encontre os produtos das suas marcas favoritas hoje mesmo.</p>

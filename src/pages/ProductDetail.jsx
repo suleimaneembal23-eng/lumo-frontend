@@ -381,13 +381,9 @@ const ProductDetail = () => {
                     </button>
                   </div>
                 </div>
-              </div>
-
-            </div>
-
-            {/* BOT�"ES DE A�!ÒO */}
+            {/* BOT"ES DE A!ÒO */}
             <div className="flex flex-col gap-3 mb-8">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <button
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
@@ -405,9 +401,9 @@ const ProductDetail = () => {
               </div>
 
               {/* Cupom Input */}
-              <div className="flex gap-2 mt-2">
+              <div className="flex flex-col md:flex-row gap-2 mt-2">
                 <div className="relative flex-grow">
-                  <Tag className="absolute left-3 top-3 text-gray-400" size={16} />
+                  <Tag className="absolute left-3 top-3.5 text-gray-400" size={16} />
                   <input
                     type="text"
                     placeholder="Cupom de desconto"
@@ -418,7 +414,7 @@ const ProductDetail = () => {
                 </div>
                 <button
                   onClick={applyCoupon}
-                  className="px-6 font-bold text-gray-600 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
+                  className="px-6 py-3 font-bold text-gray-600 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
                 >
                   Aplicar
                 </button>
@@ -426,7 +422,7 @@ const ProductDetail = () => {
             </div>
 
             {/* INFO EXTRA */}
-            <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600">
               <div className="flex items-center gap-3">
                 <Truck className="text-blue-500" size={20} />
                 <div className="flex flex-col">

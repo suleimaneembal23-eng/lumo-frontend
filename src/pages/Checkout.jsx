@@ -579,7 +579,7 @@ const Checkout = () => {
 
           {/* RIGHT COLUMN: ORDER SUMMARY */}
           <div className="lg:col-span-1">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-24">
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 lg:sticky top-24">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Resumo</h3>
               <div className="space-y-4 max-h-60 overflow-y-auto mb-4 scrollbar-thin">
                 {cart?.items?.map(item => (

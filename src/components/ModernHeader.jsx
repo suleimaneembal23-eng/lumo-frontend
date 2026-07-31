@@ -144,10 +144,10 @@ const ModernHeader = () => {
                             </button>
                             <button
                                 onClick={() => navigate('/register')}
-                                className="flex items-center gap-2 px-5 py-2 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all shadow-md hover:shadow-lg transform active:scale-95"
+                                className="flex items-center gap-2 px-3 sm:px-5 py-2 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all shadow-md hover:shadow-lg transform active:scale-95"
                             >
                                 <UserPlus size={18} />
-                                Registrar
+                                <span className="hidden sm:inline">Registrar</span>
                             </button>
                         </div>
                     )}
