@@ -461,13 +461,13 @@ const Settings = () => {
       {!editing ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
           {/* Card Principal - Identidade */}
-          <div className="md:col-span-3 bg-gradient-to-r from-slate-900 to-slate-800 p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
+          <div className="md:col-span-3 bg-gradient-to-r from-slate-900 to-slate-800 p-6 md:p-8 rounded-3xl text-white shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-10"><GlobalOutlined style={{ fontSize: 150 }} /></div>
             <div className="relative z-10">
               <Badge status="processing" text={<span className="text-green-400 font-bold">Loja Ativa</span>} className="mb-4" />
               <h2 className="text-4xl font-extrabold m-0 text-white mb-2">{settingsData?.siteName || "Sua Loja"}</h2>
               <p className="text-gray-300 text-lg max-w-2xl">{settingsData?.siteDescription || "Sem descrição definida."}</p>
-              <div className="mt-8 flex gap-4">
+              <div className="mt-8 flex flex-col md:flex-row gap-4">
                 <span className="bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10 flex items-center gap-2"><GlobalOutlined /> {settingsData?.currency || "EUR"}</span>
                 <span className="bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10 flex items-center gap-2"><PhoneOutlined /> {settingsData?.contactPhone || "Sem telefone"}</span>
               </div>
@@ -475,7 +475,7 @@ const Settings = () => {
           </div>
 
           {/* Coluna 1: Contato e Endereço */}
-          <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
+          <div className="bg-gray-50 p-4 md:p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow break-words overflow-hidden">
             <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2"><InfoCircleOutlined className="text-blue-500" /> Contato Comercial</h3>
             <div className="text-gray-600 space-y-3">
               <p><strong>Email:</strong> {settingsData?.contactEmail || "-"}</p>
@@ -489,7 +489,7 @@ const Settings = () => {
           </div>
 
           {/* Coluna 2: Logística e Taxas */}
-          <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
+          <div className="bg-gray-50 p-4 md:p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
             <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2"><CarOutlined className="text-orange-500" /> Logística</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white p-4 rounded-xl border border-gray-200">
@@ -505,7 +505,7 @@ const Settings = () => {
           </div>
 
           {/* Coluna 3: Métodos de Pagamento */}
-          <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
+          <div className="bg-gray-50 p-4 md:p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
             <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2"><DollarOutlined className="text-green-500" /> Pagamentos</h3>
             <div className="space-y-4">
               <div className={`p-4 rounded-xl border ${settingsData?.paymentConfig?.mbWayNumber ? 'bg-orange-50 border-orange-200' : 'bg-gray-100 border-gray-200 opacity-50'}`}>
@@ -528,17 +528,17 @@ const Settings = () => {
           </div>
 
           {/* Outros cards (Marketing, etc) se necessario */}
-          <div className="md:col-span-3 bg-purple-50 p-6 rounded-3xl border border-purple-100 flex items-center justify-between">
-            <div className="flex items-center gap-4">
+          <div className="md:col-span-3 bg-purple-50 p-4 md:p-6 rounded-3xl border border-purple-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex items-center gap-4 w-full md:w-auto">
               <div className="bg-white p-3 rounded-full shadow-sm text-purple-600"><GiftOutlined style={{ fontSize: 24 }} /></div>
               <div>
                 <p className="font-bold text-purple-900 m-0">Cupom de Boas-vindas</p>
                 <p className="text-purple-600 m-0 text-sm">Ofereça desconto para novos clientes</p>
               </div>
             </div>
-            <div className="text-right">
-              <span className="text-2xl font-bold text-purple-800">{settingsData?.welcomeCouponCode || "N/A"}</span>
-              <span className="ml-2 bg-purple-200 text-purple-800 px-2 py-1 rounded text-xs font-bold">-{settingsData?.welcomeCouponDiscount}%</span>
+            <div className="text-left md:text-right w-full md:w-auto flex items-center md:justify-end">
+              <span className="text-2xl font-bold text-purple-800 break-all">{settingsData?.welcomeCouponCode || "N/A"}</span>
+              <span className="ml-2 bg-purple-200 text-purple-800 px-2 py-1 rounded text-xs font-bold whitespace-nowrap">-{settingsData?.welcomeCouponDiscount}%</span>
             </div>
           </div>
 

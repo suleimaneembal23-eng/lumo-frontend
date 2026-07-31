@@ -343,13 +343,13 @@ const AdminMarketing = () => {
             },
             {
                   key: '2',
-                  label: <span className="font-medium text-base px-4">�x� Email Marketing</span>,
+                  label: <span className="font-medium text-base px-4">📧 Email Marketing</span>,
                   children: (
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
                               <div className="lg:col-span-2">
-                                    <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                                    <div className="bg-white p-4 md:p-8 rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
                                           {/* Automation Section */}
-                                          <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 mb-8 flex items-center justify-between">
+                                          <div className="bg-blue-50 p-4 md:p-6 rounded-2xl border border-blue-100 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
                                                 <div>
                                                       <h3 className="text-lg font-bold text-blue-900 flex items-center gap-2">
                                                             <RocketOutlined /> Recuperação de Carrinho
@@ -364,7 +364,7 @@ const AdminMarketing = () => {
                                                       size="large"
                                                       loading={triggeringCart}
                                                       onClick={handleTriggerAbandonedCart}
-                                                      className="bg-blue-600 hover:bg-blue-700 border-none shadow-md"
+                                                      className="bg-blue-600 hover:bg-blue-700 border-none shadow-md w-full md:w-auto"
                                                 >
                                                       Rodar Agora
                                                 </Button>
@@ -377,10 +377,10 @@ const AdminMarketing = () => {
                                                 <Form.Item label={<span className="font-bold">Assunto do Email</span>} required>
                                                       <Input
                                                             size="large"
-                                                            placeholder="Ex: Oferta Imperdível de Fim de Ano! �x}�"
+                                                            placeholder="Ex: Oferta Imperdível de Fim de Ano! 🎁"
                                                             value={emailSubject}
                                                             onChange={e => setEmailSubject(e.target.value)}
-                                                            className="rounded-xl"
+                                                            className="rounded-xl w-full"
                                                       />
                                                 </Form.Item>
 
@@ -390,18 +390,18 @@ const AdminMarketing = () => {
                                                             placeholder="<p>Olá {{name}}, confira nossas ofertas...</p>"
                                                             value={emailContent}
                                                             onChange={e => setEmailContent(e.target.value)}
-                                                            className="rounded-xl"
+                                                            className="rounded-xl w-full"
                                                       />
                                                 </Form.Item>
 
-                                                <div className="grid grid-cols-2 gap-4">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                       <Form.Item label={<span className="font-bold">Texto do Botão</span>}>
                                                             <Input
                                                                   size="large"
                                                                   placeholder="Ex: Ver Ofertas"
                                                                   value={emailActionText}
                                                                   onChange={e => setEmailActionText(e.target.value)}
-                                                                  className="rounded-xl"
+                                                                  className="rounded-xl w-full"
                                                             />
                                                       </Form.Item>
                                                       <Form.Item label={<span className="font-bold">Link de Destino</span>}>
@@ -410,7 +410,7 @@ const AdminMarketing = () => {
                                                                   placeholder="http://..."
                                                                   value={emailActionUrl}
                                                                   onChange={e => setEmailActionUrl(e.target.value)}
-                                                                  className="rounded-xl"
+                                                                  className="rounded-xl w-full"
                                                             />
                                                       </Form.Item>
                                                 </div>
@@ -421,7 +421,7 @@ const AdminMarketing = () => {
                                                       icon={<GiftOutlined />}
                                                       loading={sendingEmail}
                                                       onClick={handleSendEmail}
-                                                      className="w-full h-14 rounded-xl text-lg font-bold shadow-lg"
+                                                      className="w-full h-auto py-3 md:h-14 rounded-xl text-base md:text-lg font-bold shadow-lg whitespace-normal break-words leading-tight"
                                                       style={{ background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", border: "none" }}
                                                 >
                                                       Enviar Campanha Agora
