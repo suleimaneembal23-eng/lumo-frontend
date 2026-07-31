@@ -381,6 +381,9 @@ const ProductDetail = () => {
                     </button>
                   </div>
                 </div>
+              </div>
+            </div>
+
             {/* BOT"ES DE A!ÒO */}
             <div className="flex flex-col gap-3 mb-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
