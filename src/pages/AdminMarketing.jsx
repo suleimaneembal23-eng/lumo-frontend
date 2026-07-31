@@ -247,7 +247,7 @@ const AdminMarketing = () => {
                                           </Tag>
                                     )}
                                     <Tag color={record.active ? "success" : "default"} style={{ margin: 0, borderRadius: 12, border: 'none', padding: '2px 8px' }}>
-                                          {record.active ? "�� Ativa" : "�9 Inativa"}
+                                          {record.active ? "✅ Ativa" : "❌ Inativa"}
                                     </Tag>
                               </div>
                         </div>
@@ -314,7 +314,7 @@ const AdminMarketing = () => {
       const items = [
             {
                   key: '1',
-                  label: <span className="font-medium text-base px-4">�x}x️ Gerir Promoções</span>,
+                  label: <span className="font-medium text-base px-4">🏷️ Gerir Promoções</span>,
                   children: (
                         <div className="mt-4">
                               <div className="flex justify-end mb-6">
@@ -434,7 +434,7 @@ const AdminMarketing = () => {
                               <div className="hidden lg:block bg-gray-50 p-6 rounded-3xl border border-dashed border-gray-300 h-fit">
                                     <h4 className="text-gray-400 font-bold text-center uppercase tracking-wide mb-4">Preview Mobile</h4>
                                     <div className="bg-white rounded-3xl border border-gray-200 shadow-xl overflow-hidden max-w-xs mx-auto text-center pb-8">
-                                          <div className="bg-gray-100 h-40 flex items-center justify-center text-gray-300 text-4xl mb-4">�x�️</div>
+                                          <div className="bg-gray-100 h-40 flex items-center justify-center text-gray-300 text-4xl mb-4">✉️</div>
                                           <div className="px-6 text-left">
                                                 <h3 className="font-bold text-lg mb-2 text-gray-900">{emailSubject || "Assunto..."}</h3>
                                                 <div className="text-gray-600 text-sm mb-6" dangerouslySetInnerHTML={{ __html: emailContent || "Conteúdo..." }} />
@@ -470,7 +470,7 @@ const AdminMarketing = () => {
                         width={700}
                         footer={null}
                         centered
-                        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">�S"</span>}
+                        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">✖</span>}
                   >
                         <div className="pt-4">
                               <Form
