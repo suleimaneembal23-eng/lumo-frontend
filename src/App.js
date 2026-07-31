@@ -41,12 +41,13 @@ import MyFavorites from "./pages/Client/MyFavorites";
 import MyProfile from "./pages/Client/MyProfile";
 import OrderDetails from "./pages/Client/OrderDetails";
 
-// �xR� Componentes
+// xR Componentes
 import ModernHeader from "./components/ModernHeader";
 import Footer from "./components/Footer";
 import CookieBanner from "./components/CookieBanner";
+import FloatingCart from "./components/FloatingCart";
 
-// �x�� Vendor Dashboard
+// x Vendor Dashboard
 import VendorLayout from "./layouts/VendorLayout";
 import VendorDashboard from "./pages/Vendor/VendorDashboard";
 import VendorProducts from "./pages/Vendor/VendorProducts";
@@ -54,7 +55,7 @@ import VendorSettings from "./pages/Vendor/VendorSettings";
 import VendorOrders from "./pages/Vendor/VendorOrders";
 import VendorPromotions from "./pages/Vendor/VendorPromotions";
 
-// �xR� Contextos
+// xR Contextos
 import { AuthProvider } from "./context/Authcontext";
 import { SettingsContext, SettingsProvider } from "./context/SettingsContext";
 import { CartProvider } from "./context/CartContext";
@@ -73,6 +74,7 @@ const PublicLayout = ({ children }) => {
       </main>
       <Footer />
       <CookieBanner />
+      <FloatingCart />
     </div>
   );
 };

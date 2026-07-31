@@ -56,6 +56,29 @@ html, body {
   } */
 }
 
+/* =========================================
+   ANIMAÇÕES DO CARRINHO FLUTUANTE
+========================================= */
+@keyframes cartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes badgeBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4) translateY(-2px); }
+  100% { transform: scale(1); }
+}
+
+.animate-cartPop {
+  animation: cartPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.animate-badgeBounce {
+  animation: badgeBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;
