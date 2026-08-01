@@ -438,24 +438,24 @@ const Settings = () => {
 
   return (
     <div className="min-h-[85vh] bg-white rounded-3xl p-8 shadow-sm border border-gray-100 relative">
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 m-0 tracking-tight">Definições da Loja</h1>
           <p className="text-gray-500 mt-2">Configure a identidade, logística e pagamentos.</p>
         </div>
-        <Space>
+        <div className="flex gap-2 w-full md:w-auto">
           {!editing && (
-            <Button type="primary" size="large" icon={<EditOutlined />} shape="round" className="bg-black hover:bg-gray-800 border-none px-6" onClick={() => setEditing(true)}>
-              Editar Configurações
+            <Button type="primary" size="large" icon={<EditOutlined />} shape="round" className="bg-black hover:bg-gray-800 border-none px-6 w-full md:w-auto" onClick={() => setEditing(true)}>
+              Editar
             </Button>
           )}
           {editing && (
             <>
-              <Button size="large" shape="round" icon={<CloseOutlined />} onClick={() => setEditing(false)}>Cancelar</Button>
-              <Button type="primary" size="large" shape="round" icon={<SaveOutlined />} className="bg-green-600 hover:bg-green-700 border-none" onClick={form.submit} loading={loading}>Salvar</Button>
+              <Button size="large" shape="round" icon={<CloseOutlined />} className="flex-1 md:flex-none" onClick={() => setEditing(false)}>Cancelar</Button>
+              <Button type="primary" size="large" shape="round" icon={<SaveOutlined />} className="bg-green-600 hover:bg-green-700 border-none flex-1 md:flex-none" onClick={form.submit} loading={loading}>Salvar</Button>
             </>
           )}
-        </Space>
+        </div>
       </div>
 
       {!editing ? (

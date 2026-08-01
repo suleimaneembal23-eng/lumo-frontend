@@ -106,13 +106,13 @@ const AdminVendors = () => {
     ];
 
     return (
-        <div className="p-6">
-            <div className="flex justify-between items-center mb-6">
+        <div className="p-4 md:p-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
                 <div>
-                    <Title level={2} style={{ marginBottom: 0 }}>Gestão de Colaboradores</Title>
+                    <Title level={2} style={{ marginBottom: 0, wordBreak: 'break-word' }}>Gestão de Colaboradores</Title>
                     <Text type="secondary">Crie e gerencie as contas dos vendedores parceiros.</Text>
                 </div>
-                <Button type="primary" size="large" icon={<PlusOutlined />} onClick={() => setIsModalVisible(true)}>
+                <Button type="primary" size="large" icon={<PlusOutlined />} onClick={() => setIsModalVisible(true)} className="w-full md:w-auto">
                     Novo Colaborador
                 </Button>
             </div>
