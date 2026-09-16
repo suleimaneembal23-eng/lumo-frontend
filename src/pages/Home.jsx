@@ -41,6 +41,7 @@ const Home = () => {
     const location = useLocation();
 
     const [catalogs, setCatalogs] = useState([]);
+    const [showCategories, setShowCategories] = useState(false);
 
     const categories = [
         { key: "Todas as Categorias", label: "Todos os Produtos" },
@@ -298,18 +299,38 @@ const Home = () => {
                     </div>
 
                     <div className="flex flex-wrap gap-2 mb-8">
-                        {categories.map(cat => (
+                        {categories.map((cat, index) => {
+                            // Mostrar sempre o selecionado, "Todas as Categorias", ou os primeiros 3.
+                            // Os restantes são escondidos se showCategories for false
+                            const isVisible = showCategories || 
+                                              selectedCategory === cat.key || 
+                                              cat.key === "Todas as Categorias" || 
+                                              index < 4;
+
+                            if (!isVisible) return null;
+
+                            return (
+                                <button
+                                    key={cat.key}
+                                    onClick={() => updateFilters("selectedCategory", cat.key)}
+                                    className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${selectedCategory === cat.key
+                                        ? 'bg-black text-white shadow-lg scale-105'
+                                        : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                                        }`}
+                                >
+                                    {cat.label}
+                                </button>
+                            );
+                        })}
+                        
+                        {categories.length > 4 && (
                             <button
-                                key={cat.key}
-                                onClick={() => updateFilters("selectedCategory", cat.key)}
-                                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${selectedCategory === cat.key
-                                    ? 'bg-black text-white shadow-lg scale-105'
-                                    : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
-                                    }`}
+                                onClick={() => setShowCategories(!showCategories)}
+                                className="px-6 py-2.5 rounded-full text-sm font-medium transition-all bg-gray-50 text-blue-600 hover:bg-blue-50 hover:text-blue-700 border border-blue-100 flex items-center gap-1"
                             >
-                                {cat.label}
+                                {showCategories ? "Ver menos" : "Ver mais opções"}
                             </button>
-                        ))}
+                        )}
                     </div>
 
                     {loading ? (
