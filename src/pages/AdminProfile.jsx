@@ -15,10 +15,6 @@ const AdminProfile = () => {
     const [adminForm] = Form.useForm();
 
     const handlePasswordChange = async (values) => {
-        if (values.newPassword !== values.confirmPassword) {
-            return message.error('As senhas não coincidem!');
-        }
-
         setLoading(true);
         try {
             const res = await fetch(`${API_URL}/auth/change-password`, {
@@ -163,7 +159,17 @@ const AdminProfile = () => {
                             <Form.Item
                                 name="confirmPassword"
                                 label={<span className="font-medium text-gray-700">Confirmar Nova Senha</span>}
-                                rules={[{ required: true, message: 'Confirme a nova senha' }]}
+                                rules={[
+                                    { required: true, message: 'Confirme a nova senha' },
+                                    ({ getFieldValue }) => ({
+                                        validator(_, value) {
+                                            if (!value || getFieldValue('newPassword') === value) {
+                                                return Promise.resolve();
+                                            }
+                                            return Promise.reject(new Error('As novas senhas não coincidem!'));
+                                        },
+                                    }),
+                                ]}
                             >
                                 <Input.Password size="large" prefix={<LockOutlined className="text-gray-400" />} className="rounded-xl px-4 py-2" placeholder="Confirmar nova senha" />
                             </Form.Item>
