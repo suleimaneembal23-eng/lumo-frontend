@@ -14,7 +14,7 @@ const { Step } = Steps;
 
 const AdminOrders = () => {
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -204,12 +204,12 @@ const AdminOrders = () => {
             dropdownStyle={{ borderRadius: 12, padding: 8 }}
           >
             <Option value="all">Todos os Pedidos</Option>
-            <Option value="pending">�xx� Pendentes</Option>
-            <Option value="paid">�xx� Pagos</Option>
-            <Option value="confirmed">�x� Confirmados</Option>
-            <Option value="shipped">�xaa Enviados</Option>
-            <Option value="delivered">�x�� Entregues</Option>
-            <Option value="cancelled">�x� Cancelados</Option>
+            <Option value="pending">⏳ Pendentes</Option>
+            <Option value="paid">💳 Pagos</Option>
+            <Option value="confirmed">✅ Confirmados</Option>
+            <Option value="shipped">🚚 Enviados</Option>
+            <Option value="delivered">🏠 Entregues</Option>
+            <Option value="cancelled">❌ Cancelados</Option>
           </Select>
         </div>
       </div>
@@ -225,7 +225,7 @@ const AdminOrders = () => {
           locale={{
             emptyText: (
               <div className="py-16">
-                <div className="text-6xl mb-4">�x�</div>
+                <div className="text-6xl mb-4">📦</div>
                 <h3 className="text-xl font-bold text-gray-700 mb-2">
                   {filter === 'all' ? 'Nenhum pedido encontrado' : `Nenhum pedido ${getStatusInfo(filter).label.toLowerCase()}`}
                 </h3>
@@ -250,7 +250,7 @@ const AdminOrders = () => {
         centered
         maskClosable={false}
         bodyStyle={{ padding: 0 }}
-        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">�S"</span>}
+        closeIcon={<span className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors">✖</span>}
       >
         {selectedOrder && (
           <div className="overflow-hidden rounded-2xl">
