@@ -95,7 +95,7 @@ const AdminProfile = () => {
                 const errorMsg = data.message || 'Erro ao criar administrador.';
                 message.error(errorMsg);
 
-                if (res.status === 403 || errorMsg.toLowerCase().includes('mestra')) {
+                if (res.status === 403 || res.status === 429 || errorMsg.toLowerCase().includes('mestra')) {
                     adminForm.setFields([
                         {
                             name: 'masterSecret',
