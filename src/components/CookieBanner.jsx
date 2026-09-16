@@ -23,7 +23,7 @@ const CookieBanner = () => {
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="text-sm md:text-base text-gray-300 text-center md:text-left">
                     <p>
-                        �x�� <strong>Este site utiliza cookies</strong> para melhorar a sua experiência e personalizar conteúdo.
+                        🍪 <strong>Este site utiliza cookies</strong> para melhorar a sua experiência e personalizar conteúdo.
                         Ao continuar navegando, você concorda com a nossa <Link to="/privacy-policy" className="text-blue-400 hover:text-blue-300 underline font-medium">Política de Privacidade</Link>.
                     </p>
                 </div>

@@ -387,7 +387,7 @@ const AdminProducts = () => {
                 const isVIP = plan === 'VIP' && expiry && new Date(expiry) > new Date();
                 return (
                     <Tag color={isVIP ? 'gold' : 'purple'}>
-                        {isVIP ? '�x} ' : ''}{storeName}
+                        {isVIP ? '⭐ ' : ''}{storeName}
                     </Tag>
                 );
             },

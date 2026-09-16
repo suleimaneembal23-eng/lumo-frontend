@@ -52,16 +52,16 @@ const PrivacyPolicy = () => {
                     </p>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600">
                         <li className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-center gap-3">
-                            <span className="text-xl">�x�</span> Processar e enviar encomendas
+                            <span className="text-xl">📦</span> Processar e enviar encomendas
                         </li>
                         <li className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-center gap-3">
-                            <span className="text-xl">�x�</span> Gerir pagamentos e reembolsos
+                            <span className="text-xl">💳</span> Gerir pagamentos e reembolsos
                         </li>
                         <li className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-center gap-3">
-                            <span className="text-xl">�x</span> Enviar atualizações de rastreio
+                            <span className="text-xl">📍</span> Enviar atualizações de rastreio
                         </li>
                         <li className="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-center gap-3">
-                            <span className="text-xl">�x:�️</span> Prevenir atividades fraudulentas
+                            <span className="text-xl">🛡️</span> Prevenir atividades fraudulentas
                         </li>
                     </ul>
                 </>
