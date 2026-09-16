@@ -81,12 +81,28 @@ const AdminProfile = () => {
                 })
             });
 
-            const data = await res.json();
+            let data = {};
+            try {
+                data = await res.json();
+            } catch (e) {
+                console.error("Erro ao processar resposta JSON", e);
+            }
+
             if (res.ok) {
                 message.success('Novo Administrador criado com sucesso!');
                 adminForm.resetFields();
             } else {
-                message.error(data.message || 'Erro ao criar administrador');
+                const errorMsg = data.message || 'Erro ao criar administrador.';
+                message.error(errorMsg);
+
+                if (res.status === 403 || errorMsg.toLowerCase().includes('mestra')) {
+                    adminForm.setFields([
+                        {
+                            name: 'masterSecret',
+                            errors: [errorMsg],
+                        },
+                    ]);
+                }
             }
         } catch (error) {
             console.error(error);
