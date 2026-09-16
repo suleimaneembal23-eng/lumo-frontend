@@ -33,16 +33,33 @@ const AdminProfile = () => {
                 })
             });
 
-            const data = await res.json();
+            let data = {};
+            try {
+                data = await res.json();
+            } catch (e) {
+                console.error("Erro ao processar resposta JSON", e);
+            }
+
             if (res.ok) {
                 message.success('Senha atualizada com sucesso!');
                 passwordForm.resetFields();
             } else {
-                message.error(data.message || 'Erro ao alterar a senha');
+                const errorMsg = data.message || 'A senha atual está incorreta ou ocorreu um erro.';
+                message.error(errorMsg);
+                
+                // Mostrar erro diretamente no campo
+                if (res.status === 401) {
+                    passwordForm.setFields([
+                        {
+                            name: 'oldPassword',
+                            errors: [errorMsg],
+                        },
+                    ]);
+                }
             }
         } catch (error) {
             console.error(error);
-            message.error('Erro de servidor. Tente mais tarde.');
+            message.error('Erro de conexão ao servidor. Verifique a sua internet.');
         }
         setLoading(false);
     };
