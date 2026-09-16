@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Tabs, Form, Input, Button, message, Divider } from 'antd';
 import { LockOutlined, UserAddOutlined, KeyOutlined, SaveOutlined } from '@ant-design/icons';
-import { useAuth } from '../context/AuthContext';
+import { AuthContext } from '../context/Authcontext';
 import { API_URL } from '../config';
 
 const { TabPane } = Tabs;
 
 const AdminProfile = () => {
-    const { user, token } = useAuth();
+    const { admin } = useContext(AuthContext);
+    const token = localStorage.getItem("adminToken");
+    
     const [loading, setLoading] = useState(false);
     const [passwordForm] = Form.useForm();
     const [adminForm] = Form.useForm();
@@ -88,8 +90,8 @@ const AdminProfile = () => {
                 <TabPane tab={<span className="font-medium"><LockOutlined /> Alterar Senha</span>} key="1">
                     <div className="max-w-md mt-6">
                         <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mb-8">
-                            <h3 className="font-bold text-gray-900 text-lg mb-1">{user?.name}</h3>
-                            <p className="text-gray-500 text-sm m-0">{user?.email}</p>
+                            <h3 className="font-bold text-gray-900 text-lg mb-1">{admin?.name}</h3>
+                            <p className="text-gray-500 text-sm m-0">{admin?.email}</p>
                             <span className="inline-block mt-3 bg-blue-100 text-blue-700 font-bold px-3 py-1 rounded-full text-xs">Administrador</span>
                         </div>
 
