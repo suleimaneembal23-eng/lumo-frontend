@@ -102,6 +102,13 @@ const AdminProfile = () => {
                             errors: [errorMsg],
                         },
                     ]);
+                } else if (res.status === 400 || errorMsg.toLowerCase().includes('email')) {
+                    adminForm.setFields([
+                        {
+                            name: 'email',
+                            errors: [errorMsg],
+                        },
+                    ]);
                 }
             }
         } catch (error) {
