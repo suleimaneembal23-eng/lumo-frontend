@@ -28,9 +28,10 @@ import Settings from "./pages/Settings";
 import PromotionProducts from "./pages/PromotionProducts";
 
 import AdminMarketing from "./pages/AdminMarketing";
-import AdminVendors from "./pages/AdminVendors"; // �x��
+import AdminVendors from "./pages/AdminVendors"; // x
+import AdminProfile from "./pages/AdminProfile";
 
-// �x:�️ Segurança e Layouts
+// x:️ Segurança e Layouts
 import RequireAuth from "./components/RequireAuth";
 import AdminLayout from "./layouts/AdminLayout"; // AdminLayout pode ainda usar Antd, mantido por enquanto
 
@@ -392,6 +393,17 @@ const App = () => {
                         <RequireAuth role="admin">
                           <AdminLayout>
                             <AdminVendors />
+                          </AdminLayout>
+                        </RequireAuth>
+                      }
+                    />
+
+                    <Route
+                      path="/admin/profile"
+                      element={
+                        <RequireAuth role="admin">
+                          <AdminLayout>
+                            <AdminProfile />
                           </AdminLayout>
                         </RequireAuth>
                       }

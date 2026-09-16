@@ -153,6 +153,9 @@ const AdminLayout = ({ children }) => {
                     <Menu.Item key="vendors" icon={<ShopOutlined />} onClick={() => navigate("/admin/vendors")}>
                         Colaboradores
                     </Menu.Item>
+                    <Menu.Item key="profile" icon={<UserOutlined />} onClick={() => navigate("/admin/profile")}>
+                        Meu Perfil
+                    </Menu.Item>
                 </Menu>
             </Sider>
 
