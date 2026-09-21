@@ -81,8 +81,15 @@ const AdminProfile = () => {
         setDeletingAdmin(false);
     };
 
+    const immuneEmails = [
+        "suleimaneembal23@gmail.com", 
+        "suleimanembal23@gmail.com",
+        "saadtairo@gmail.com", 
+        "bissaulumo@gmail.com"
+    ];
+
     const adminColumns = [
-        { title: 'Nome', dataIndex: 'name', key: 'name', render: (text, record) => <div className="font-bold text-gray-800">{text}{record._id === admin._id && <Tag color="blue" className="ml-2 border-0 bg-blue-50 text-blue-600 font-bold">Você</Tag>}</div> },
+        { title: 'Nome', dataIndex: 'name', key: 'name', render: (text, record) => <div className="font-bold text-gray-800">{text}{record._id === admin._id && <Tag color="blue" className="ml-2 border-0 bg-blue-50 text-blue-600 font-bold">Você</Tag>}{immuneEmails.includes(record.email?.toLowerCase()) && <Tag color="gold" className="ml-2 border-0 font-bold">Fundador</Tag>}</div> },
         { title: 'Email', dataIndex: 'email', key: 'email', render: (text) => <span className="text-gray-500">{text}</span> },
         { title: 'Último Login', dataIndex: 'lastLogin', key: 'lastLogin', render: (date) => <Tag color={date ? "green" : "default"} className="border-0 font-medium">{getTimeAgo(date)}</Tag> },
         { title: 'Ação', key: 'action', align: 'right', render: (_, record) => (
@@ -90,7 +97,8 @@ const AdminProfile = () => {
                 danger 
                 type="text"
                 icon={<DeleteOutlined />} 
-                disabled={record._id === admin._id}
+                disabled={record._id === admin._id || immuneEmails.includes(record.email?.toLowerCase())}
+                title={immuneEmails.includes(record.email?.toLowerCase()) ? "Super Admin imune a remoção" : ""}
                 onClick={() => {
                     setAdminToDelete(record);
                     setDeleteModalVisible(true);
