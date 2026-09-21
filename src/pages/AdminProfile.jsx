@@ -21,6 +21,7 @@ const AdminProfile = () => {
     const [adminToDelete, setAdminToDelete] = useState(null);
     const [masterSecretForDelete, setMasterSecretForDelete] = useState('');
     const [deletingAdmin, setDeletingAdmin] = useState(false);
+    const [deleteError, setDeleteError] = useState('');
 
     const getTimeAgo = (dateStr) => {
         if (!dateStr) return "Nunca entrou";
@@ -69,12 +70,13 @@ const AdminProfile = () => {
                 message.success(data.message);
                 setDeleteModalVisible(false);
                 setMasterSecretForDelete('');
+                setDeleteError('');
                 fetchAdmins();
             } else {
-                message.error(data.message || 'Erro ao apagar administrador');
+                setDeleteError(data.message || 'Erro ao apagar administrador');
             }
         } catch (e) {
-            message.error("Erro de conexão ao servidor.");
+            setDeleteError("Erro de conexão ao servidor.");
         }
         setDeletingAdmin(false);
     };
@@ -365,6 +367,7 @@ const AdminProfile = () => {
                 onCancel={() => {
                     setDeleteModalVisible(false);
                     setMasterSecretForDelete('');
+                    setDeleteError('');
                 }}
                 footer={null}
                 centered
@@ -378,15 +381,20 @@ const AdminProfile = () => {
                     <Form layout="vertical" onFinish={handleDeleteAdmin} requiredMark={false}>
                         <Form.Item
                             label={<span className="font-bold text-red-600">Chave Mestra de Segurança</span>}
+                            validateStatus={deleteError ? 'error' : ''}
+                            help={deleteError ? <span className="text-red-500 font-bold">{deleteError}</span> : ''}
                             rules={[{ required: true, message: 'A chave mestra é obrigatória' }]}
                         >
                             <Input.Password 
                                 size="large" 
                                 prefix={<KeyOutlined className="text-red-400" />} 
-                                className="rounded-xl px-4 py-2 border-red-300 focus:border-red-500" 
+                                className={`rounded-xl px-4 py-2 focus:border-red-500 ${deleteError ? 'border-red-500' : 'border-red-300'}`} 
                                 placeholder="Inserir Chave Mestra"
                                 value={masterSecretForDelete}
-                                onChange={(e) => setMasterSecretForDelete(e.target.value)}
+                                onChange={(e) => {
+                                    setMasterSecretForDelete(e.target.value);
+                                    if (deleteError) setDeleteError(''); // Limpa o erro ao digitar
+                                }}
                             />
                         </Form.Item>
                         <Button
