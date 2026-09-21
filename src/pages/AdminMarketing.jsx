@@ -170,7 +170,7 @@ const AdminMarketing = () => {
       const [emailSubject, setEmailSubject] = useState("");
       const [emailContent, setEmailContent] = useState("");
       const [emailActionText, setEmailActionText] = useState("Aproveitar Oferta");
-      const [emailActionUrl, setEmailActionUrl] = useState("http://localhost:3000");
+      const [emailActionUrl, setEmailActionUrl] = useState("https://lumobissau.com");
       const [sendingEmail, setSendingEmail] = useState(false);
       const [triggeringCart, setTriggeringCart] = useState(false);
 
