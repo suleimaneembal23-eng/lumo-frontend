@@ -146,6 +146,7 @@ const ProductDetail = () => {
   }, [id, user]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetchProductData();
     fetchFeedbacks();
     checkFavorite();

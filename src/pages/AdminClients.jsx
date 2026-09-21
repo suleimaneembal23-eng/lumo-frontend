@@ -197,7 +197,7 @@ const AdminClients = () => {
             <Descriptions title="Informações da Conta" column={1} layout="vertical" labelStyle={{ fontWeight: 'bold' }}>
               <Descriptions.Item label="ID do Usuário">{selectedClient._id}</Descriptions.Item>
               <Descriptions.Item label="Data de Registro">{dayjs(selectedClient.createdAt).format("DD [de] MMMM [de] YYYY, às HH:mm")}</Descriptions.Item>
-              <Descriptions.Item label="�altima Atualização">{dayjs(selectedClient.updatedAt).format("DD/MM/YYYY")}</Descriptions.Item>
+              <Descriptions.Item label="Última Atualização">{dayjs(selectedClient.updatedAt).format("DD/MM/YYYY")}</Descriptions.Item>
             </Descriptions>
 
             <div className="mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-100 text-center">

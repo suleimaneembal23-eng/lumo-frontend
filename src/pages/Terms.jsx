@@ -24,7 +24,7 @@ const Terms = () => {
                         Termos e Condições
                     </Title>
                     <Text type="secondary" style={{ fontSize: 16 }}>
-                        �altima atualização: {new Date().toLocaleDateString("pt-PT")}
+                        Última atualização: {new Date().toLocaleDateString("pt-PT")}
                     </Text>
                 </div>
 

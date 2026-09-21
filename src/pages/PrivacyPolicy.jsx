@@ -137,7 +137,7 @@ const PrivacyPolicy = () => {
                         O seu compromisso com a {siteName} merece a nossa total transparência. Saiba como protegemos os seus dados todos os dias.
                     </p>
                     <div className="mt-6 inline-block bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-                        <span className="text-sm font-bold text-gray-400">�altima atualização:</span>
+                        <span className="text-sm font-bold text-gray-400">Última atualização:</span>
                         <span className="text-sm font-bold text-gray-700 ml-2">{new Date().toLocaleDateString("pt-PT")}</span>
                     </div>
                 </div>
