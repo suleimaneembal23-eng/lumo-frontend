@@ -138,15 +138,19 @@ const MyProfile = () => {
     console.log("Submitting Password Change:", values);
     setUpdating(true);
     try {
+      const { API_URL } = require("../../config");
       const res = await fetch(
-        `/api/clients/${user.id}/change-password`,
+        `${API_URL}/auth/change-password`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${user.token}`,
           },
-          body: JSON.stringify(values),
+          body: JSON.stringify({
+            oldPassword: values.currentPassword,
+            newPassword: values.newPassword
+          }),
         }
       );
 
