@@ -17,7 +17,7 @@ const FAQ = () => {
         {
             key: '2',
             label: 'Quais são os métodos de pagamento?',
-            children: <p>Aceitamos pagamentos através de canais seguros em toda a Europa, incluindo Cartão de Crédito/Débito, MB WAY, e outras facilidades locais.</p>,
+            children: <p>Aceitamos pagamentos através de canais seguros, incluindo Cartão de Crédito/Débito, Orange Money, Transferência Bancária e outras facilidades locais.</p>,
         },
         {
             key: '3',

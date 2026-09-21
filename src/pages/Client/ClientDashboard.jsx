@@ -852,7 +852,7 @@ const ClientDashboard = () => {
             </div>
 
             {/* CARD DE PAGAMENTO (Novo) */}
-            {(selectedOrder.status === 'pending' && (selectedOrder.paymentMethod === 'mbway' || selectedOrder.paymentMethod === 'transfer')) && (
+            {(selectedOrder.status === 'pending' && (selectedOrder.paymentMethod === 'orange_money' || selectedOrder.paymentMethod === 'transfer')) && (
               <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 text-white shadow-lg mb-8 relative overflow-hidden">
                 <div className="relative z-10">
                   <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
@@ -861,11 +861,11 @@ const ClientDashboard = () => {
 
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                     <p className="text-blue-100 text-sm mb-1 uppercase tracking-wider font-bold">
-                      {selectedOrder.paymentMethod === 'mbway' ? 'Enviar para MB WAY' : 'IBAN para Transferência'}
+                      {selectedOrder.paymentMethod === 'orange_money' ? 'Enviar para Orange Money' : 'IBAN para Transferência'}
                     </p>
                     <p className="text-2xl font-mono font-black tracking-widest mb-4">
-                      {selectedOrder.paymentMethod === 'mbway'
-                        ? (settings?.paymentConfig?.mbWayNumber || "Não configurado")
+                      {selectedOrder.paymentMethod === 'orange_money'
+                        ? (settings?.paymentConfig?.orangeMoneyNumber || "Não configurado")
                         : (settings?.paymentConfig?.bankTransferInfo || "Não configurado")}
                     </p>
 

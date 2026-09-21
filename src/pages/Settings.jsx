@@ -396,9 +396,7 @@ const Settings = () => {
 
           <Divider orientation="left">Configuração de Pagamento</Divider>
           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-            <Form.Item label="Número MB WAY (Telemóvel)" name={['paymentConfig', 'mbWayNumber']}>
-              <Input prefix={<PhoneOutlined />} className="rounded-xl" placeholder="Ex: 912345678" />
-            </Form.Item>
+
             <Form.Item label="Número Orange Money (Opcional)" name={['paymentConfig', 'orangeMoneyNumber']}>
               <Input prefix={<PhoneOutlined className="text-orange-500" />} className="rounded-xl" placeholder="Ex: +245 9XXXXXXX" />
             </Form.Item>
@@ -508,10 +506,7 @@ const Settings = () => {
           <div className="bg-gray-50 p-4 md:p-8 rounded-3xl border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
             <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2"><DollarOutlined className="text-green-500" /> Pagamentos</h3>
             <div className="space-y-4">
-              <div className={`p-4 rounded-xl border ${settingsData?.paymentConfig?.mbWayNumber ? 'bg-orange-50 border-orange-200' : 'bg-gray-100 border-gray-200 opacity-50'}`}>
-                <div className="font-bold text-orange-700 mb-1">MB WAY</div>
-                <div className="text-sm">{settingsData?.paymentConfig?.mbWayNumber || "Não configurado"}</div>
-              </div>
+
               <div className={`p-4 rounded-xl border ${settingsData?.paymentConfig?.orangeMoneyNumber ? 'bg-orange-50 border-orange-200' : 'bg-gray-100 border-gray-200 opacity-50'}`}>
                 <div className="font-bold text-orange-700 mb-1">Orange Money</div>
                 <div className="text-sm">{settingsData?.paymentConfig?.orangeMoneyNumber || "Não configurado"}</div>

@@ -9,6 +9,7 @@ import { CartContext } from "../context/CartContext";
 import { useCurrency } from "../context/CurrencyContext";
 import { usePromotions } from "../hooks/usePromotions";
 import ProductCard from "../components/ProductCard";
+import { API_URL } from "../config";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -607,7 +608,7 @@ const RelatedProducts = ({ productId }) => {
 
   useEffect(() => {
     if (!productId) return;
-    fetch(`/api/products/${productId}/related`)
+    fetch(`${API_URL}/products/${productId}/related`)
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(console.error);

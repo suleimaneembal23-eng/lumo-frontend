@@ -54,7 +54,7 @@ const ProductCard = ({ product, formatPrice, onAddToCart, user }) => {
           )}
           {product.inStock && product.stockQuantity > 0 && product.stockQuantity <= (product.lowStockThreshold || 5) && (
             <span className="px-3 py-1 text-xs font-bold bg-orange-500 text-white rounded-full shadow-lg animate-pulse">
-              �aLTIMAS {product.stockQuantity}
+              ÚLTIMAS {product.stockQuantity}
             </span>
           )}
         </div>
