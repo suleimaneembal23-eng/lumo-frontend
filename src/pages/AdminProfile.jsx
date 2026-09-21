@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
-import { Tabs, Form, Input, Button, message, Divider } from 'antd';
-import { LockOutlined, UserAddOutlined, KeyOutlined, SaveOutlined } from '@ant-design/icons';
+import React, { useState, useContext, useEffect } from 'react';
+import { Tabs, Form, Input, Button, message, Divider, Table, Tag, Modal, Space } from 'antd';
+import { LockOutlined, UserAddOutlined, KeyOutlined, SaveOutlined, TeamOutlined, DeleteOutlined } from '@ant-design/icons';
 import { AuthContext } from '../context/Authcontext';
 import { API_URL } from '../config';
 
@@ -13,6 +13,91 @@ const AdminProfile = () => {
     const [loading, setLoading] = useState(false);
     const [passwordForm] = Form.useForm();
     const [adminForm] = Form.useForm();
+
+    // Novos estados para a Lista de Admins
+    const [adminsList, setAdminsList] = useState([]);
+    const [loadingAdmins, setLoadingAdmins] = useState(false);
+    const [deleteModalVisible, setDeleteModalVisible] = useState(false);
+    const [adminToDelete, setAdminToDelete] = useState(null);
+    const [masterSecretForDelete, setMasterSecretForDelete] = useState('');
+    const [deletingAdmin, setDeletingAdmin] = useState(false);
+
+    const getTimeAgo = (dateStr) => {
+        if (!dateStr) return "Nunca entrou";
+        const date = new Date(dateStr);
+        const now = new Date();
+        const diff = Math.floor((now - date) / 1000);
+        if (diff < 60) return "Agora mesmo";
+        if (diff < 3600) return `Há ${Math.floor(diff / 60)} min`;
+        if (diff < 86400) return `Há ${Math.floor(diff / 3600)} horas`;
+        if (diff < 2592000) return `Há ${Math.floor(diff / 86400)} dias`;
+        return date.toLocaleDateString('pt-PT');
+    };
+
+    const fetchAdmins = async () => {
+        setLoadingAdmins(true);
+        try {
+            const res = await fetch(`${API_URL}/admin/admins`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            const data = await res.json();
+            if (res.ok) setAdminsList(data);
+        } catch (e) {
+            console.error(e);
+        }
+        setLoadingAdmins(false);
+    };
+
+    useEffect(() => {
+        fetchAdmins();
+    }, []);
+
+    const handleDeleteAdmin = async () => {
+        if (!masterSecretForDelete) return message.error("Insira a Chave Mestra!");
+        setDeletingAdmin(true);
+        try {
+            const res = await fetch(`${API_URL}/admin/admins/${adminToDelete._id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({ masterSecret: masterSecretForDelete })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                message.success(data.message);
+                setDeleteModalVisible(false);
+                setMasterSecretForDelete('');
+                fetchAdmins();
+            } else {
+                message.error(data.message || 'Erro ao apagar administrador');
+            }
+        } catch (e) {
+            message.error("Erro de conexão ao servidor.");
+        }
+        setDeletingAdmin(false);
+    };
+
+    const adminColumns = [
+        { title: 'Nome', dataIndex: 'name', key: 'name', render: (text, record) => <div className="font-bold text-gray-800">{text}{record._id === admin._id && <Tag color="blue" className="ml-2 border-0 bg-blue-50 text-blue-600 font-bold">Você</Tag>}</div> },
+        { title: 'Email', dataIndex: 'email', key: 'email', render: (text) => <span className="text-gray-500">{text}</span> },
+        { title: 'Último Login', dataIndex: 'lastLogin', key: 'lastLogin', render: (date) => <Tag color={date ? "green" : "default"} className="border-0 font-medium">{getTimeAgo(date)}</Tag> },
+        { title: 'Ação', key: 'action', align: 'right', render: (_, record) => (
+            <Button 
+                danger 
+                type="text"
+                icon={<DeleteOutlined />} 
+                disabled={record._id === admin._id}
+                onClick={() => {
+                    setAdminToDelete(record);
+                    setDeleteModalVisible(true);
+                }}
+            >
+                Remover
+            </Button>
+        ) }
+    ];
 
     const handlePasswordChange = async (values) => {
         setLoading(true);
@@ -252,7 +337,70 @@ const AdminProfile = () => {
                         </Form>
                     </div>
                 </TabPane>
+                {/* TAB 3: LISTA DE ADMINS */}
+                <TabPane tab={<span className="font-medium"><TeamOutlined /> Equipa de Administração</span>} key="3">
+                    <div className="mt-6">
+                        <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 mb-8 max-w-4xl">
+                            <h3 className="font-bold text-blue-800 text-lg mb-2">Visão Geral da Equipa</h3>
+                            <p className="text-blue-700 text-sm m-0">Consulte o histórico de acessos dos administradores da plataforma e remova contas inativas se possuir a Chave Mestra.</p>
+                        </div>
+                        
+                        <div className="max-w-4xl bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+                            <Table 
+                                dataSource={adminsList} 
+                                columns={adminColumns} 
+                                rowKey="_id"
+                                pagination={false}
+                                loading={loadingAdmins}
+                                className="admin-team-table"
+                            />
+                        </div>
+                    </div>
+                </TabPane>
             </Tabs>
+
+            <Modal
+                title={<span className="text-red-600 font-bold text-lg"><DeleteOutlined className="mr-2" /> Remover Administrador</span>}
+                visible={deleteModalVisible}
+                onCancel={() => {
+                    setDeleteModalVisible(false);
+                    setMasterSecretForDelete('');
+                }}
+                footer={null}
+                centered
+                destroyOnClose
+            >
+                <div className="py-4">
+                    <p className="text-gray-600 mb-6">
+                        Tem a certeza que deseja remover o administrador <strong className="text-gray-900">{adminToDelete?.name}</strong>? 
+                        Esta ação requer autorização máxima.
+                    </p>
+                    <Form layout="vertical" onFinish={handleDeleteAdmin} requiredMark={false}>
+                        <Form.Item
+                            label={<span className="font-bold text-red-600">Chave Mestra de Segurança</span>}
+                            rules={[{ required: true, message: 'A chave mestra é obrigatória' }]}
+                        >
+                            <Input.Password 
+                                size="large" 
+                                prefix={<KeyOutlined className="text-red-400" />} 
+                                className="rounded-xl px-4 py-2 border-red-300 focus:border-red-500" 
+                                placeholder="Inserir Chave Mestra"
+                                value={masterSecretForDelete}
+                                onChange={(e) => setMasterSecretForDelete(e.target.value)}
+                            />
+                        </Form.Item>
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            size="large"
+                            loading={deletingAdmin}
+                            className="w-full bg-red-600 hover:bg-red-500 border-none rounded-xl h-12 font-bold shadow-lg shadow-red-500/30 mt-2"
+                        >
+                            Confirmar e Remover
+                        </Button>
+                    </Form>
+                </div>
+            </Modal>
         </div>
     );
 };
